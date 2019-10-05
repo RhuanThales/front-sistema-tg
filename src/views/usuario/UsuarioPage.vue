@@ -140,13 +140,11 @@ export default {
       getUsuarioEditar: 'getUsuarioEdit'
     }),
     openModalDelete (nome, id) {
-      console.log('Excluindo - Nome: ' + nome + ' Id: ' + id)
       this.nomeUsuario = nome
       this.idUsuario = id
       this.modalDelete = true
     },
     deletarUsuario (id) {
-      console.log('Id: ' + id)
       this.deleteUsuario(id)
       this.modalDelete = false
     }

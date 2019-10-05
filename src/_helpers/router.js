@@ -6,6 +6,8 @@ import NotFound from '../views/home/404'
 import UsuarioPage from '../views/usuario/UsuarioPage'
 import CadastrarUsuarioPage from '../views/usuario/CadastrarUsuarioPage'
 import EditarUsuarioPage from '../views/usuario/EditarUsuarioPage'
+import PelotaoPage from '../views/pelotao/PelotaoPage'
+import CadastrarPelotaoPage from '../views/pelotao/CadastrarPelotaoPage'
 
 Vue.use(Router)
 
@@ -15,9 +17,14 @@ export const router = new Router({
     { path: '/', name: 'Home Page', component: Home },
     { path: '/404', name: '404', component: NotFound },
     { path: '/login', component: LoginPage },
+    // Usuarios
     { path: '/usuarios', name: 'Gerênciar Usuários', component: UsuarioPage },
     { path: '/cadastrarUsuario', name: 'Cadastrar Usuário', component: CadastrarUsuarioPage },
     { path: '/editarUsuario', name: 'Editar Usuário', component: EditarUsuarioPage },
+    // Pelotao
+    { path: '/pelotoes', name: 'Gerênciar Pelotoes', component: PelotaoPage },
+    { path: '/cadastrarPelotao', name: 'Cadastrar Pelotao', component: CadastrarPelotaoPage },
+    // Pagina 404
     { path: '*', redirect: '/404' }
   ]
 })
