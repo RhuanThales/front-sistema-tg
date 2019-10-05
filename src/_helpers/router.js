@@ -8,6 +8,9 @@ import CadastrarUsuarioPage from '../views/usuario/CadastrarUsuarioPage'
 import EditarUsuarioPage from '../views/usuario/EditarUsuarioPage'
 import PelotaoPage from '../views/pelotao/PelotaoPage'
 import CadastrarPelotaoPage from '../views/pelotao/CadastrarPelotaoPage'
+import AtiradorPage from '../views/atirador/AtiradorPage'
+import CadastrarAtiradorPage from '../views/atirador/CadastrarAtiradorPage'
+import EditarAtiradorPage from '../views/atirador/EditarAtiradorPage'
 
 Vue.use(Router)
 
@@ -24,6 +27,10 @@ export const router = new Router({
     // Pelotao
     { path: '/pelotoes', name: 'Gerênciar Pelotoes', component: PelotaoPage },
     { path: '/cadastrarPelotao', name: 'Cadastrar Pelotao', component: CadastrarPelotaoPage },
+    // Atirador
+    { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
+    { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },
+    { path: '/editarAtirador', name: 'Editar Atirador', component: EditarAtiradorPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]
