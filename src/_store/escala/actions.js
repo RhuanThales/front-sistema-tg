@@ -1,22 +1,22 @@
-import { pelotaoService } from '../../../_services'
+import { escalaService } from '../../../_services'
 import { router } from '../../../_helpers'
 
 export default {
 
   getAll ({ commit }) {
     commit('getAllRequest')
-    pelotaoService.getAll().then(
-      pelotoes => commit('getAllSuccess', pelotoes),
+    escalaService.getAll().then(
+      escalas => commit('getAllSuccess', escalas),
       error => commit('getAllFailure', error)
     )
   },
 
-  register ({ dispatch, commit }, pelotao) {
-    commit('registerRequest', pelotao)
-    pelotaoService.register(pelotao).then(
-      pelotao => {
-        commit('registerSuccess', pelotao)
-        router.push('/pelotoes')
+  register ({ dispatch, commit }, escala) {
+    commit('registerRequest', escala)
+    escalaService.register(escala).then(
+      oficial => {
+        commit('registerSuccess', escala)
+        router.push('/escalas')
         setTimeout(() => {
           dispatch('alert/success', 'Registration successful', { root: true })
         })
@@ -30,8 +30,8 @@ export default {
 
   delete ({ commit }, id) {
     commit('deleteRequest', id)
-    pelotaoService.delete(id).then(
-      pelotao => commit('deleteSuccess', id),
+    escalaService.delete(id).then(
+      escala => commit('deleteSuccess', id),
       error => commit('deleteSuccess', { id, error: error.toString() })
     )
   }

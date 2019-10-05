@@ -8,6 +8,11 @@ import CadastrarUsuarioPage from '../views/usuario/CadastrarUsuarioPage'
 import EditarUsuarioPage from '../views/usuario/EditarUsuarioPage'
 import PelotaoPage from '../views/pelotao/PelotaoPage'
 import CadastrarPelotaoPage from '../views/pelotao/CadastrarPelotaoPage'
+import OficialPage from '../views/oficial/OficialPage'
+import CadastrarOficialPage from '../views/oficial/CadastrarOficialPage'
+import EscalaPage from '../views/escala/EscalaPage'
+import CadastrarEscalaPage from '../views/escala/CadastrarEscalaPage'
+import EditarEscalaPage from '../views/escala/EditarEscalaPage'
 
 Vue.use(Router)
 
@@ -24,6 +29,13 @@ export const router = new Router({
     // Pelotao
     { path: '/pelotoes', name: 'Gerênciar Pelotoes', component: PelotaoPage },
     { path: '/cadastrarPelotao', name: 'Cadastrar Pelotao', component: CadastrarPelotaoPage },
+    // Oficial
+    { path: '/oficiais', name: 'Gerênciar Oficiais', component: OficialPage },
+    { path: '/cadastrarOficial', name: 'Cadastrar Oficial', component: CadastrarOficialPage },
+    // Escala
+    { path: '/escalas', name: 'Gerênciar Escalas', component: EscalaPage },
+    { path: '/cadastrarEscala', name: 'Cadastrar Oficial', component: CadastrarEscalaPage },
+    { path: '/editarEscala', name: 'Editar Escala', component: EditarEscalaPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]
