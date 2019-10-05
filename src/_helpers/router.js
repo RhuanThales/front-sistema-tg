@@ -36,6 +36,10 @@ export const router = new Router({
     { path: '/escalas', name: 'Gerênciar Escalas', component: EscalaPage },
     { path: '/cadastrarEscala', name: 'Cadastrar Oficial', component: CadastrarEscalaPage },
     { path: '/editarEscala', name: 'Editar Escala', component: EditarEscalaPage },
+    // Atirador
+    { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
+    { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },
+    { path: '/editarAtirador', name: 'Editar Atirador', component: EditarAtiradorPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]
