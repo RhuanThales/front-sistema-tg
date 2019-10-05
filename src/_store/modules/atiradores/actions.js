@@ -14,7 +14,7 @@ export default {
   register ({ dispatch, commit }, atirador) {
     commit('registerRequest', atirador)
     atiradorService.register(atirador).then(
-      usuario => {
+      atirador => {
         commit('registerSuccess', atirador)
         router.push('/atiradores')
         setTimeout(() => {
@@ -31,7 +31,7 @@ export default {
   delete ({ commit }, id) {
     commit('deleteRequest', id)
     atiradorService.delete(id).then(
-      sistema => commit('deleteSuccess', id),
+      atirador => commit('deleteSuccess', id),
       error => commit('deleteSuccess', { id, error: error.toString() })
     )
   }

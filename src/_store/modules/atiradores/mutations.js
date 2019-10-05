@@ -25,20 +25,20 @@ export default {
   deleteRequest (state, id) {
     // add 'deleting:true' property to user being deleted
     state.all.items.result = state.all.items.result.map(
-      atirador => (atirador.id === id ? { ...atirador, deleting: true } : atirador)
+      atirador => (atirador.idAtirador === id ? { ...atirador, deleting: true } : atirador)
     )
   },
   deleteSuccess (state, id) {
     // remove deleted user from state
-    state.all.items.result = state.all.items.result.filter(atirador => atirador.id !== id)
+    state.all.items.result = state.all.items.result.filter(atirador => atirador.idAtirador !== id)
   },
   deleteFailure (state, { id, error }) {
     state.all.items.result = state.items.result.map(atirador => {
-      if (atirador.id === id) {
+      if (atirador.idAtirador === id) {
         // make copy of user without 'deleting:true' property
-        const { deleting, ...pelotaoCopy } = atirador
+        const { deleting, ...atiradorCopy } = atirador
         // return copy of user with 'deleteError:[error]' property
-        return { ...pelotaoCopy, deleteError: error }
+        return { ...atiradorCopy, deleteError: error }
       }
       return atirador
     })

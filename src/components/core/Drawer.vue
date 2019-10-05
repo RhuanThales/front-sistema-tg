@@ -80,6 +80,11 @@ export default {
         to: '/usuarios',
         icon: 'mdi-star',
         text: 'Usuários'
+      },
+      {
+        to: '/atiradores',
+        icon: 'mdi-star',
+        text: 'Atiradores'
       }
     ],
     responsive: false

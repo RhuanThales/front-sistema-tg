@@ -14,10 +14,86 @@
       >
         <material-card
           color="primary"
-          title="Titulo Pagina"
+          title="Atiradores"
         >
           <v-spacer/>
+          <v-btn
+            color="success"
+            to="/cadastrarAtirador"
+          >
+            Novo Atirador
+          </v-btn>
+          <v-spacer/>
+          <v-data-table
+            :headers="headers"
+            :items="atiradores"
+            :footer-props="{
+              showFirstLastPage: true,
+              itemsPerPageText: 'Qtd por Página'
+            }"
+            sort-by="ra"
+            class="elevation-1"
+          >
+            <template v-slot:item.edit="{ item }">
+              <v-btn
+                color="primary"
+                @click="getAtiradorEditar(item)"
+              >
+                Editar
+              </v-btn>
+            </template>
+
+            <template v-slot:item.delete="{ item }">
+              <v-btn
+                color="error"
+                @click="openModalDelete(item.nomeAtirador, item.idAtirador)"
+              >
+                Excluir
+              </v-btn>
+            </template>
+
+            <template v-slot:no-data>
+              <v-alert
+                :value="true"
+                color="error"
+                icon="mdi-alert"
+              >TEXTO!</v-alert>
+            </template>
+          </v-data-table>
         </material-card>
+
+        <v-dialog
+          v-model="modalDelete"
+          max-width="350"
+        >
+          <v-card>
+            <v-card-title class="headline">Deseja realmente excluir o atirador?</v-card-title>
+
+            <v-card-text>
+              O Atirador {{ nomeAtirador }} será excluido permanentemente do sistema!
+            </v-card-text>
+
+            <v-card-actions>
+              <div class="flex-grow-1"/>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="deletarAtirador(idAtirador)"
+              >
+                Confirmar
+              </v-btn>
+
+              <v-btn
+                color="red darken-1"
+                text
+                @click="modalDelete = false"
+              >
+                Cancelar
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-flex>
     </v-layout>
   </v-container>
@@ -29,13 +105,47 @@ import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
+      nomeAtirador: '',
+      idAtirador: '',
+      modalDelete: false,
+      textoPaginacao: 'Qtd por Página',
+      headers: [
+        { text: 'CR', align: 'left', value: 'ra' },
+        { text: 'Nome', align: 'left', value: 'nomeAtirador' },
+        { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
+        { text: 'Pelotao', align: 'left', value: 'numeroPelotao' },
+        { text: 'Numero', align: 'left', value: 'numeroAtirador' },
+        { text: 'Editar', align: 'center', value: 'edit', sortable: false },
+        { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
+      ]
     }
   },
   computed: {
+    ...mapState({
+      atiradores: state => state.atiradores.all.items.result
+    })
   },
   created () {
+    this.getAllAtiradores()
   },
   methods: {
+    ...mapActions('atiradores', {
+      getAllAtiradores: 'getAll',
+      deleteAtirador: 'delete'
+    }),
+    ...mapActions('editAtirador', {
+      getAtiradorEditar: 'getAtiradorEdit'
+    }),
+    openModalDelete (nome, id) {
+      console.log('Atirador => ' + nome)
+      this.nomeAtirador = nome
+      this.idAtirador = id
+      this.modalDelete = true
+    },
+    deletarAtirador (id) {
+      this.deleteAtirador(id)
+      this.modalDelete = false
+    }
   }
 }
 </script>

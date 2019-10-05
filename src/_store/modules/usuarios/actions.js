@@ -32,7 +32,7 @@ export default {
   delete ({ commit }, id) {
     commit('deleteRequest', id)
     usuarioService.delete(id).then(
-      sistema => commit('deleteSuccess', id),
+      usuario => commit('deleteSuccess', id),
       error => commit('deleteSuccess', { id, error: error.toString() })
     )
   }
