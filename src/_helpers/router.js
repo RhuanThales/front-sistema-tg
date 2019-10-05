@@ -13,6 +13,9 @@ import CadastrarOficialPage from '../views/oficial/CadastrarOficialPage'
 import EscalaPage from '../views/escala/EscalaPage'
 import CadastrarEscalaPage from '../views/escala/CadastrarEscalaPage'
 import EditarEscalaPage from '../views/escala/EditarEscalaPage'
+import AtiradorPage from '../views/atirador/AtiradorPage'
+import CadastrarAtiradorPage from '../views/atirador/CadastrarAtiradorPage'
+import EditarAtiradorPage from '../views/atirador/EditarAtiradorPage'
 
 Vue.use(Router)
 
