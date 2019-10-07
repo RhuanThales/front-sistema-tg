@@ -9,9 +9,9 @@ export default {
   update ({ dispatch, commit }, atirador) {
     commit('updateRequest', atirador)
     atiradorService.update(atirador).then(
-      pelotao => {
+      atirador => {
         commit('updateSuccess', atirador)
-        router.push('/atirador')
+        router.push('/atiradores')
         setTimeout(() => {
           dispatch('alert/success', 'Registration successful', { root: true })
         })

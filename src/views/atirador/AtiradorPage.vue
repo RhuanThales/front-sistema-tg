@@ -110,7 +110,7 @@ export default {
       modalDelete: false,
       textoPaginacao: 'Qtd por Página',
       headers: [
-        { text: 'CR', align: 'left', value: 'ra' },
+        { text: 'CR', align: 'left', value: 'cr' },
         { text: 'Nome', align: 'left', value: 'nomeAtirador' },
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
         { text: 'Pelotao', align: 'left', value: 'numeroPelotao' },

@@ -19,13 +19,20 @@
           <v-spacer/>
           <v-stepper v-model="step">
             <v-stepper-header>
-              <v-stepper-step :complete="step > 1" step="1">Dados Pessoais</v-stepper-step>
+              <v-stepper-step
+                :complete="step > 1"
+                step="1">
+                Dados Pessoais
+              </v-stepper-step>
 
-              <v-divider></v-divider>
+              <v-divider/>
 
-              <v-stepper-step :complete="step > 2" step="2">Endereco / Telefones </v-stepper-step>
+              <v-stepper-step
+                :complete="step > 2"
+                step="2">Endereco / Telefones
+              </v-stepper-step>
 
-              <v-divider></v-divider>
+              <v-divider/>
 
               <v-stepper-step step="3">Dados do Atirador</v-stepper-step>
             </v-stepper-header>
@@ -47,20 +54,35 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.rg.orgaoEmissor"
-                      label="Orgao Emissor"
-                      required
-                    />
-                    <v-text-field
                       v-model="atirador.rg.numero"
                       label="RG"
                       required
                     />
                     <v-text-field
+                      v-model="atirador.rg.orgaoEmissor"
+                      label="Orgao Emissor"
+                      required
+                    />
+                    <v-text-field
+                      v-mask="cpfMask"
                       v-model="atirador.cpf"
                       label="CPF"
                       required
-                    />
+                    >
+                      <template v-slot:append-outer>
+                        <v-btn
+                          color="primary"
+                          small
+                          dark
+                          @click="validaCpf()"
+                        >
+                          Verificar CPF
+                          <v-icon
+                            dark
+                            right>mdi-check</v-icon>
+                        </v-btn>
+                      </template>
+                    </v-text-field>
                     <v-text-field
                       v-model="atirador.tituloEleitor.zona"
                       label="Zona"
@@ -92,23 +114,24 @@
                       label="Naturalidade"
                       required
                     />
-                    <v-text-field
+                    <v-select
                       v-model="atirador.religiao"
+                      :items="religioesOptions"
                       label="Religiao"
                     />
-                    <v-text-field
+                    <v-select
                       v-model="atirador.escolaridade"
+                      :items="escolaridadeOptions"
                       label="Escolaridade"
                     />
                   </v-form>
-                
                 </v-card>
 
                 <v-btn
                   color="primary"
                   @click="step = 2"
                 >
-                  Continue
+                  Continuar
                 </v-btn>
 
                 <v-btn
@@ -132,10 +155,23 @@
                     lazy-validation
                   >
                     <v-text-field
+                      v-mask="cepMask"
                       v-model="atirador.endereco.cep"
                       label="CEP"
                       required
-                    />
+                    >
+                      <template v-slot:append-outer>
+                        <v-btn
+                          color="primary"
+                          dark
+                          small
+                          @click="buscar()">Buscar CEP
+                          <v-icon
+                            dark
+                            right>mdi-account-search</v-icon>
+                        </v-btn>
+                      </template>
+                    </v-text-field>
                     <v-text-field
                       v-model="atirador.endereco.logradouro"
                       label="Rua"
@@ -162,7 +198,8 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.telefones"
+                      v-mask="telefoneMask"
+                      v-model="atirador.telefone"
                       label="Telefone"
                       required
                     />
@@ -181,7 +218,7 @@
                   color="primary"
                   @click="step = 3"
                 >
-                  Continue
+                  Continuar
                 </v-btn>
 
                 <v-btn
@@ -191,7 +228,12 @@
                   Voltar
                 </v-btn>
 
-                <v-btn text>Cancel</v-btn>
+                <v-btn
+                  color="error"
+                  to="/atiradores"
+                >
+                  Cancelar
+                </v-btn>
               </v-stepper-content>
 
               <v-stepper-content step="3">
@@ -244,7 +286,7 @@
                   color="primary"
                   @click="handleSubmit()"
                 >
-                  Continue
+                  Cadastrar
                 </v-btn>
 
                 <v-btn
@@ -265,14 +307,34 @@
           </v-stepper>
         </material-card>
       </v-flex>
+      <v-snackbar
+        v-model="snackbarCpf"
+        top
+        color="error"
+      >
+        {{ textErrorCpf }}
+        <v-btn
+          color="white"
+          text
+          @click="snackbarCpf = false"
+        >
+          Close
+        </v-btn>
+      </v-snackbar>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+// import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
+import { mask } from 'vue-the-mask'
+import axios from 'axios'
 
 export default {
+  directives: {
+    mask
+  },
   data () {
     return {
       step: 0,
@@ -287,12 +349,12 @@ export default {
         religiao: '',
         escolaridade: '',
         voluntario: false,
-        dataNascimento: ``,
+        dataNascimento: Date,
         naturalidade: '',
         naturalidadeCR: '',
         nomePai: '',
         nomeMae: '',
-        endereco : {
+        endereco: {
           logradouro: '',
           bairro: '',
           numero: 0,
@@ -300,7 +362,7 @@ export default {
           cidade: '',
           estado: ''
         },
-        telefones: [],
+        telefone: '',
         telefonePai: '',
         telefoneMae: '',
         rg: {
@@ -315,7 +377,30 @@ export default {
         funcao: '',
         totalPontos: 0
       },
-      checkbox: false
+      checkbox: false,
+      vCpf: true,
+      snackbarCpf: false,
+      textErrorCpf: 'CPF inválido!',
+      religioesOptions: [
+        'Católica',
+        'Evangélica',
+        'Sem religião',
+        'Outra religiosidade',
+        'Não declarada'
+      ],
+      escolaridadeOptions: [
+        'Analfabeto',
+        'Ensino Fundamental Incompleto',
+        'Ensino Fundamental Completo',
+        'Ensino Médio Incompleto',
+        'Ensino Médio Completo',
+        'Ensino Superior Incompleto',
+        'Ensino Superior Completo'
+      ],
+      rgMask: '##.###.###-#',
+      cpfMask: '###.###.###-##',
+      telefoneMask: '(##)####-#####',
+      cepMask: '#####-###'
     }
   },
   computed: {
@@ -328,12 +413,73 @@ export default {
     }),
     handleSubmit () {
       if (this.$refs.formCadastroStep1.validate()) {
-        console.log('Atirador a ser cadastrado: ' + JSON.stringify(this.atirador))
-        this.register(this.atirador)
-        this.$refs.formCadastroStep1.reset()
-        this.$refs.formCadastroStep2.reset()
-        this.$refs.formCadastroStep3.reset()
+        this.vCpf = this.validaCpf()
+        if (this.vCpf) {
+          console.log('Atirador a ser cadastrado: ' + JSON.stringify(this.atirador))
+          this.register(this.atirador)
+          this.$refs.formCadastroStep1.reset()
+          this.$refs.formCadastroStep2.reset()
+          this.$refs.formCadastroStep3.reset()
+        } else {
+          console.log('Atirador não pode ser cadastrado!')
+        }
       }
+    },
+    buscar () {
+      // console.log("Entrou na busca");
+      if (/^[0-9]{5}-[0-9]{3}$/.test(this.atirador.endereco.cep)) {
+        axios
+          .get('https://viacep.com.br/ws/' + this.atirador.endereco.cep + '/json/')
+          .then(resp => {
+            // console.log("RESPOSTA API CEP => " + JSON.stringify(resp));
+            if (resp.data.erro) {
+              this.respCep = 'CEP inexistente.'
+            } else {
+              this.respCep = ''
+            }
+            this.atirador.endereco.logradouro = resp.data.logradouro
+            this.atirador.endereco.cidade = resp.data.localidade
+            this.atirador.endereco.bairro = resp.data.bairro
+            this.atirador.endereco.estado = resp.data.uf
+          })
+      }
+      // if(/^[0-9]{5}-[0-9]{3}$/.test(this.cep))
+    },
+    validaCpf () {
+      if (this.atirador.cpf.length === 14) {
+        console.log('TAMANHO DO CPF => ' + this.atirador.cpf.length + ' E SE ESTA VALIDADO => ' + this.testeCpf(this.atirador.cpf))
+        this.vCpf = this.testeCpf(this.atirador.cpf)
+        console.log('Teste cpf => ' + this.vCpf)
+        if (this.vCpf === false) {
+          this.snackbarCpf = true
+        }
+        return this.vCpf
+      } else {
+        this.vCpf = false
+        this.snackbarCpf = true
+        return this.vCpf
+      }
+    },
+    testeCpf (cpf) {
+      var cpfSemMascara = cpf.replace(/\D/g, '')
+      var Soma
+      var Resto
+      Soma = 0
+      if (cpfSemMascara === '00000000000') return false
+
+      for (let i = 1; i <= 9; i++) Soma = Soma + parseInt(cpfSemMascara.substring(i - 1, i)) * (11 - i)
+      Resto = (Soma * 10) % 11
+
+      if ((Resto === 10) || (Resto === 11)) Resto = 0
+      if (Resto !== parseInt(cpfSemMascara.substring(9, 10))) return false
+
+      Soma = 0
+      for (let i = 1; i <= 10; i++) Soma = Soma + parseInt(cpfSemMascara.substring(i - 1, i)) * (12 - i)
+      Resto = (Soma * 10) % 11
+
+      if ((Resto === 10) || (Resto === 11)) Resto = 0
+      if (Resto !== parseInt(cpfSemMascara.substring(10, 11))) return false
+      return true
     }
   }
 }

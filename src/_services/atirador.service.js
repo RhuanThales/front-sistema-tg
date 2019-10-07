@@ -31,7 +31,7 @@ function update (atirador) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     body: JSON.stringify(atirador)
   }
-  return fetch(`${config.apiUrl}/Atirador/Atualizar/${atirador.id}`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Atirador/Atualizar/${atirador.idAtirador}`, requestOptions).then(handleResponse)
 }
 
 function _delete (id) {
