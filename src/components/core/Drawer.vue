@@ -85,6 +85,21 @@ export default {
         to: '/atiradores',
         icon: 'mdi-star',
         text: 'Atiradores'
+      },
+      {
+        to: '/pelotoes',
+        icon: 'mdi-star',
+        text: 'Pelotões'
+      },
+      {
+        to: '/oficiais',
+        icon: 'mdi-star',
+        text: 'Oficiais'
+      },
+      {
+        to: '/escalas',
+        icon: 'mdi-star',
+        text: 'Escalas'
       }
     ],
     responsive: false
