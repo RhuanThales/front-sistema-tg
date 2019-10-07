@@ -50,22 +50,26 @@
                   >
                     <v-text-field
                       v-model="atirador.nomeAtirador"
+                      :rules="[v => !!v || 'O campo nome é obrigatório']"
                       label="Nome"
                       required
                     />
                     <v-text-field
                       v-model="atirador.rg.numero"
+                      :rules="[v => !!v || 'O campo RG é obrigatório']"
                       label="RG"
                       required
                     />
                     <v-text-field
                       v-model="atirador.rg.orgaoEmissor"
+                      :rules="[v => !!v || 'O campo é obrigatório']"
                       label="Orgao Emissor"
                       required
                     />
                     <v-text-field
                       v-mask="cpfMask"
                       v-model="atirador.cpf"
+                      :rules="[v => !!v || 'O campo CPF é obrigatório']"
                       label="CPF"
                       required
                     >
@@ -85,32 +89,38 @@
                     </v-text-field>
                     <v-text-field
                       v-model="atirador.tituloEleitor.zona"
+                      :rules="[v => !!v || 'O campo é obrigatório']"
                       label="Zona"
                       required
                     />
                     <v-text-field
                       v-model="atirador.tituloEleitor.numero"
+                      :rules="[v => !!v || 'O campo Titulo de Eleitor é obrigatório']"
                       label="Titulo Eleitor"
                       required
                     />
                     <v-text-field
                       v-model="atirador.nomePai"
+                      :rules="[v => !!v || 'O campo Nome do Pai é obrigatório']"
                       label="Nome do Pai"
                       required
                     />
                     <v-text-field
                       v-model="atirador.nomeMae"
-                      label="Nome da Mae"
+                      :rules="[v => !!v || 'O campo Nome da Mãe é obrigatório']"
+                      label="Nome da Mãe"
                       required
                     />
                     <v-text-field
                       v-model="atirador.dataNascimento"
+                      :rules="[v => !!v || 'O campo Data Nascimento é obrigatório']"
                       label="Data de Nascimento"
                       type="date"
                       required
                     />
                     <v-text-field
                       v-model="atirador.naturalidade"
+                      :rules="[v => !!v || 'O campo Naturalidade é obrigatório']"
                       label="Naturalidade"
                       required
                     />
@@ -128,6 +138,7 @@
                 </v-card>
 
                 <v-btn
+                  :disabled="!valid"
                   color="primary"
                   @click="step = 2"
                 >
@@ -157,6 +168,7 @@
                     <v-text-field
                       v-mask="cepMask"
                       v-model="atirador.endereco.cep"
+                      :rules="[v => !!v || 'O campo CEP é obrigatório']"
                       label="CEP"
                       required
                     >
@@ -174,32 +186,40 @@
                     </v-text-field>
                     <v-text-field
                       v-model="atirador.endereco.logradouro"
+                      :rules="[v => !!v || 'O campo Rua é obrigatório']"
                       label="Rua"
                       required
                     />
                     <v-text-field
                       v-model="atirador.endereco.bairro"
+                      :rules="[v => !!v || 'O campo Bairro é obrigatório']"
                       label="Bairro"
                       required
                     />
                     <v-text-field
                       v-model="atirador.endereco.numero"
+                      :rules="[v => !!v || 'O campo Numero é obrigatório']"
                       label="Numero"
                       required
                     />
                     <v-text-field
                       v-model="atirador.endereco.cidade"
+                      :rules="[v => !!v || 'O campo Cidade é obrigatório']"
+                      disabled
                       label="Cidade"
                       required
                     />
                     <v-text-field
                       v-model="atirador.endereco.estado"
+                      :rules="[v => !!v || 'O campo Estado é obrigatório']"
+                      disabled
                       label="Estado"
                       required
                     />
                     <v-text-field
                       v-mask="telefoneMask"
                       v-model="atirador.telefone"
+                      :rules="[v => !!v || 'O campo Telefone é obrigatório']"
                       label="Telefone"
                       required
                     />
@@ -215,6 +235,7 @@
                 </v-card>
 
                 <v-btn
+                  :disabled="!valid"
                   color="primary"
                   @click="step = 3"
                 >
@@ -249,27 +270,22 @@
                     <v-text-field
                       v-model="atirador.cr"
                       label="CR"
-                      required
                     />
                     <v-text-field
                       v-model="atirador.numeroPelotao"
                       label="Numero do Pelotao"
-                      required
                     />
                     <v-text-field
                       v-model="atirador.nomeGuerra"
                       label="Nome de Guerra"
-                      required
                     />
                     <v-text-field
                       v-model="atirador.numeroAtirador"
                       label="Numero do Atirador"
-                      required
                     />
                     <v-text-field
                       v-model="atirador.naturalidadeCR"
                       label="Naturalidade CR"
-                      required
                     />
                     <v-text-field
                       v-model="atirador.funcao"
@@ -283,6 +299,7 @@
                 </v-card>
 
                 <v-btn
+                  :disabled="!valid"
                   color="primary"
                   @click="handleSubmit()"
                 >
