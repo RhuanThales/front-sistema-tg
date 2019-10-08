@@ -87,14 +87,14 @@ export default {
         text: 'Atiradores'
       },
       {
-        to: '/pelotoes',
-        icon: 'mdi-star',
-        text: 'Pelotões'
-      },
-      {
         to: '/oficiais',
         icon: 'mdi-star',
         text: 'Oficiais'
+      },
+      {
+        to: '/pelotoes',
+        icon: 'mdi-star',
+        text: 'Pelotões'
       },
       {
         to: '/escalas',

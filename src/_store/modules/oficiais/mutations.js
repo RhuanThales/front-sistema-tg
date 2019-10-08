@@ -22,19 +22,29 @@ export default {
     state.status = {}
   },
 
+  updateRequest (state, oficial) {
+    state.status = { registering: true }
+  },
+  updateSuccess (state, oficial) {
+    state.status = {}
+  },
+  updateFailure (state, oficial) {
+    state.status = {}
+  },
+
   deleteRequest (state, id) {
     // add 'deleting:true' property to user being deleted
     state.all.items.result = state.all.items.result.map(
-      oficial => (oficial.id === id ? { ...oficial, deleting: true } : oficial)
+      oficial => (oficial.idOficial === id ? { ...oficial, deleting: true } : oficial)
     )
   },
   deleteSuccess (state, id) {
     // remove deleted user from state
-    state.all.items.result = state.all.items.result.filter(oficial => oficial.id !== id)
+    state.all.items.result = state.all.items.result.filter(oficial => oficial.idOficial !== id)
   },
   deleteFailure (state, { id, error }) {
     state.all.items.result = state.items.result.map(oficial => {
-      if (oficial.id === id) {
+      if (oficial.idOficial === id) {
         // make copy of user without 'deleting:true' property
         const { deleting, ...oficialCopy } = oficial
         // return copy of user with 'deleteError:[error]' property

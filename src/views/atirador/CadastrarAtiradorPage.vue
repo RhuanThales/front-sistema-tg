@@ -14,7 +14,7 @@
       >
         <material-card
           color="primary"
-          title="Titulo Pagina"
+          title="Cadastro de Atirador"
         >
           <v-spacer/>
           <v-stepper v-model="step">

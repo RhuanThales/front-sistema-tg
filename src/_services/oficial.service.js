@@ -31,7 +31,7 @@ function update (oficial) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     body: JSON.stringify(oficial)
   }
-  return fetch(`${config.apiUrl}/Oficial/Atualizar/${oficial.id}`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Oficial/Atualizar/${oficial.idOficial}`, requestOptions).then(handleResponse)
 }
 
 function _delete (id) {

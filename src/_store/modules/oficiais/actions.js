@@ -28,6 +28,29 @@ export default {
     )
   },
 
+  update ({ dispatch, commit }, oficial) {
+    commit('updateRequest', oficial)
+    // console.log('CADASTRANDO Pelotao NOVO' + user)
+    oficialService.update(oficial).then(
+      oficial => {
+        commit('updateSuccess', oficial)
+        // router.push('/oficiais')
+        setTimeout(() => {
+          dispatch('alert/success', 'Registration successful', { root: true })
+          commit('getAllRequest')
+          oficialService.getAll().then(
+            oficiais => commit('getAllSuccess', oficiais),
+            error => commit('getAllFailure', error)
+          )
+        })
+      },
+      error => {
+        commit('updateFailure', error)
+        dispatch('alert/error', error, { root: true })
+      }
+    )
+  },
+
   delete ({ commit }, id) {
     commit('deleteRequest', id)
     oficialService.delete(id).then(
