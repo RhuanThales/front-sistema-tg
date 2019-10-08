@@ -76,7 +76,7 @@
             <v-card-title class="headline">Deseja realmente excluir o atirador?</v-card-title>
 
             <v-card-text>
-              O Atirador {{ nome }} será excluido permanentemente do sistema!
+              O Atirador <strong>{{ nome }}</strong> será excluido permanentemente do sistema!
             </v-card-text>
 
             <v-card-actions>

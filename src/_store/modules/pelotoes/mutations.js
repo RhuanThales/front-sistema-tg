@@ -22,19 +22,29 @@ export default {
     state.status = {}
   },
 
+  updateRequest (state, pelotao) {
+    state.status = { registering: true }
+  },
+  updateSuccess (state, pelotao) {
+    state.status = {}
+  },
+  updateFailure (state, pelotao) {
+    state.status = {}
+  },
+
   deleteRequest (state, id) {
     // add 'deleting:true' property to user being deleted
     state.all.items.result = state.all.items.result.map(
-      pelotao => (pelotao.id === id ? { ...pelotao, deleting: true } : pelotao)
+      pelotao => (pelotao.idPelotao === id ? { ...pelotao, deleting: true } : pelotao)
     )
   },
   deleteSuccess (state, id) {
     // remove deleted user from state
-    state.all.items.result = state.all.items.result.filter(pelotao => pelotao.id !== id)
+    state.all.items.result = state.all.items.result.filter(pelotao => pelotao.idPelotao !== id)
   },
   deleteFailure (state, { id, error }) {
     state.all.items.result = state.items.result.map(pelotao => {
-      if (pelotao.id === id) {
+      if (pelotao.idPelotao === id) {
         // make copy of user without 'deleting:true' property
         const { deleting, ...pelotaoCopy } = pelotao
         // return copy of user with 'deleteError:[error]' property

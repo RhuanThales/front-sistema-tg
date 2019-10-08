@@ -31,7 +31,7 @@ function update (pelotao) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     body: JSON.stringify(pelotao)
   }
-  return fetch(`${config.apiUrl}/Pelotao/Atualizar/${pelotao.id}`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Pelotao/Atualizar/${pelotao.idPelotao}`, requestOptions).then(handleResponse)
 }
 
 function _delete (id) {
