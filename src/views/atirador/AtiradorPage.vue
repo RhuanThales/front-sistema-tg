@@ -13,12 +13,11 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Atiradores"
         >
           <v-spacer/>
           <v-btn
-            color="success"
+            color="grey darken-2"
             to="/cadastrarAtirador"
           >
             Novo Atirador
@@ -27,6 +26,7 @@
           <v-data-table
             :headers="headers"
             :items="atiradores"
+            style="font-weight: bold;"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
@@ -36,7 +36,7 @@
           >
             <template v-slot:item.edit="{ item }">
               <v-btn
-                color="primary"
+                color="indigo darken-4"
                 @click="getAtiradorEditar(item)"
               >
                 Editar
@@ -45,7 +45,7 @@
 
             <template v-slot:item.delete="{ item }">
               <v-btn
-                color="error"
+                color="red darken-4"
                 @click="openModalDelete(item.nomeAtirador, item.idAtirador)"
               >
                 Excluir
@@ -113,8 +113,8 @@ export default {
         { text: 'CR', align: 'left', value: 'cr' },
         { text: 'Nome', align: 'left', value: 'nomeAtirador' },
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
-        { text: 'Pelotao', align: 'left', value: 'numeroPelotao' },
-        { text: 'Numero', align: 'left', value: 'numeroAtirador' },
+        { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
+        { text: 'Número', align: 'left', value: 'numeroAtirador' },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]

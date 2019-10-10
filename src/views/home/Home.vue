@@ -23,10 +23,12 @@
             sm12
             xs12
           >
+
             <!---->
             <v-card
+
               dark
-              color="primary"
+            style="background-image: url('./img/camuflado.jpg');background-repeat:no-repeat; background-size:100%;"
             >
               <v-card-text>
                 <v-list-item-title
@@ -50,6 +52,7 @@
     </v-layout>
   </v-container>
 </template>
+
 
 <script>
 import { mapState } from 'vuex'

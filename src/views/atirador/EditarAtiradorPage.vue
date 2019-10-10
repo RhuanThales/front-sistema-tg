@@ -13,7 +13,6 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Titulo Pagina"
         >
           <v-spacer/>
@@ -144,14 +143,14 @@
 
                 <v-btn
                   :disabled="!valid"
-                  color="primary"
+                  color="indigo darken-4"
                   @click="step = 2"
                 >
                   Continuar
                 </v-btn>
 
                 <v-btn
-                  color="error"
+                  color="red darken-4"
                   to="/atiradores"
                 >
                   Cancelar
@@ -241,21 +240,21 @@
 
                 <v-btn
                   :disabled="!valid"
-                  color="primary"
+                  color="indigo darken-4"
                   @click="step = 3"
                 >
                   Continuar
                 </v-btn>
 
                 <v-btn
-                  color="warning"
+                  color="indigo darken-2"
                   @click="step = 1"
                 >
                   Voltar
                 </v-btn>
 
                 <v-btn
-                  color="error"
+                  color="red darken-4"
                   to="/atiradores"
                 >
                   Cancelar
@@ -305,21 +304,21 @@
 
                 <v-btn
                   :disabled="!valid"
-                  color="primary"
+                  color="indigo darken-4"
                   @click="handleSubmit()"
                 >
                   Editar
                 </v-btn>
 
                 <v-btn
-                  color="warning"
+                  color="indigo darken-2"
                   @click="step = 2"
                 >
                   Voltar
                 </v-btn>
 
                 <v-btn
-                  color="error"
+                  color="red darken-4"
                   to="/atiradores"
                 >
                   Cancelar

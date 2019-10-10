@@ -13,18 +13,18 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Oficiais"
         >
           <v-spacer/>
           <v-btn
-            color="success"
+            color="grey darken-2"
             to="/cadastrarOficial"
           >
             Novo Oficial
           </v-btn>
           <v-spacer/>
           <v-data-table
+          style="font-weight: bold;"
             :headers="headers"
             :items="oficiais"
             :footer-props="{
@@ -42,7 +42,7 @@
 
             <template v-slot:item.edit="{ item }">
               <v-btn
-                color="primary"
+                color="indigo darken-4"
                 @click="openModalEdit(item)"
               >
                 Editar
@@ -51,7 +51,7 @@
 
             <template v-slot:item.delete="{ item }">
               <v-btn
-                color="error"
+                color="red darken-4"
                 @click="openModalDelete(item.nome, item.idOficial)"
               >
                 Excluir
@@ -149,14 +149,14 @@
 
               <v-btn
                 :disabled="!valid"
-                color="primary"
+                color="indigo darken-4"
                 @click="handleSubmit()"
               >
                 Editar
               </v-btn>
 
               <v-btn
-                color="error"
+                color="red darken-4"
                 @click="modalEdit = false"
               >
                 Cancelar

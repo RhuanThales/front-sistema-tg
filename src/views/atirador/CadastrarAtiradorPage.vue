@@ -13,7 +13,6 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Cadastro de Atirador"
         >
           <v-spacer/>
@@ -75,7 +74,6 @@
                     >
                       <template v-slot:append-outer>
                         <v-btn
-                          color="primary"
                           small
                           dark
                           @click="validaCpf()"
@@ -174,7 +172,6 @@
                     >
                       <template v-slot:append-outer>
                         <v-btn
-                          color="primary"
                           dark
                           small
                           @click="buscar()">Buscar CEP

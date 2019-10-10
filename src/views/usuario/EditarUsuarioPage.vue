@@ -13,7 +13,6 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Informe os dados abaixo"
         >
           <v-form
@@ -51,7 +50,7 @@
 
             <v-btn
               :disabled="!valid"
-              color="success"
+              color="indigo darken-4"
               class="mr-4"
               @click="handleSubmit"
             >
@@ -59,7 +58,7 @@
             </v-btn>
 
             <v-btn
-              color="error"
+              color="red darken-4"
               class="mr-4"
               to="/usuarios"
             >

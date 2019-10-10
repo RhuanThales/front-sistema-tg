@@ -13,7 +13,6 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Titulo Pagina"
         >
           <v-spacer/>
