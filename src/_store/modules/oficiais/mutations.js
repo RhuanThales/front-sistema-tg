@@ -6,7 +6,7 @@ export default {
     }
   },
   getAllSuccess (state, oficiais) {
-    state.all = { items: oficiais }
+    state.all = { items: oficiais.result }
   },
   getAllFailure (state, error) {
     state.all = { error }

@@ -1,95 +1,94 @@
 <template>
-<v-img
-  :src="back"
->
-  <v-container
-    grid-list-xl
-    text-xs-center
+  <v-img
+    :src="back"
   >
-    <v-layout
-      row
-      wrap
+    <v-container
+      grid-list-xl
+      text-xs-center
     >
-      <v-flex
-        xs12
-        sm5
-        md4
-        offset-sm4
+      <v-layout
+        row
+        wrap
       >
-        <v-card
-          elevation-24
-          style="padding: 10px; border: 1px; border-radius: 50px;background-color: rgba(000, 000, 000, 0.5);"
-          class="caixaLogin"
+        <v-flex
+          xs12
+          sm5
+          md4
+          offset-sm4
         >
-          <v-card-text
+          <v-card
+            elevation-24
+            style="padding: 10px; border: 1px; border-radius: 50px;background-color: rgba(000, 000, 000, 0.5);"
+            class="caixaLogin"
           >
-            <v-img
-              :src="logo"
-              height="100"
-              contain
-            />
-            <v-list-item-title
-              class="subtitle-1"
-              style="color: white; text-align: center;font-weight: bold;"
+            <v-card-text
             >
-              Tiro de Guerra 04-013
-            </v-list-item-title>
-            <v-form
-              ref="form"
-              v-model="valid"
-              lazy-validation
-            >
-              <v-text-field
-              style="font-weight: bold;"
-                v-model="email"
-                :rules="loginRules"
-                clearable
-                label="Login"
-                type="text"
-                color="#003300"
-                required
+              <v-img
+                :src="logo"
+                height="100"
+                contain
               />
-              <v-text-field
-                v-model="senha"
-                :append-icon="show4 ? 'mdi-eye-off' : 'mdi-eye-outline'"
-                :rules="senhaRules"
-                :type="show4 ? 'text' : 'password'"
-                clearable
-                label="Senha"
-                color="#003300"
-                required
-                @click:append="show4 = !show4"
-              />
-            </v-form>
-            <div class="text-center">
-              <v-btn
-                :disabled="!valid"
-                @click="validate"
-                color = "green lighten-1"
-                dark="green darken-4"
-              >Entrar</v-btn>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-    <div v-if="account.state.mensagem == 'Error'">
-      <v-flex
-        xs12
-        sm5
-        md4
-        offset-sm4
-      >
-        <v-alert
-          :value="true"
-          type="error"
+              <v-list-item-title
+                class="subtitle-1"
+                style="color: white; text-align: center;font-weight: bold;"
+              >
+                Tiro de Guerra 04-013
+              </v-list-item-title>
+              <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
+              >
+                <v-text-field
+                  v-model="email"
+                  :rules="loginRules"
+                  clearable
+                  label="Login"
+                  type="text"
+                  color="#003300"
+                  style="font-weight: bold;"
+                  required
+                />
+                <v-text-field
+                  v-model="senha"
+                  :append-icon="show4 ? 'mdi-eye-off' : 'mdi-eye-outline'"
+                  :rules="senhaRules"
+                  :type="show4 ? 'text' : 'password'"
+                  clearable
+                  label="Senha"
+                  color="#003300"
+                  required
+                  @click:append="show4 = !show4"
+                />
+              </v-form>
+              <div class="text-center">
+                <v-btn
+                  :disabled="!valid"
+                  color="green lighten-1"
+                  @click="validate"
+                >Entrar</v-btn>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <div v-if="account.state.mensagem == 'Error'">
+        <v-flex
+          xs12
+          sm5
+          md4
+          offset-sm4
         >
-          Login ou senha inválidos.
-        </v-alert>
-      </v-flex>
-    </div>
-  </v-container>
-</v-img>
+          <v-alert
+            :value="true"
+            type="error"
+          >
+            Login ou senha inválidos.
+          </v-alert>
+        </v-flex>
+      </div>
+    </v-container>
+  </v-img>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'

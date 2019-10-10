@@ -34,6 +34,15 @@
             sort-by="ra"
             class="elevation-1"
           >
+            <template v-slot:item.detail="{ item }">
+              <v-btn
+                color="success"
+                @click="openPageDetail(item)"
+              >
+                Detalhar
+              </v-btn>
+            </template>
+
             <template v-slot:item.edit="{ item }">
               <v-btn
                 color="primary"
@@ -120,16 +129,26 @@
                   label="Número do Pelotão"
                   required
                 />
-                <v-text-field
+                <v-autocomplete
                   v-model="pelotaoEdit.comandante"
-                  :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
+                  :items="oficiais"
+                  :no-data-text="'Oficiais não foram encontrados'"
+                  :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                  item-text="nome"
+                  item-value="nome"
                   label="Comandante"
+                  placeholder="Comandante"
                   required
                 />
-                <v-text-field
+                <v-autocomplete
                   v-model="pelotaoEdit.monitor"
-                  :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
+                  :items="atiradores"
+                  :no-data-text="'Atiradores não foram encontrados'"
+                  :rules="[v => !!v || 'O campo Monitor é obrigatório']"
+                  item-text="nomeAtirador"
+                  item-value="nomeAtirador"
                   label="Monitor"
+                  placeholder="Monitor"
                   required
                 />
               </v-form>
@@ -184,6 +203,7 @@ export default {
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Comandante', align: 'left', value: 'comandante' },
         { text: 'Monitor', align: 'left', value: 'monitor' },
+        { text: 'Detalhar', align: 'center', value: 'detail', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]
@@ -191,17 +211,31 @@ export default {
   },
   computed: {
     ...mapState({
-      pelotoes: state => state.pelotoes.all.items.result
+      pelotoes: state => state.pelotoes.all.items
+    }),
+    ...mapState({
+      oficiais: state => state.oficiais.all.items
+    }),
+    ...mapState({
+      atiradores: state => state.atiradores.all.items
     })
   },
   created () {
     this.getAllPelotoes()
+    this.getAllOficiais()
+    this.getAllAtiradores()
   },
   methods: {
     ...mapActions('pelotoes', {
       getAllPelotoes: 'getAll',
       deletePelotao: 'delete',
       update: 'update'
+    }),
+    ...mapActions('oficiais', {
+      getAllOficiais: 'getAll'
+    }),
+    ...mapActions('atiradores', {
+      getAllAtiradores: 'getAll'
     }),
     handleSubmit () {
       if (this.$refs.formEdit.validate()) {
@@ -210,6 +244,9 @@ export default {
         this.modalEdit = false
         this.$refs.formEdit.reset()
       }
+    },
+    openPageDetail () {
+      console.log('Testando!')
     },
     openModalEdit (pelotao) {
       // eslint-disable-next-line no-sequences

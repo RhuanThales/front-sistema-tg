@@ -59,50 +59,81 @@
                       required
                     />
                     <v-text-field
+                      v-model="atirador.dataNascimento"
+                      :rules="[v => !!v || 'O campo Data Nascimento é obrigatório']"
+                      label="Data de Nascimento"
+                      type="date"
+                      required
+                    />
+                    <v-text-field
                       v-model="atirador.rg.numero"
                       :rules="[v => !!v || 'O campo RG é obrigatório']"
                       label="RG"
                       required
                     />
-                    <v-text-field
-                      v-model="atirador.rg.orgaoEmissor"
-                      :rules="[v => !!v || 'O campo é obrigatório']"
-                      label="Orgao Emissor"
-                      required
-                    />
-                    <v-text-field
-                      v-mask="cpfMask"
-                      v-model="atirador.cpf"
-                      :rules="[v => !!v || 'O campo CPF é obrigatório']"
-                      label="CPF"
-                      required
-                    >
-                      <template v-slot:append-outer>
-                        <v-btn
-                          color="primary"
-                          small
-                          dark
-                          @click="validaCpf()"
+                    <v-row>
+                      <v-col
+                        cols="12"
+                        sm="3"
+                      >
+                        <v-text-field
+                          v-model="atirador.rg.orgaoEmissor"
+                          :rules="[v => !!v || 'O campo é obrigatório']"
+                          label="Orgao Emissor"
+                          required
+                        />
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="9"
+                      >
+                        <v-text-field
+                          v-mask="cpfMask"
+                          v-model="atirador.cpf"
+                          :rules="[v => !!v || 'O campo CPF é obrigatório']"
+                          label="CPF"
+                          required
                         >
-                          Verificar CPF
-                          <v-icon
-                            dark
-                            right>mdi-check</v-icon>
-                        </v-btn>
-                      </template>
-                    </v-text-field>
-                    <v-text-field
-                      v-model="atirador.tituloEleitor.zona"
-                      :rules="[v => !!v || 'O campo é obrigatório']"
-                      label="Zona"
-                      required
-                    />
-                    <v-text-field
-                      v-model="atirador.tituloEleitor.numero"
-                      :rules="[v => !!v || 'O campo Titulo de Eleitor é obrigatório']"
-                      label="Titulo Eleitor"
-                      required
-                    />
+                          <template v-slot:append-outer>
+                            <v-btn
+                              color="primary"
+                              small
+                              dark
+                              @click="validaCpf()"
+                            >
+                              Verificar CPF
+                              <v-icon
+                                dark
+                                right>mdi-check</v-icon>
+                            </v-btn>
+                          </template>
+                        </v-text-field>
+                      </v-col>
+                    </v-row>
+                    <v-row>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                      >
+                        <v-text-field
+                          v-model="atirador.tituloEleitor.numero"
+                          :rules="[v => !!v || 'O campo Titulo de Eleitor é obrigatório']"
+                          label="Titulo Eleitor"
+                          required
+                        />
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                      >
+                        <v-text-field
+                          v-model="atirador.tituloEleitor.zona"
+                          :rules="[v => !!v || 'O campo é obrigatório']"
+                          label="Zona Eleitoral"
+                          required
+                        />
+                      </v-col>
+                    </v-row>
                     <v-text-field
                       v-model="atirador.nomePai"
                       :rules="[v => !!v || 'O campo Nome do Pai é obrigatório']"
@@ -113,13 +144,6 @@
                       v-model="atirador.nomeMae"
                       :rules="[v => !!v || 'O campo Nome da Mãe é obrigatório']"
                       label="Nome da Mae"
-                      required
-                    />
-                    <v-text-field
-                      v-model="atirador.dataNascimento"
-                      :rules="[v => !!v || 'O campo Data Nascimento é obrigatório']"
-                      label="Data de Nascimento"
-                      type="date"
                       required
                     />
                     <v-text-field
@@ -276,9 +300,14 @@
                       v-model="atirador.cr"
                       label="CR"
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="atirador.numeroPelotao"
+                      :items="pelotoes"
+                      :no-data-text="'Pelotões não foram encontrados'"
+                      item-text="numeroPelotao"
+                      item-value="numeroPelotao"
                       label="Numero do Pelotao"
+                      placeholder="Numero do Pelotao"
                     />
                     <v-text-field
                       v-model="atirador.nomeGuerra"
@@ -348,8 +377,7 @@
 </template>
 
 <script>
-// import { mapState, mapActions } from 'vuex'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { mask } from 'vue-the-mask'
 import axios from 'axios'
 
@@ -360,7 +388,6 @@ export default {
   data () {
     return {
       step: 0,
-      show4: false,
       valid: true,
       atirador: {
         idAtirador: this.$store.state.editAtirador.atiradorEdit.idAtirador,
@@ -400,7 +427,6 @@ export default {
         funcao: this.$store.state.editAtirador.atiradorEdit.funcao,
         totalPontos: this.$store.state.editAtirador.atiradorEdit.totalPontos
       },
-      checkbox: false,
       vCpf: true,
       snackbarCpf: false,
       textErrorCpf: 'CPF inválido!',
@@ -427,12 +453,19 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      pelotoes: state => state.pelotoes.all.items
+    })
   },
   created () {
+    this.getAllPelotoes()
   },
   methods: {
     ...mapActions('editAtirador', {
       update: 'update'
+    }),
+    ...mapActions('pelotoes', {
+      getAllPelotoes: 'getAll'
     }),
     handleSubmit () {
       if (this.$refs.formCadastroStep1.validate()) {

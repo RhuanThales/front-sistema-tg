@@ -35,7 +35,10 @@
           >
             <template v-slot:item.perfilSuper="{ item }">
               <div v-if="item.perfilSuper == true">
-                <v-icon color="warning">mdi-crown</v-icon>
+                Adminstrador do Sistema
+              </div>
+              <div v-else>
+                Usuário normal
               </div>
             </template>
 
@@ -117,7 +120,7 @@ export default {
       headers: [
         { text: 'Nome', align: 'left', value: 'nome' },
         { text: 'Login', align: 'left', value: 'login' },
-        { text: 'Super', align: 'center', value: 'perfilSuper', sortable: false },
+        { text: 'Tipo Usuário', align: 'center', value: 'perfilSuper', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]
@@ -125,7 +128,7 @@ export default {
   },
   computed: {
     ...mapState({
-      usuarios: state => state.usuarios.all.items.result
+      usuarios: state => state.usuarios.all.items
     })
   },
   created () {
