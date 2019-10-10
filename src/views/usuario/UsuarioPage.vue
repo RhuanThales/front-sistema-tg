@@ -13,17 +13,17 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Usuários Cadastrados"
         >
           <v-btn
-            color="success"
+            color="grey darken-2"
             to="/cadastrarUsuario"
           >
             Novo Usuário
           </v-btn>
           <v-spacer/>
           <v-data-table
+            style="font-weight: bold;"
             :headers="headers"
             :items="usuarios"
             :footer-props="{
@@ -44,7 +44,7 @@
 
             <template v-slot:item.edit="{ item }">
               <v-btn
-                color="primary"
+                color="indigo darken-4"
                 @click="getUsuarioEditar(item)"
               >
                 Editar
@@ -53,7 +53,7 @@
 
             <template v-slot:item.delete="{ item }">
               <v-btn
-                color="error"
+                color="red darken-4"
                 @click="openModalDelete(item.nome, item.id)"
               >
                 Excluir

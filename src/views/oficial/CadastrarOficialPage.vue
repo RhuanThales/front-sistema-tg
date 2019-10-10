@@ -13,7 +13,6 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Cadastro de Oficial"
         >
           <v-spacer/>

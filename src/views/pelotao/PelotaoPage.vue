@@ -13,18 +13,18 @@
         xs12
       >
         <material-card
-          color="primary"
           title="Pelotões"
         >
           <v-spacer/>
           <v-btn
-            color="success"
+            color="grey darken-2"
             to="/cadastrarPelotao"
           >
             Novo Pelotão
           </v-btn>
           <v-spacer/>
           <v-data-table
+          style="font-weight: bold;"
             :headers="headers"
             :items="pelotoes"
             :footer-props="{
@@ -45,7 +45,7 @@
 
             <template v-slot:item.edit="{ item }">
               <v-btn
-                color="primary"
+                color="indigo darken-4"
                 @click="openModalEdit(item)"
               >
                 Editar
@@ -54,7 +54,7 @@
 
             <template v-slot:item.delete="{ item }">
               <v-btn
-                color="error"
+                color="red darken-4"
                 @click="openModalDelete(item.nomePelotao, item.idPelotao)"
               >
                 Excluir
