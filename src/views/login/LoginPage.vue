@@ -1,4 +1,7 @@
 <template>
+<v-img
+  :src="back"
+>
   <v-container
     grid-list-xl
     text-xs-center
@@ -15,10 +18,11 @@
       >
         <v-card
           elevation-24
-          style="padding: 10px; border: 1px; border-radius: 50px;"
+          style="padding: 10px; border: 1px; border-radius: 50px;background-color: rgba(000, 000, 000, 0.5);"
           class="caixaLogin"
         >
-          <v-card-text >
+          <v-card-text
+          >
             <v-img
               :src="logo"
               height="100"
@@ -26,7 +30,7 @@
             />
             <v-list-item-title
               class="subtitle-1"
-              style="color: black; text-align: center;"
+              style="color: white; text-align: center;font-weight: bold;"
             >
               Tiro de Guerra 04-013
             </v-list-item-title>
@@ -36,12 +40,13 @@
               lazy-validation
             >
               <v-text-field
+              style="font-weight: bold;"
                 v-model="email"
                 :rules="loginRules"
                 clearable
                 label="Login"
                 type="text"
-                color="primary"
+                color="#003300"
                 required
               />
               <v-text-field
@@ -51,7 +56,7 @@
                 :type="show4 ? 'text' : 'password'"
                 clearable
                 label="Senha"
-                color="primary"
+                color="#003300"
                 required
                 @click:append="show4 = !show4"
               />
@@ -59,8 +64,9 @@
             <div class="text-center">
               <v-btn
                 :disabled="!valid"
-                color="primary"
                 @click="validate"
+                color = "green lighten-1"
+                dark="green darken-4"
               >Entrar</v-btn>
             </div>
           </v-card-text>
@@ -83,6 +89,7 @@
       </v-flex>
     </div>
   </v-container>
+</v-img>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
@@ -90,6 +97,7 @@ export default {
   data () {
     return {
       logo: './img/logo-tg.png',
+      back: './img/backlog.png',
       email: '',
       show4: false,
       password: 'Password',
