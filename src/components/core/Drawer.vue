@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+  style="background-image: url('./img/camuflado.jpg');"
     id="app-drawer"
     v-model="inputValue"
     app
@@ -13,7 +14,7 @@
       tag="v-list"
       column
     >
-      <template>
+      <template >
         <div class="text-center">
           <v-avatar
             size="70"
@@ -29,11 +30,12 @@
       >
         <v-list
           class="subtitle-1"
-          style="text-align:center"
+          style="text-align:center; font-weight: bold;color:white;"
         >
           Tiro de Guerra 04-013
         </v-list>
-        <v-list-item-group color="primary">
+        
+        <v-list-item-group color="light-green accent-3">
           <div
             v-for="(item, i) in links"
             :key="i"
@@ -44,8 +46,9 @@
               <v-list-item-icon>
                 <v-icon v-text="item.icon"/>
               </v-list-item-icon>
-              <v-list-item-content>
+              <v-list-item-content >
                 <v-list-item-title
+                style="text-align:center; font-weight: bold;color:white;"
                   class="subtitle-2"
                   v-text="item.text"
                 />
