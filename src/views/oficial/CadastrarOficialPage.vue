@@ -87,11 +87,10 @@ export default {
       },
       checkbox: false,
       patenteOptions: [
-        'A',
-        'B',
-        'C',
-        'D',
-        'E'
+        'Subtenente',
+        'Primeiro-Sargento',
+        'Segundo-Sargento',
+        'Terceiro-Sargento'
       ],
       funcaoOptions: [
         'A',

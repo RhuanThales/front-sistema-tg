@@ -6,7 +6,7 @@ export default {
     }
   },
   getAllSuccess (state, atiradores) {
-    state.all = { items: atiradores }
+    state.all = { items: atiradores.result }
   },
   getAllFailure (state, error) {
     state.all = { error }

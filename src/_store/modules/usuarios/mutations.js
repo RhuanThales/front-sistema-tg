@@ -6,7 +6,7 @@ export default {
     }
   },
   getAllSuccess (state, usuarios) {
-    state.all = { items: usuarios }
+    state.all = { items: usuarios.result }
     // console.log("MUTATIONS => " + JSON.stringify(state.all))
   },
   getAllFailure (state, error) {

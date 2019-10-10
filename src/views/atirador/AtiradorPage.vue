@@ -122,7 +122,7 @@ export default {
   },
   computed: {
     ...mapState({
-      atiradores: state => state.atiradores.all.items.result
+      atiradores: state => state.atiradores.all.items
     })
   },
   created () {

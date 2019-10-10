@@ -29,20 +29,30 @@
             />
             <v-text-field
               v-model="pelotao.numeroPelotao"
-              :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
+              :rules="[v => !!v || 'O campo Número é obrigatório']"
               label="Número do Pelotão"
               required
             />
-            <v-text-field
+            <v-autocomplete
               v-model="pelotao.comandante"
-              :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
+              :items="oficiais"
+              :no-data-text="'Oficiais não foram encontrados'"
+              :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+              item-text="nome"
+              item-value="nome"
               label="Comandante"
+              placeholder="Comandante"
               required
             />
-            <v-text-field
+            <v-autocomplete
               v-model="pelotao.monitor"
-              :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
+              :items="atiradores"
+              :no-data-text="'Atiradores não foram encontrados'"
+              :rules="[v => !!v || 'O campo Monitor é obrigatório']"
+              item-text="nomeAtirador"
+              item-value="nomeAtirador"
               label="Monitor"
+              placeholder="Monitor"
               required
             />
           </v-form>
@@ -67,8 +77,7 @@
 </template>
 
 <script>
-// import { mapState, mapActions } from 'vuex'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data () {
@@ -85,12 +94,26 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      oficiais: state => state.oficiais.all.items
+    }),
+    ...mapState({
+      atiradores: state => state.atiradores.all.items
+    })
   },
   created () {
+    this.getAllOficiais()
+    this.getAllAtiradores()
   },
   methods: {
     ...mapActions('pelotoes', {
       register: 'register'
+    }),
+    ...mapActions('oficiais', {
+      getAllOficiais: 'getAll'
+    }),
+    ...mapActions('atiradores', {
+      getAllAtiradores: 'getAll'
     }),
     handleSubmit () {
       if (this.$refs.formCadastro.validate()) {

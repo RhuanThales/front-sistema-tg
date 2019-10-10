@@ -36,7 +36,10 @@
           >
             <template v-slot:item.chefeInstrucao="{ item }">
               <div v-if="item.chefeInstrucao == true">
-                <v-icon color="warning">mdi-crown</v-icon>
+                Sim
+              </div>
+              <div v-else>
+                Não
               </div>
             </template>
 
@@ -191,19 +194,18 @@ export default {
       textoPaginacao: 'Qtd por Página',
       headers: [
         { text: 'Nome', align: 'left', value: 'nome' },
-        { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
+        { text: 'Pelotão', align: 'center', value: 'numeroPelotao' },
         { text: 'Patente', align: 'left', value: 'patente' },
-        { text: 'Oficial', align: 'left', value: 'funcaoOficial' },
+        { text: 'Função', align: 'left', value: 'funcaoOficial' },
         { text: 'Chefe Instrução', align: 'center', value: 'chefeInstrucao', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ],
       patenteOptions: [
-        'A',
-        'B',
-        'C',
-        'D',
-        'E'
+        'Subtenente',
+        'Primeiro-Sargento',
+        'Segundo-Sargento',
+        'Terceiro-Sargento'
       ],
       funcaoOptions: [
         'A',
@@ -216,7 +218,7 @@ export default {
   },
   computed: {
     ...mapState({
-      oficiais: state => state.oficiais.all.items.result
+      oficiais: state => state.oficiais.all.items
     })
   },
   created () {

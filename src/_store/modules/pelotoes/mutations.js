@@ -6,7 +6,7 @@ export default {
     }
   },
   getAllSuccess (state, pelotoes) {
-    state.all = { items: pelotoes }
+    state.all = { items: pelotoes.result }
   },
   getAllFailure (state, error) {
     state.all = { error }

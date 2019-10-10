@@ -63,7 +63,7 @@ html {
   padding-bottom: 10px !important;
 }
 .caixaLogin {
-  margin-top: 100px;
+  margin-top: 150px;
   font-size: 16px;
 }
 </style>
