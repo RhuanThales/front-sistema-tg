@@ -78,7 +78,7 @@
           <v-card>
             <v-card-title class="headline">Deseja realmente excluir o Pelotão?</v-card-title>
 
-            <v-card-text>
+            <v-card-text style="font-weight: bold;">
               O Pelotão <strong>{{ nomePelotao }}</strong> será excluido permanentemente do sistema!
             </v-card-text>
 
@@ -86,7 +86,7 @@
               <div class="flex-grow-1"/>
 
               <v-btn
-                color="green darken-1"
+                color="indigo darken-4"
                 text
                 @click="deletarPelotao(idPelotao)"
               >
@@ -94,7 +94,7 @@
               </v-btn>
 
               <v-btn
-                color="red darken-1"
+                color="red darken-4"
                 text
                 @click="modalDelete = false"
               >
@@ -159,14 +159,14 @@
 
               <v-btn
                 :disabled="!valid"
-                color="primary"
+                color="indigo darken-4"
                 @click="handleSubmit()"
               >
                 Editar
               </v-btn>
 
               <v-btn
-                color="error"
+                color="red darken-4"
                 @click="modalEdit = false"
               >
                 Cancelar

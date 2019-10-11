@@ -69,7 +69,7 @@
           <v-card>
             <v-card-title class="headline">Deseja realmente excluir o atirador?</v-card-title>
 
-            <v-card-text>
+            <v-card-text style="font-weight: bold;">
               O Atirador {{ nomeAtirador }} será excluido permanentemente do sistema!
             </v-card-text>
 
@@ -77,7 +77,7 @@
               <div class="flex-grow-1"/>
 
               <v-btn
-                color="green darken-1"
+                color="indigo darken-4"
                 text
                 @click="deletarAtirador(idAtirador)"
               >
@@ -85,7 +85,7 @@
               </v-btn>
 
               <v-btn
-                color="red darken-1"
+                color="red darken-4"
                 text
                 @click="modalDelete = false"
               >
