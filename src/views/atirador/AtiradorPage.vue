@@ -26,11 +26,11 @@
           <v-data-table
             :headers="headers"
             :items="atiradores"
-            style="font-weight: bold;"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
             }"
+            style="font-weight: bold;"
             sort-by="ra"
             class="elevation-1"
           >

@@ -61,7 +61,7 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.rg.numero"
+                      v-model="atirador.registroGeral.numeroRg"
                       :rules="[v => !!v || 'O campo RG é obrigatório']"
                       label="RG"
                       required
@@ -72,7 +72,7 @@
                         sm="3"
                       >
                         <v-text-field
-                          v-model="atirador.rg.orgaoEmissor"
+                          v-model="atirador.registroGeral.orgaoEmissor"
                           :rules="[v => !!v || 'O campo é obrigatório']"
                           label="Orgao Emissor"
                           required
@@ -111,7 +111,7 @@
                         sm="6"
                       >
                         <v-text-field
-                          v-model="atirador.tituloEleitor.numero"
+                          v-model="atirador.tituloEleitor.numeroTitulo"
                           :rules="[v => !!v || 'O campo Titulo de Eleitor é obrigatório']"
                           label="Titulo Eleitor"
                           required
@@ -122,7 +122,7 @@
                         sm="6"
                       >
                         <v-text-field
-                          v-model="atirador.tituloEleitor.zona"
+                          v-model="atirador.tituloEleitor.zonaTitulo"
                           :rules="[v => !!v || 'O campo é obrigatório']"
                           label="Zona Eleitoral"
                           required
@@ -219,7 +219,7 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.endereco.numero"
+                      v-model="atirador.endereco.numeroEndereco"
                       :rules="[v => !!v || 'O campo Numero é obrigatório']"
                       label="Numero"
                       required
@@ -292,10 +292,6 @@
                     <v-text-field
                       v-model="atirador.cr"
                       label="CR"
-                    />
-                    <v-text-field
-                      v-model="atirador.numeroPelotao"
-                      label="Numero do Pelotao"
                     />
                     <v-autocomplete
                       v-model="atirador.numeroPelotao"
@@ -403,7 +399,7 @@ export default {
         endereco: {
           logradouro: '',
           bairro: '',
-          numero: 0,
+          numeroEndereco: 0,
           cep: '',
           cidade: '',
           estado: ''
@@ -411,14 +407,14 @@ export default {
         telefone: '',
         telefonePai: '',
         telefoneMae: '',
-        rg: {
+        registroGeral: {
           orgaoEmissor: '',
-          numero: ''
+          numeroRg: ''
         },
         cpf: '',
         tituloEleitor: {
-          zona: '',
-          numero: ''
+          zonaTitulo: '',
+          numeroTitulo: ''
         },
         funcao: '',
         totalPontos: 0
