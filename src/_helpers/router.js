@@ -31,9 +31,9 @@ export const router = new Router({
     { path: '/cadastrarUsuario', name: 'Cadastrar Usuário', component: CadastrarUsuarioPage },
     { path: '/editarUsuario', name: 'Editar Usuário', component: EditarUsuarioPage },
     // Pelotao
-    { path: '/pelotoes', name: 'Gerênciar Pelotoes', component: PelotaoPage },
-    { path: '/cadastrarPelotao', name: 'Cadastrar Pelotao', component: CadastrarPelotaoPage },
-    { path: '/informacaoPelotao', name: 'Detalhar Pelotao', component: DetalharPelotaoPage },
+    { path: '/pelotoes', name: 'Gerênciar Pelotões', component: PelotaoPage },
+    { path: '/cadastrarPelotao', name: 'Cadastrar Pelotão', component: CadastrarPelotaoPage },
+    { path: '/informacaoPelotao', name: 'Detalhar Pelotão', component: DetalharPelotaoPage },
     // Oficial
     { path: '/oficiais', name: 'Gerênciar Oficiais', component: OficialPage },
     { path: '/cadastrarOficial', name: 'Cadastrar Oficial', component: CadastrarOficialPage },
