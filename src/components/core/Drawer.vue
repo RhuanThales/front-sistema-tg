@@ -1,8 +1,8 @@
 <template>
   <v-navigation-drawer
-  style="background-image: url('./img/camuflado.jpg');"
     id="app-drawer"
     v-model="inputValue"
+    style="background-image: url('./img/camuflado.jpg');"
     app
     floating
     persistent
@@ -34,7 +34,6 @@
         >
           Tiro de Guerra 04-013
         </v-list>
-        
         <v-list-item-group color="light-green accent-3">
           <div
             v-for="(item, i) in links"
@@ -48,7 +47,7 @@
               </v-list-item-icon>
               <v-list-item-content >
                 <v-list-item-title
-                style="text-align:center; font-weight: bold;color:white;"
+                  style="text-align:center; font-weight: bold;color:white;"
                   class="subtitle-2"
                   v-text="item.text"
                 />

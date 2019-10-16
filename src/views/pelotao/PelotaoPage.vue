@@ -24,13 +24,13 @@
           </v-btn>
           <v-spacer/>
           <v-data-table
-          style="font-weight: bold;"
             :headers="headers"
-            :items="pelotoes"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
             }"
+            :items="pelotoes"
+            style="font-weight: bold;"
             sort-by="ra"
             class="elevation-1"
           >
