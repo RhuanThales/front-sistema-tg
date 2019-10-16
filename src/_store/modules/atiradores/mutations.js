@@ -12,6 +12,18 @@ export default {
     state.all = { error }
   },
 
+  getPorPelotaoRequest (state) {
+    state.all = {
+      items: []
+    }
+  },
+  getPorPelotaoSuccess (state, atiradores) {
+    state.all = { items: atiradores.result }
+  },
+  getPorPelotaoFailure (state, error) {
+    state.all = { error }
+  },
+
   registerRequest (state, atirador) {
     state.status = { registering: true }
   },

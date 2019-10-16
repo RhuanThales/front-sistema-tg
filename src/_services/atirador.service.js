@@ -4,6 +4,7 @@ import { userService, config } from '.'
 export const atiradorService = {
   register,
   getAll,
+  getPorPelotao,
   update,
   delete: _delete
 }
@@ -14,6 +15,14 @@ function getAll () {
     headers: authHeader()
   }
   return fetch(`${config.apiUrl}/Atirador/ObterTodos`, requestOptions).then(handleResponse)
+}
+
+function getPorPelotao (numero) {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  }
+  return fetch(`${config.apiUrl}/Atirador/ObterPelotao/${numero}`, requestOptions).then(handleResponse)
 }
 
 function register (atirador) {

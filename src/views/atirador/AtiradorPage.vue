@@ -23,9 +23,18 @@
             Novo Atirador
           </v-btn>
           <v-spacer/>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Pesquisar"
+            single-line
+            hide-details
+          />
+          <v-spacer/>
           <v-data-table
             :headers="headers"
             :items="atiradores"
+            :search="search"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
@@ -58,6 +67,13 @@
                 color="error"
                 icon="mdi-alert"
               >TEXTO!</v-alert>
+            </template>
+            <template v-slot:no-results>
+              <v-alert
+                :value="true"
+                color="error"
+                icon="mdi-alert"
+              >Não foram encontradros nunhum resultado para a pesquisa</v-alert>
             </template>
           </v-data-table>
         </material-card>
@@ -107,6 +123,7 @@ export default {
     return {
       nomeAtirador: '',
       idAtirador: '',
+      search: '',
       modalDelete: false,
       textoPaginacao: 'Qtd por Página',
       headers: [

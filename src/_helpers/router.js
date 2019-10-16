@@ -8,6 +8,7 @@ import CadastrarUsuarioPage from '../views/usuario/CadastrarUsuarioPage'
 import EditarUsuarioPage from '../views/usuario/EditarUsuarioPage'
 import PelotaoPage from '../views/pelotao/PelotaoPage'
 import CadastrarPelotaoPage from '../views/pelotao/CadastrarPelotaoPage'
+import DetalharPelotaoPage from '../views/pelotao/DetalharPelotaoPage'
 import OficialPage from '../views/oficial/OficialPage'
 import CadastrarOficialPage from '../views/oficial/CadastrarOficialPage'
 import EscalaPage from '../views/escala/EscalaPage'
@@ -32,6 +33,7 @@ export const router = new Router({
     // Pelotao
     { path: '/pelotoes', name: 'Gerênciar Pelotoes', component: PelotaoPage },
     { path: '/cadastrarPelotao', name: 'Cadastrar Pelotao', component: CadastrarPelotaoPage },
+    { path: '/informacaoPelotao', name: 'Detalhar Pelotao', component: DetalharPelotaoPage },
     // Oficial
     { path: '/oficiais', name: 'Gerênciar Oficiais', component: OficialPage },
     { path: '/cadastrarOficial', name: 'Cadastrar Oficial', component: CadastrarOficialPage },
