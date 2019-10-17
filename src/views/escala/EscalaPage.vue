@@ -34,10 +34,6 @@
             sort-by="nome"
             class="elevation-1"
           >
-            <template v-slot:item.dia="{ item }">
-              {{ moment(item.dia).format('DD/MM/YYYY') }}
-            </template>
-
             <template v-slot:item.detail="{ item }">
               <v-btn
                 color="success"
@@ -123,9 +119,7 @@ export default {
       textoPaginacao: 'Qtd por Página',
       headers: [
         { text: 'Número Escala', align: 'left', value: 'numeroEscala' },
-        { text: 'Instrutor', align: 'left', value: 'instrutorDia' },
-        { text: 'Comandante', align: 'left', value: 'comandanteGuarda' },
-        { text: 'Data', align: 'left', value: 'dia' },
+        { text: 'Instrutor', align: 'left', value: 'instrutorSemana' },
         { text: 'Detalhar', align: 'center', value: 'detail', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }

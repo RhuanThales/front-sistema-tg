@@ -31,7 +31,7 @@ function update (escala) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     body: JSON.stringify(escala)
   }
-  return fetch(`${config.apiUrl}/Escala/Atualizar/${escala.id}`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Escala/Atualizar/${escala.idEscala}`, requestOptions).then(handleResponse)
 }
 
 function _delete (id) {

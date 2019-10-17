@@ -314,9 +314,10 @@
                       v-model="atirador.naturalidadeCR"
                       label="Naturalidade CR"
                     />
-                    <v-text-field
+                    <v-select
                       v-model="atirador.funcao"
-                      label="Funcao"
+                      :items="funcaoOptions"
+                      label="Função"
                     />
                     <v-checkbox
                       v-model="atirador.voluntario"
@@ -437,6 +438,9 @@ export default {
         'Ensino Médio Completo',
         'Ensino Superior Incompleto',
         'Ensino Superior Completo'
+      ],
+      funcaoOptions: [
+        'Monitor'
       ],
       rgMask: '##.###.###-#',
       cpfMask: '###.###.###-##',
