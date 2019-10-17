@@ -6,7 +6,7 @@ export default {
     }
   },
   getAllSuccess (state, escalas) {
-    state.all = { items: escalas }
+    state.all = { items: escalas.result }
   },
   getAllFailure (state, error) {
     state.all = { error }
@@ -23,21 +23,18 @@ export default {
   },
 
   deleteRequest (state, id) {
-    // add 'deleting:true' property to user being deleted
-    state.all.items.result = state.all.items.result.map(
-      escala => (escala.id === id ? { ...escala, deleting: true } : escala)
+    state.all.items = state.all.items.map(
+      escala => (escala.idEscala === id ? { ...escala, deleting: true } : escala)
     )
   },
   deleteSuccess (state, id) {
-    // remove deleted user from state
-    state.all.items.result = state.all.items.result.filter(escala => escala.id !== id)
+    state.all.items = state.all.items.filter(escala => escala.idEscala !== id)
   },
   deleteFailure (state, { id, error }) {
-    state.all.items.result = state.items.result.map(escala => {
-      if (escala.id === id) {
-        // make copy of user without 'deleting:true' property
+    console.log('Deu ruim => ' + error)
+    state.all.items = state.items.map(escala => {
+      if (escala.idEscala === id) {
         const { deleting, ...escalaCopy } = escala
-        // return copy of user with 'deleteError:[error]' property
         return { ...escalaCopy, deleteError: error }
       }
       return escala

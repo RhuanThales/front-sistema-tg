@@ -1,17 +1,21 @@
 import { router } from '../../../_helpers'
 
 export default {
-  getPelotao (state, escala) {
+  getEscala (state, escala) {
     state.escalaEdit = escala
-    router.push('/editarPelotao')
+    router.push('/editarEscala')
+  },
+  getEscalaInfos (state, escala) {
+    state.escalaEdit = escala
+    router.push('/informacaoEscala')
   },
   updateRequest (state, escala) {
     state.status = { registering: true }
   },
   updateSuccess (state, escala) {
-    state.status = {}
+    state.status = { escala }
   },
-  updateFailure (state, escala) {
-    state.status = {}
+  updateFailure (state, error) {
+    state.status = { error }
   }
 }

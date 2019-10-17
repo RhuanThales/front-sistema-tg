@@ -34,16 +34,16 @@ export default {
 
   deleteRequest (state, id) {
     // add 'deleting:true' property to user being deleted
-    state.all.items.result = state.all.items.result.map(
+    state.all.items = state.all.items.map(
       oficial => (oficial.idOficial === id ? { ...oficial, deleting: true } : oficial)
     )
   },
   deleteSuccess (state, id) {
     // remove deleted user from state
-    state.all.items.result = state.all.items.result.filter(oficial => oficial.idOficial !== id)
+    state.all.items = state.all.items.filter(oficial => oficial.idOficial !== id)
   },
   deleteFailure (state, { id, error }) {
-    state.all.items.result = state.items.result.map(oficial => {
+    state.all.items = state.items.map(oficial => {
       if (oficial.idOficial === id) {
         // make copy of user without 'deleting:true' property
         const { deleting, ...oficialCopy } = oficial
