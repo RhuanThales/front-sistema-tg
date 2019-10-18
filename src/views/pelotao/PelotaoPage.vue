@@ -24,20 +24,20 @@
           </v-btn>
           <v-spacer/>
           <v-data-table
-          style="font-weight: bold;"
             :headers="headers"
-            :items="pelotoes"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
             }"
+            :items="pelotoes"
+            style="font-weight: bold;"
             sort-by="ra"
             class="elevation-1"
           >
             <template v-slot:item.detail="{ item }">
               <v-btn
                 color="success"
-                @click="openPageDetail(item)"
+                @click="openPageDetail(item.numeroPelotao)"
               >
                 Detalhar
               </v-btn>
@@ -245,8 +245,10 @@ export default {
         this.$refs.formEdit.reset()
       }
     },
-    openPageDetail () {
-      console.log('Testando!')
+    openPageDetail (numero) {
+      console.log('Número do Pelotão => ' + numero)
+      localStorage.setItem('numeroPelotao', numero)
+      this.$router.push('/informacaoPelotao')
     },
     openModalEdit (pelotao) {
       // eslint-disable-next-line no-sequences

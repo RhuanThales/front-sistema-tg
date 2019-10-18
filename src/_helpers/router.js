@@ -8,11 +8,13 @@ import CadastrarUsuarioPage from '../views/usuario/CadastrarUsuarioPage'
 import EditarUsuarioPage from '../views/usuario/EditarUsuarioPage'
 import PelotaoPage from '../views/pelotao/PelotaoPage'
 import CadastrarPelotaoPage from '../views/pelotao/CadastrarPelotaoPage'
+import DetalharPelotaoPage from '../views/pelotao/DetalharPelotaoPage'
 import OficialPage from '../views/oficial/OficialPage'
 import CadastrarOficialPage from '../views/oficial/CadastrarOficialPage'
 import EscalaPage from '../views/escala/EscalaPage'
 import CadastrarEscalaPage from '../views/escala/CadastrarEscalaPage'
 import EditarEscalaPage from '../views/escala/EditarEscalaPage'
+import DetalharEscalaPage from '../views/escala/DetalharEscalaPage'
 import AtiradorPage from '../views/atirador/AtiradorPage'
 import CadastrarAtiradorPage from '../views/atirador/CadastrarAtiradorPage'
 import EditarAtiradorPage from '../views/atirador/EditarAtiradorPage'
@@ -30,8 +32,9 @@ export const router = new Router({
     { path: '/cadastrarUsuario', name: 'Cadastrar Usuário', component: CadastrarUsuarioPage },
     { path: '/editarUsuario', name: 'Editar Usuário', component: EditarUsuarioPage },
     // Pelotao
-    { path: '/pelotoes', name: 'Gerênciar Pelotoes', component: PelotaoPage },
-    { path: '/cadastrarPelotao', name: 'Cadastrar Pelotao', component: CadastrarPelotaoPage },
+    { path: '/pelotoes', name: 'Gerênciar Pelotões', component: PelotaoPage },
+    { path: '/cadastrarPelotao', name: 'Cadastrar Pelotão', component: CadastrarPelotaoPage },
+    { path: '/informacaoPelotao', name: 'Detalhes do Pelotão', component: DetalharPelotaoPage },
     // Oficial
     { path: '/oficiais', name: 'Gerênciar Oficiais', component: OficialPage },
     { path: '/cadastrarOficial', name: 'Cadastrar Oficial', component: CadastrarOficialPage },
@@ -39,6 +42,7 @@ export const router = new Router({
     { path: '/escalas', name: 'Gerênciar Escalas', component: EscalaPage },
     { path: '/cadastrarEscala', name: 'Cadastrar Escala', component: CadastrarEscalaPage },
     { path: '/editarEscala', name: 'Editar Escala', component: EditarEscalaPage },
+    { path: '/informacaoEscala', name: 'Detalhes da Escala', component: DetalharEscalaPage },
     // Atirador
     { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
     { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },

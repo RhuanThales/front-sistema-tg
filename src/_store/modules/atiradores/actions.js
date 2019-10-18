@@ -11,6 +11,14 @@ export default {
     )
   },
 
+  getPorPelotao ({ commit }, numero) {
+    commit('getPorPelotaoRequest')
+    atiradorService.getPorPelotao(numero).then(
+      pelotoes => commit('getPorPelotaoSuccess', pelotoes),
+      error => commit('getPorPelotaoFailure', error)
+    )
+  },
+
   register ({ dispatch, commit }, atirador) {
     commit('registerRequest', atirador)
     atiradorService.register(atirador).then(

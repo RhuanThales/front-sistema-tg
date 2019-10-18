@@ -12,6 +12,18 @@ export default {
     state.all = { error }
   },
 
+  getPorPelotaoRequest (state) {
+    state.all = {
+      items: []
+    }
+  },
+  getPorPelotaoSuccess (state, atiradores) {
+    state.all = { items: atiradores.result }
+  },
+  getPorPelotaoFailure (state, error) {
+    state.all = { error }
+  },
+
   registerRequest (state, atirador) {
     state.status = { registering: true }
   },
@@ -24,16 +36,16 @@ export default {
 
   deleteRequest (state, id) {
     // add 'deleting:true' property to user being deleted
-    state.all.items.result = state.all.items.result.map(
+    state.all.items = state.all.items.map(
       atirador => (atirador.idAtirador === id ? { ...atirador, deleting: true } : atirador)
     )
   },
   deleteSuccess (state, id) {
     // remove deleted user from state
-    state.all.items.result = state.all.items.result.filter(atirador => atirador.idAtirador !== id)
+    state.all.items = state.all.items.filter(atirador => atirador.idAtirador !== id)
   },
   deleteFailure (state, { id, error }) {
-    state.all.items.result = state.items.result.map(atirador => {
+    state.all.items = state.items.map(atirador => {
       if (atirador.idAtirador === id) {
         // make copy of user without 'deleting:true' property
         const { deleting, ...atiradorCopy } = atirador

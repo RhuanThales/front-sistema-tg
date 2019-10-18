@@ -23,13 +23,13 @@
           </v-btn>
           <v-spacer/>
           <v-data-table
-            style="font-weight: bold;"
-            :headers="headers"
-            :items="usuarios"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
             }"
+            :items="usuarios"
+            :headers="headers"
+            style="font-weight: bold;"
             sort-by="nome"
             class="elevation-1"
           >

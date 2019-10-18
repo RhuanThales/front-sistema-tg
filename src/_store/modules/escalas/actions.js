@@ -32,7 +32,7 @@ export default {
     commit('deleteRequest', id)
     escalaService.delete(id).then(
       escala => commit('deleteSuccess', id),
-      error => commit('deleteSuccess', { id, error: error.toString() })
+      error => commit('deleteFailure', { id, error: error.toString() })
     )
   }
 }

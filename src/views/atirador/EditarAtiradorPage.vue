@@ -65,7 +65,7 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.rg.numero"
+                      v-model="atirador.registroGeral.numeroRg"
                       :rules="[v => !!v || 'O campo RG é obrigatório']"
                       label="RG"
                       required
@@ -76,7 +76,7 @@
                         sm="3"
                       >
                         <v-text-field
-                          v-model="atirador.rg.orgaoEmissor"
+                          v-model="atirador.registroGeral.orgaoEmissor"
                           :rules="[v => !!v || 'O campo é obrigatório']"
                           label="Orgao Emissor"
                           required
@@ -115,7 +115,7 @@
                         sm="6"
                       >
                         <v-text-field
-                          v-model="atirador.tituloEleitor.numero"
+                          v-model="atirador.tituloEleitor.numeroTitulo"
                           :rules="[v => !!v || 'O campo Titulo de Eleitor é obrigatório']"
                           label="Titulo Eleitor"
                           required
@@ -126,7 +126,7 @@
                         sm="6"
                       >
                         <v-text-field
-                          v-model="atirador.tituloEleitor.zona"
+                          v-model="atirador.tituloEleitor.zonaTitulo"
                           :rules="[v => !!v || 'O campo é obrigatório']"
                           label="Zona Eleitoral"
                           required
@@ -225,7 +225,7 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.endereco.numero"
+                      v-model="atirador.endereco.numeroEndereco"
                       :rules="[v => !!v || 'O campo Numero é obrigatório']"
                       label="Numero"
                       required
@@ -320,9 +320,10 @@
                       v-model="atirador.naturalidadeCR"
                       label="Naturalidade CR"
                     />
-                    <v-text-field
+                    <v-select
                       v-model="atirador.funcao"
-                      label="Funcao"
+                      :items="funcaoOptions"
+                      label="Função"
                     />
                     <v-checkbox
                       v-model="atirador.voluntario"
@@ -406,7 +407,7 @@ export default {
         endereco: {
           logradouro: this.$store.state.editAtirador.atiradorEdit.endereco.logradouro,
           bairro: this.$store.state.editAtirador.atiradorEdit.endereco.bairro,
-          numero: this.$store.state.editAtirador.atiradorEdit.endereco.numero,
+          numeroEndereco: this.$store.state.editAtirador.atiradorEdit.endereco.numeroEndereco,
           cep: this.$store.state.editAtirador.atiradorEdit.endereco.cep,
           cidade: this.$store.state.editAtirador.atiradorEdit.endereco.cidade,
           estado: this.$store.state.editAtirador.atiradorEdit.endereco.estado
@@ -414,14 +415,14 @@ export default {
         telefone: this.$store.state.editAtirador.atiradorEdit.telefone,
         telefonePai: this.$store.state.editAtirador.atiradorEdit.telefonePai,
         telefoneMae: this.$store.state.editAtirador.atiradorEdit.telefoneMae,
-        rg: {
-          orgaoEmissor: this.$store.state.editAtirador.atiradorEdit.rg.orgaoEmissor,
-          numero: this.$store.state.editAtirador.atiradorEdit.rg.numero
+        registroGeral: {
+          orgaoEmissor: this.$store.state.editAtirador.atiradorEdit.registroGeral.orgaoEmissor,
+          numeroRg: this.$store.state.editAtirador.atiradorEdit.registroGeral.numeroRg
         },
         cpf: this.$store.state.editAtirador.atiradorEdit.cpf,
         tituloEleitor: {
-          zona: this.$store.state.editAtirador.atiradorEdit.tituloEleitor.zona,
-          numero: this.$store.state.editAtirador.atiradorEdit.tituloEleitor.numero
+          zonaTitulo: this.$store.state.editAtirador.atiradorEdit.tituloEleitor.zonaTitulo,
+          numeroTitulo: this.$store.state.editAtirador.atiradorEdit.tituloEleitor.numeroTitulo
         },
         funcao: this.$store.state.editAtirador.atiradorEdit.funcao,
         totalPontos: this.$store.state.editAtirador.atiradorEdit.totalPontos
@@ -444,6 +445,9 @@ export default {
         'Ensino Médio Completo',
         'Ensino Superior Incompleto',
         'Ensino Superior Completo'
+      ],
+      funcaoOptions: [
+        'Monitor'
       ],
       rgMask: '##.###.###-#',
       cpfMask: '###.###.###-##',
