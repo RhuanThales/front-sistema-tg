@@ -161,8 +161,11 @@
                       :items="escolaridadeOptions"
                       label="Escolaridade"
                     />
+                    <v-switch
+                      v-model="atirador.statusAtirador"
+                      label="Status"
+                    />
                   </v-form>
-
                 </v-card>
 
                 <v-btn
@@ -425,7 +428,9 @@ export default {
           numeroTitulo: this.$store.state.editAtirador.atiradorEdit.tituloEleitor.numeroTitulo
         },
         funcao: this.$store.state.editAtirador.atiradorEdit.funcao,
-        totalPontos: this.$store.state.editAtirador.atiradorEdit.totalPontos
+        statusAtirador: this.$store.state.editAtirador.atiradorEdit.statusAtirador,
+        totalPontos: this.$store.state.editAtirador.atiradorEdit.totalPontos,
+        totalHoras: this.$store.state.editAtirador.atiradorEdit.totalHoras
       },
       vCpf: true,
       snackbarCpf: false,

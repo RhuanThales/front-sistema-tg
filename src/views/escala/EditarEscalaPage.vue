@@ -82,7 +82,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -96,7 +96,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -114,7 +114,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -167,7 +167,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -181,7 +181,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -199,7 +199,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -259,7 +259,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -273,7 +273,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -291,7 +291,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -351,7 +351,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -365,7 +365,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -383,7 +383,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -443,7 +443,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -457,7 +457,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -475,7 +475,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -535,7 +535,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -549,7 +549,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -567,7 +567,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -627,7 +627,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Permanencia Manha é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -641,7 +641,7 @@
                       :rules="[v => !!v || 'O campo Permanencia Tarde é obrigatório']"
                       label="Permanencia Tarde"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple
@@ -659,7 +659,7 @@
                       :no-data-text="'Atiradores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Guardas é obrigatório']"
                       item-text="nomeGuerra"
-                      item-value="nomeAtirador"
+                      item-value="nomeGuerra"
                       chips
                       small-chips
                       multiple

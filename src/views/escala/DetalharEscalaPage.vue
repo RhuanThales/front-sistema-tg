@@ -24,11 +24,11 @@
         </div>
         <!---->
         <div class="printing">
-          <img
+          <!-- <img
             src="../../../public/img/logo-tg.png"
             alt="Logo"
             class="logo-tiroGuerra"
-          >
+          > -->
           <h6 style="text-align:center">MINISTÉRIO DA DEFESA</h6>
           <h6 style="text-align:center">EXÉRCITO BRASILEIRO</h6>
           <h6 style="text-align:center">TIRO DE GUERRA 04-013 - PATOS DE MINAS</h6>
@@ -38,7 +38,7 @@
           <h6 style="text-align:center;">Segunda-Feira {{ escala.segunda.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
@@ -89,7 +89,7 @@
           <h6 style="text-align:center;">Terça-Feira {{ escala.terca.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
@@ -120,7 +120,7 @@
           <h6 style="text-align:center;">Quarta-Feira {{ escala.quarta.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
@@ -151,7 +151,7 @@
           <h6 style="text-align:center;">Quinta-Feira {{ escala.quinta.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
@@ -182,7 +182,7 @@
           <h6 style="text-align:center;">Sexta-Feira {{ escala.sexta.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
@@ -213,7 +213,7 @@
           <h6 style="text-align:center;">Sábado {{ escala.sabado.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: red;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
@@ -251,7 +251,7 @@
           <h6 style="text-align:center;">Domingo {{ escala.domingo.dia }}</h6>
           <hr>
           <div>
-            <table style="border: 1px solid black; border-collapse: collapse; width: 100%;S">
+            <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: red;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>

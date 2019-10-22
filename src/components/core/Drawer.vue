@@ -102,6 +102,16 @@ export default {
         to: '/escalas',
         icon: 'mdi-star',
         text: 'Escalas'
+      },
+      {
+        to: '/chamadas',
+        icon: 'mdi-star',
+        text: 'Chamada'
+      },
+      {
+        to: '/registrarChamada',
+        icon: 'mdi-star',
+        text: 'Registro de Chamada'
       }
     ],
     responsive: false

@@ -418,7 +418,9 @@ export default {
           numeroTitulo: ''
         },
         funcao: '',
-        totalPontos: 0
+        statusAtirador: false,
+        totalPontos: 0,
+        totalHoras: 0
       },
       vCpf: true,
       snackbarCpf: false,
