@@ -48,12 +48,10 @@
               v-model="pelotao.monitor"
               :items="atiradores"
               :no-data-text="'Atiradores não foram encontrados'"
-              :rules="[v => !!v || 'O campo Monitor é obrigatório']"
               item-text="nomeAtirador"
               item-value="nomeAtirador"
               label="Monitor"
               placeholder="Monitor"
-              required
             />
           </v-form>
           <v-btn
