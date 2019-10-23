@@ -15,7 +15,7 @@
         :color="color"
         :class="`elevation-${elevation}`"
         class="v-card--material__header"
-        style="background-image: url('./img/camuflado.jpg');background-repeat:no-repeat; background-size:100%;"
+        style="background-image: url('./img/camuflado.jpg');background-repeat:no-repeat; background-size:100%; text-align: center;"
       >
         <slot
           v-if="!title && !text"
