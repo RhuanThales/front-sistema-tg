@@ -140,15 +140,6 @@
                   placeholder="Comandante"
                   required
                 />
-                <v-autocomplete
-                  v-model="pelotaoEdit.monitor"
-                  :items="atiradores"
-                  :no-data-text="'Atiradores não foram encontrados'"
-                  item-text="nomeAtirador"
-                  item-value="nomeAtirador"
-                  label="Monitor"
-                  placeholder="Monitor"
-                />
               </v-form>
             </v-card-text>
 
@@ -190,8 +181,7 @@ export default {
         idPelotao: '',
         nomePelotao: '',
         numeroPelotao: 0,
-        comandante: '',
-        monitor: ''
+        comandante: ''
       },
       modalEdit: false,
       modalDelete: false,
@@ -200,7 +190,6 @@ export default {
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Nome', align: 'left', value: 'nomePelotao' },
         { text: 'Comandante', align: 'left', value: 'comandante' },
-        { text: 'Monitor', align: 'left', value: 'monitor' },
         { text: 'Detalhar', align: 'center', value: 'detail', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }

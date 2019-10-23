@@ -44,15 +44,6 @@
               placeholder="Comandante"
               required
             />
-            <v-autocomplete
-              v-model="pelotao.monitor"
-              :items="atiradores"
-              :no-data-text="'Atiradores não foram encontrados'"
-              item-text="nomeAtirador"
-              item-value="nomeAtirador"
-              label="Monitor"
-              placeholder="Monitor"
-            />
           </v-form>
           <v-btn
             :disabled="!valid"
@@ -85,8 +76,7 @@ export default {
       pelotao: {
         nomePelotao: '',
         numeroPelotao: 0,
-        comandante: '',
-        monitor: ''
+        comandante: ''
       },
       checkbox: false
     }
