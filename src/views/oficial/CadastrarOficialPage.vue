@@ -29,9 +29,7 @@
             />
             <v-text-field
               v-model="oficial.numeroPelotao"
-              :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
               label="Pelotão"
-              required
             />
             <v-select
               v-model="oficial.patente"
@@ -44,7 +42,7 @@
               :items="funcaoOptions"
               label="Função"
             />
-            <v-checkbox
+            <v-switch
               v-model="oficial.chefeInstrucao"
               label="Chefe de Instrução"
             />

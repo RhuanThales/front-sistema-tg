@@ -42,7 +42,47 @@
               @change="buscarAtiradores()"
             />
 
-            <div v-show="showAtiradores">{{ atiradores }}</div>
+            <div
+              v-show="showAtiradores"
+            >
+              <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+                <tr>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Presença</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Falta</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Justificado</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Atiradores</th>
+                </tr>
+                <tr
+                  v-for="ati in atiradores"
+                  :key="ati.id"
+                >
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: center; width: 40px !important;">
+                    <v-checkbox
+                      v-model="chamada.atiradoresPresentes"
+                      :value="ati.nomeGuerra"
+                      style="margin-top: 0px; height: 30px !important;"
+                    />
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 40px !important;">
+                    <v-checkbox
+                      v-model="chamada.atiradoresFaltosos"
+                      :value="ati.nomeGuerra"
+                      style="margin-top: 0px; height: 30px !important;"
+                    />
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 40px !important;">
+                    <v-checkbox
+                      v-model="chamada.atiradoresJustificados"
+                      :value="ati.nomeGuerra"
+                      style="margin-top: 0px; height: 30px !important;"
+                    />
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px;">
+                    {{ ati.numeroAtirador }} - {{ ati.nomeGuerra }}
+                  </td>
+                </tr>
+              </table>
+            </div>
 
             <v-btn
               :disabled="!valid"
@@ -79,7 +119,8 @@ export default {
         horarioChamada: '',
         usuario: '',
         atiradoresPresentes: [],
-        atiradoresFaltosos: []
+        atiradoresFaltosos: [],
+        atiradoresJustificados: []
       }
     }
   },
@@ -118,7 +159,19 @@ export default {
     },
     buscarAtiradores () {
       this.getAtiradoresPorPelotao(this.chamada.numeroPelotao)
+      this.chamada.atiradoresPresentes = []
+      this.chamada.atiradoresFaltosos = []
+      this.chamada.atiradoresJustificados = []
       this.showAtiradores = true
+    },
+    selecionarTodos () {
+      /* console.log('Atiradores => ' + JSON.stringify(this.atiradores))
+
+      let newArray = []
+
+      for (let i = 0; i < 99; i++) {
+        newArray.push(this.atiradores[i].nomeGuerra)
+      } */
     },
     criarListaDatas () {
       const options = {
@@ -144,7 +197,9 @@ export default {
         qtd = 30
       }
 
-      for (let i = 1; i < qtd; i++) {
+      let diaAtual = data.getDate()
+
+      for (let i = diaAtual; i < qtd; i++) {
         if (i < 10) {
           this.dataOptions.push('0' + i + '/' + (data.getMonth() + 1) + '/' + data.getFullYear())
         } else {

@@ -31,7 +31,7 @@
             :headers="headers"
             :items="oficiais"
             style="font-weight: bold;"
-            sort-by="ra"
+            sort-by="numeroPelotao"
             class="elevation-1"
           >
             <template v-slot:item.chefeInstrucao="{ item }">
@@ -125,9 +125,7 @@
                 />
                 <v-text-field
                   v-model="oficialEdit.numeroPelotao"
-                  :rules="[v => !!v || 'O campo Pelotão é obrigatório']"
                   label="Pelotão"
-                  required
                 />
                 <v-select
                   v-model="oficialEdit.patente"
@@ -193,8 +191,8 @@ export default {
       modalDelete: false,
       textoPaginacao: 'Qtd por Página',
       headers: [
+        { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Nome', align: 'left', value: 'nome' },
-        { text: 'Pelotão', align: 'center', value: 'numeroPelotao' },
         { text: 'Patente', align: 'left', value: 'patente' },
         { text: 'Função', align: 'left', value: 'funcaoOficial' },
         { text: 'Chefe Instrução', align: 'center', value: 'chefeInstrucao', sortable: false },
@@ -241,12 +239,12 @@ export default {
     openModalEdit (oficial) {
       // eslint-disable-next-line no-sequences
       // eslint-disable-next-line no-unused-expressions
-      this.modalEdit = true,
-      this.oficialEdit.idOficial = oficial.idOficial,
-      this.oficialEdit.nome = oficial.nome,
-      this.oficialEdit.numeroPelotao = oficial.numeroPelotao,
-      this.oficialEdit.patente = oficial.patente,
-      this.oficialEdit.funcaoOficial = oficial.funcaoOficial,
+      this.modalEdit = true
+      this.oficialEdit.idOficial = oficial.idOficial
+      this.oficialEdit.nome = oficial.nome
+      this.oficialEdit.numeroPelotao = oficial.numeroPelotao
+      this.oficialEdit.patente = oficial.patente
+      this.oficialEdit.funcaoOficial = oficial.funcaoOficial
       this.oficialEdit.chefeInstrucao = oficial.chefeInstrucao
     },
     openModalDelete (nome, id) {

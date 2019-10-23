@@ -12,6 +12,12 @@
         sm12
         xs12
       >
+        <v-btn
+          color="error"
+          to="/pelotoes"
+        >
+          Voltar
+        </v-btn>
         <material-card
           title="Atiradores do Pelotão"
         >

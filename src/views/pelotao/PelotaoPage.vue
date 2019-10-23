@@ -31,7 +31,7 @@
             }"
             :items="pelotoes"
             style="font-weight: bold;"
-            sort-by="ra"
+            sort-by="numeroPelotao"
             class="elevation-1"
           >
             <template v-slot:item.detail="{ item }">
@@ -197,8 +197,8 @@ export default {
       modalDelete: false,
       textoPaginacao: 'Qtd por Página',
       headers: [
-        { text: 'Nome', align: 'left', value: 'nomePelotao' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
+        { text: 'Nome', align: 'left', value: 'nomePelotao' },
         { text: 'Comandante', align: 'left', value: 'comandante' },
         { text: 'Monitor', align: 'left', value: 'monitor' },
         { text: 'Detalhar', align: 'center', value: 'detail', sortable: false },
@@ -251,12 +251,12 @@ export default {
     openModalEdit (pelotao) {
       // eslint-disable-next-line no-sequences
       // eslint-disable-next-line no-unused-expressions
-      this.modalEdit = true,
-      this.pelotaoEdit.idPelotao = pelotao.idPelotao,
-      this.pelotaoEdit.nomePelotao = pelotao.nomePelotao,
-      this.pelotaoEdit.numeroPelotao = pelotao.numeroPelotao,
-      this.pelotaoEdit.numeroPelotao = pelotao.numeroPelotao,
-      this.pelotaoEdit.comandante = pelotao.comandante,
+      this.modalEdit = true
+      this.pelotaoEdit.idPelotao = pelotao.idPelotao
+      this.pelotaoEdit.nomePelotao = pelotao.nomePelotao
+      this.pelotaoEdit.numeroPelotao = pelotao.numeroPelotao
+      this.pelotaoEdit.numeroPelotao = pelotao.numeroPelotao
+      this.pelotaoEdit.comandante = pelotao.comandante
       this.pelotaoEdit.monitor = pelotao.monitor
     },
     openModalDelete (nome, id) {
