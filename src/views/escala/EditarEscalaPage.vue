@@ -680,7 +680,7 @@
                       class="mr-4"
                       @click="handleSubmit"
                     >
-                      Cadastrar
+                      Editar
                     </v-btn>
                     <v-btn
                       :disabled="!valid"

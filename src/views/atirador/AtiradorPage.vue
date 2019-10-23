@@ -40,7 +40,7 @@
               itemsPerPageText: 'Qtd por Página'
             }"
             style="font-weight: bold;"
-            sort-by="ra"
+            sort-by="numeroAtirador"
             class="elevation-1"
           >
             <template v-slot:item.edit="{ item }">
@@ -55,7 +55,7 @@
             <template v-slot:item.delete="{ item }">
               <v-btn
                 color="red darken-4"
-                @click="openModalDelete(item.nomeAtirador, item.idAtirador)"
+                @click="openModalDelete(item.nomeGuerra, item.idAtirador)"
               >
                 Excluir
               </v-btn>
@@ -127,11 +127,10 @@ export default {
       modalDelete: false,
       textoPaginacao: 'Qtd por Página',
       headers: [
-        { text: 'CR', align: 'left', value: 'cr' },
-        { text: 'Nome', align: 'left', value: 'nomeAtirador' },
+        { text: 'Número', align: 'left', value: 'numeroAtirador' },
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
-        { text: 'Número', align: 'left', value: 'numeroAtirador' },
+        { text: 'Faltas', align: 'left', value: 'totalPontos'},
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]

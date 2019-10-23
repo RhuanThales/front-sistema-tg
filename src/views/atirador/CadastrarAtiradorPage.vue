@@ -319,8 +319,8 @@
                       :items="funcaoOptions"
                       label="Função"
                     />
-                    <v-checkbox
-                      v-model="atirador.voluntario"
+                    <v-switch
+                      v-model="atirador.volutario"
                       label="Voluntario"
                     />
                   </v-form>
@@ -391,7 +391,7 @@ export default {
         numeroAtirador: 0,
         religiao: '',
         escolaridade: '',
-        voluntario: false,
+        volutario: false,
         dataNascimento: Date,
         naturalidade: '',
         naturalidadeCR: '',
@@ -419,8 +419,15 @@ export default {
         },
         funcao: '',
         statusAtirador: false,
+        pontosJustificados: 0,
+        pontosNaoJustificados: 0,
         totalPontos: 0,
-        totalHoras: 0
+        horasCfc: 0,
+        horasInstrucao: 0,
+        horasExtras: 0,
+        horasServico: 0,
+        totalHoras: 0,
+        totalDias: 0
       },
       vCpf: true,
       snackbarCpf: false,

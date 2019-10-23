@@ -329,7 +329,7 @@
                       label="Função"
                     />
                     <v-checkbox
-                      v-model="atirador.voluntario"
+                      v-model="atirador.volutario"
                       label="Voluntario"
                     />
                   </v-form>
@@ -401,7 +401,7 @@ export default {
         numeroAtirador: this.$store.state.editAtirador.atiradorEdit.numeroAtirador,
         religiao: this.$store.state.editAtirador.atiradorEdit.religiao,
         escolaridade: this.$store.state.editAtirador.atiradorEdit.escolaridade,
-        voluntario: this.$store.state.editAtirador.atiradorEdit.voluntario,
+        volutario: this.$store.state.editAtirador.atiradorEdit.volutario,
         dataNascimento: this.formatarData(this.$store.state.editAtirador.atiradorEdit.dataNascimento),
         naturalidade: this.$store.state.editAtirador.atiradorEdit.naturalidade,
         naturalidadeCR: this.$store.state.editAtirador.atiradorEdit.naturalidadeCR,
@@ -429,8 +429,17 @@ export default {
         },
         funcao: this.$store.state.editAtirador.atiradorEdit.funcao,
         statusAtirador: this.$store.state.editAtirador.atiradorEdit.statusAtirador,
+        pontosJustificados: this.$store.state.editAtirador.atiradorEdit.pontosJustificados,
+        pontosNaoJustificados: this.$store.state.editAtirador.atiradorEdit.pontosNaoJustificados,
         totalPontos: this.$store.state.editAtirador.atiradorEdit.totalPontos,
-        totalHoras: this.$store.state.editAtirador.atiradorEdit.totalHoras
+        horasCfc: this.$store.state.editAtirador.atiradorEdit.horasCfc,
+        horasInstrucao: this.$store.state.editAtirador.atiradorEdit.horasInstrucao,
+        horasExtras: this.$store.state.editAtirador.atiradorEdit.horasExtras,
+        horasServico: this.$store.state.editAtirador.atiradorEdit.horasServico,
+        totalHoras: this.$store.state.editAtirador.atiradorEdit.totalHoras,
+        totalDias: this.$store.state.editAtirador.atiradorEdit.totalDias
+        
+        
       },
       vCpf: true,
       snackbarCpf: false,
