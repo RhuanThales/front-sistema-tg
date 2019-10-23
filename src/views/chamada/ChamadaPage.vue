@@ -13,40 +13,30 @@
         xs12
       >
         <material-card
-          title="Atiradores"
+          title="Chamadas Realizadas"
         >
-          <v-spacer/>
-          <v-btn
+          <!-- <v-btn
             color="grey darken-2"
-            to="/cadastrarAtirador"
+            to="/registrarChamada"
           >
-            Novo Atirador
-          </v-btn>
-          <v-spacer/>
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Pesquisar"
-            single-line
-            hide-details
-          />
+            Registrar Chamada
+          </v-btn> -->
           <v-spacer/>
           <v-data-table
             :headers="headers"
-            :items="atiradores"
-            :search="search"
+            :items="chamadas"
             :footer-props="{
               showFirstLastPage: true,
               itemsPerPageText: 'Qtd por Página'
             }"
             style="font-weight: bold;"
-            sort-by="numeroAtirador"
+            sort-by="ra"
             class="elevation-1"
           >
             <template v-slot:item.edit="{ item }">
               <v-btn
                 color="indigo darken-4"
-                @click="getAtiradorEditar(item)"
+                @click="getChamadaEditar(item)"
               >
                 Editar
               </v-btn>
@@ -55,7 +45,7 @@
             <template v-slot:item.delete="{ item }">
               <v-btn
                 color="red darken-4"
-                @click="openModalDelete(item.nomeGuerra, item.idAtirador)"
+                @click="openModalDelete(item.idChamada)"
               >
                 Excluir
               </v-btn>
@@ -77,31 +67,30 @@
             </template>
           </v-data-table>
         </material-card>
-
         <v-dialog
           v-model="modalDelete"
           max-width="350"
         >
           <v-card>
-            <v-card-title class="headline">Deseja realmente excluir o atirador?</v-card-title>
+            <v-card-title class="headline">Deseja realmente excluir a chamada?</v-card-title>
 
-            <v-card-text style="font-weight: bold;">
-              O Atirador {{ nomeAtirador }} será excluido permanentemente do sistema!
+            <v-card-text>
+              A chamada será excluida permanentemente do sistema!
             </v-card-text>
 
             <v-card-actions>
               <div class="flex-grow-1"/>
 
               <v-btn
-                color="indigo darken-4"
+                color="green darken-1"
                 text
-                @click="deletarAtirador(idAtirador)"
+                @click="deletarChamada(idChamada)"
               >
                 Confirmar
               </v-btn>
 
               <v-btn
-                color="red darken-4"
+                color="red darken-1"
                 text
                 @click="modalDelete = false"
               >
@@ -121,16 +110,14 @@ import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
-      nomeAtirador: '',
-      idAtirador: '',
-      search: '',
       modalDelete: false,
+      idChamada: '',
       textoPaginacao: 'Qtd por Página',
       headers: [
-        { text: 'Número', align: 'left', value: 'numeroAtirador' },
-        { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
+        { text: 'Data', align: 'left', value: 'dataChamada' },
+        { text: 'Hora', align: 'left', value: 'horarioChamada' },
+        { text: 'Responsável', align: 'left', value: 'usuario' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
-        { text: 'Faltas', align: 'left', value: 'totalPontos'},
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]
@@ -138,28 +125,27 @@ export default {
   },
   computed: {
     ...mapState({
-      atiradores: state => state.atiradores.all.items
+      chamadas: state => state.chamadas.all.items
     })
   },
   created () {
-    this.getAllAtiradores()
+    this.getAllChamadas()
   },
   methods: {
-    ...mapActions('atiradores', {
-      getAllAtiradores: 'getAll',
-      deleteAtirador: 'delete'
+    ...mapActions('chamadas', {
+      getAllChamadas: 'getAll',
+      deleteChamada: 'delete'
     }),
-    ...mapActions('editAtirador', {
-      getAtiradorEditar: 'getAtiradorEdit'
+    ...mapActions('editChamada', {
+      getChamadaEditar: 'getChamadaEdit'
     }),
-    openModalDelete (nome, id) {
-      console.log('Atirador => ' + nome)
-      this.nomeAtirador = nome
-      this.idAtirador = id
+    openModalDelete (id) {
+      console.log('Id Chamada => ' + id)
+      this.idChamada = id
       this.modalDelete = true
     },
-    deletarAtirador (id) {
-      this.deleteAtirador(id)
+    deletarChamada (id) {
+      this.deleteChamada(id)
       this.modalDelete = false
     }
   }

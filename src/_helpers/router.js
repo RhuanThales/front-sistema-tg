@@ -18,6 +18,9 @@ import DetalharEscalaPage from '../views/escala/DetalharEscalaPage'
 import AtiradorPage from '../views/atirador/AtiradorPage'
 import CadastrarAtiradorPage from '../views/atirador/CadastrarAtiradorPage'
 import EditarAtiradorPage from '../views/atirador/EditarAtiradorPage'
+import ChamadaPage from '../views/chamada/ChamadaPage'
+import RegistrarChamadaPage from '../views/chamada/RegistrarChamadaPage'
+import EditarChamadaPage from '../views/chamada/EditarChamadaPage'
 
 Vue.use(Router)
 
@@ -47,6 +50,10 @@ export const router = new Router({
     { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
     { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },
     { path: '/editarAtirador', name: 'Editar Atirador', component: EditarAtiradorPage },
+    // Chamada
+    { path: '/chamadas', name: 'Chamadas Realizadas', component: ChamadaPage },
+    { path: '/registrarChamada', name: 'Registro de Presença', component: RegistrarChamadaPage },
+    { path: '/editarChamada', name: 'Editar Presença', component: EditarChamadaPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]
