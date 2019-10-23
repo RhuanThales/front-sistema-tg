@@ -130,7 +130,7 @@ export default {
         { text: 'Número', align: 'left', value: 'numeroAtirador' },
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
-        { text: 'Faltas', align: 'left', value: 'totalPontos'},
+        { text: 'Faltas', align: 'left', value: 'totalPontos' },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]

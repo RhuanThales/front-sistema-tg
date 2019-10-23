@@ -43,7 +43,47 @@
               @change="buscarAtiradores()"
             />
 
-            <div v-show="showAtiradores">{{ atiradores }}</div>
+            <div
+              v-show="showAtiradores"
+            >
+              <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+                <tr>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Presença</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Falta</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Justificado</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Atiradores</th>
+                </tr>
+                <tr
+                  v-for="ati in atiradores"
+                  :key="ati.id"
+                >
+                  <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">
+                    <v-checkbox
+                      v-model="chamada.atiradoresPresentes"
+                      :value="ati.nomeGuerra"
+                      style="margin-top: 0px;"
+                    />
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">
+                    <v-checkbox
+                      v-model="chamada.atiradoresFaltosos"
+                      :value="ati.nomeGuerra"
+                      style="margin-top: 0px;"
+                    />
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">
+                    <v-checkbox
+                      v-model="chamada.atiradoresJustificados"
+                      :value="ati.nomeGuerra"
+                      style="margin-top: 0px;"
+                    />
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">
+                    {{ ati.nomeGuerra }}
+                  </td>
+                </tr>
+              </table>
+            </div>
 
             <v-btn
               :disabled="!valid"
@@ -81,7 +121,8 @@ export default {
         horarioChamada: this.$store.state.editChamada.chamadaEdit.horarioChamada,
         usuario: this.$store.state.editChamada.chamadaEdit.usuario,
         atiradoresPresentes: this.$store.state.editChamada.chamadaEdit.atiradoresPresentes,
-        atiradoresFaltosos: this.$store.state.editChamada.chamadaEdit.atiradoresFaltosos
+        atiradoresFaltosos: this.$store.state.editChamada.chamadaEdit.atiradoresFaltosos,
+        atiradoresJustificados: this.$store.state.editChamada.chamadaEdit.atiradoresJustificados
       }
     }
   },
@@ -95,6 +136,7 @@ export default {
   },
   created () {
     // this.pegarUsuario()
+    this.buscarAtiradores()
     this.getAllPelotoes()
     this.criarListaDatas()
   },

@@ -65,11 +65,26 @@
                       required
                     />
                     <v-text-field
-                      v-model="atirador.registroGeral.numeroRg"
-                      :rules="[v => !!v || 'O campo RG é obrigatório']"
-                      label="RG"
+                      v-mask="cpfMask"
+                      v-model="atirador.cpf"
+                      :rules="[v => !!v || 'O campo CPF é obrigatório']"
+                      label="CPF"
                       required
-                    />
+                    >
+                      <template v-slot:append-outer>
+                        <v-btn
+                          color="primary"
+                          small
+                          dark
+                          @click="validaCpf()"
+                        >
+                          Verificar CPF
+                          <v-icon
+                            dark
+                            right>mdi-check</v-icon>
+                        </v-btn>
+                      </template>
+                    </v-text-field>
                     <v-row>
                       <v-col
                         cols="12"
@@ -87,26 +102,11 @@
                         sm="9"
                       >
                         <v-text-field
-                          v-mask="cpfMask"
-                          v-model="atirador.cpf"
-                          :rules="[v => !!v || 'O campo CPF é obrigatório']"
-                          label="CPF"
+                          v-model="atirador.registroGeral.numeroRg"
+                          :rules="[v => !!v || 'O campo RG é obrigatório']"
+                          label="RG"
                           required
-                        >
-                          <template v-slot:append-outer>
-                            <v-btn
-                              color="primary"
-                              small
-                              dark
-                              @click="validaCpf()"
-                            >
-                              Verificar CPF
-                              <v-icon
-                                dark
-                                right>mdi-check</v-icon>
-                            </v-btn>
-                          </template>
-                        </v-text-field>
+                        />
                       </v-col>
                     </v-row>
                     <v-row>
@@ -438,8 +438,6 @@ export default {
         horasServico: this.$store.state.editAtirador.atiradorEdit.horasServico,
         totalHoras: this.$store.state.editAtirador.atiradorEdit.totalHoras,
         totalDias: this.$store.state.editAtirador.atiradorEdit.totalDias
-        
-        
       },
       vCpf: true,
       snackbarCpf: false,
