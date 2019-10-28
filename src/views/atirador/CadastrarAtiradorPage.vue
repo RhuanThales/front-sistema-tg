@@ -131,9 +131,7 @@
                     </v-row>
                     <v-text-field
                       v-model="atirador.nomePai"
-                      :rules="[v => !!v || 'O campo Nome do Pai é obrigatório']"
                       label="Nome do Pai"
-                      required
                     />
                     <v-text-field
                       v-model="atirador.nomeMae"
