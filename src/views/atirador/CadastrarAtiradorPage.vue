@@ -351,6 +351,20 @@
         </material-card>
       </v-flex>
       <v-snackbar
+        v-model="snackbarCpfOk"
+        top
+        color="success"
+      >
+        {{ textErrorCpfOk }}
+        <v-btn
+          color="white"
+          text
+          @click="snackbarCpfOk = false"
+        >
+          Close
+        </v-btn>
+      </v-snackbar>
+      <v-snackbar
         v-model="snackbarCpf"
         top
         color="error"
@@ -428,6 +442,8 @@ export default {
         totalDias: 0
       },
       vCpf: true,
+      snackbarCpfOk: false,
+      textErrorCpfOk: 'CPF válido!',
       snackbarCpf: false,
       textErrorCpf: 'CPF inválido!',
       religioesOptions: [
@@ -511,8 +527,10 @@ export default {
         console.log('Teste cpf => ' + this.vCpf)
         if (this.vCpf === false) {
           this.snackbarCpf = true
+        } else {
+          this.snackbarCpfOk = true
+          return this.vCpf
         }
-        return this.vCpf
       } else {
         this.vCpf = false
         this.snackbarCpf = true
