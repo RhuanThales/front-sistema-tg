@@ -66,6 +66,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.segunda.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.instrutorSemana"
                       :items="oficiais"
@@ -121,13 +128,6 @@
                       label="Guardas"
                       required
                     />
-                    <v-text-field
-                      v-model="escala.segunda.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
-                      required
-                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -161,6 +161,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.terca.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.terca.permanenciaManha"
                       :items="atiradores"
@@ -206,13 +213,6 @@
                       label="Guardas"
                       required
                     />
-                    <v-text-field
-                      v-model="escala.terca.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
-                      required
-                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -253,6 +253,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.quarta.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.quarta.permanenciaManha"
                       :items="atiradores"
@@ -298,13 +305,6 @@
                       label="Guardas"
                       required
                     />
-                    <v-text-field
-                      v-model="escala.quarta.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
-                      required
-                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -345,6 +345,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.quinta.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.quinta.permanenciaManha"
                       :items="atiradores"
@@ -390,13 +397,6 @@
                       label="Guardas"
                       required
                     />
-                    <v-text-field
-                      v-model="escala.quinta.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
-                      required
-                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -437,6 +437,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.sexta.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.sexta.permanenciaManha"
                       :items="atiradores"
@@ -482,13 +489,6 @@
                       label="Guardas"
                       required
                     />
-                    <v-text-field
-                      v-model="escala.sexta.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
-                      required
-                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -529,6 +529,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.sabado.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.sabado.permanenciaManha"
                       :items="atiradores"
@@ -574,13 +581,6 @@
                       label="Guardas"
                       required
                     />
-                    <v-text-field
-                      v-model="escala.sabado.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
-                      required
-                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -621,6 +621,13 @@
                     lazy-validation
                   >
                     <!--Campos do Formulário-->
+                    <v-text-field
+                      v-model="escala.domingo.dia"
+                      :rules="[v => !!v || 'O campo Data é obrigatório']"
+                      label="Data"
+                      type="date"
+                      required
+                    />
                     <v-autocomplete
                       v-model="escala.domingo.permanenciaManha"
                       :items="atiradores"
@@ -664,13 +671,6 @@
                       small-chips
                       multiple
                       label="Guardas"
-                      required
-                    />
-                    <v-text-field
-                      v-model="escala.domingo.dia"
-                      :rules="[v => !!v || 'O campo Data é obrigatório']"
-                      label="Data"
-                      type="date"
                       required
                     />
                     <!--Botões-->
