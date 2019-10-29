@@ -24,6 +24,18 @@ export default {
     state.all = { error }
   },
 
+  getMonitoresRequest (state) {
+    state.monitores = {
+      items: []
+    }
+  },
+  getMonitoresSuccess (state, atiradores) {
+    state.monitores = { items: atiradores.result }
+  },
+  getMonitoresFailure (state, error) {
+    state.monitores = { error }
+  },
+
   registerRequest (state, atirador) {
     state.status = { registering: true }
   },

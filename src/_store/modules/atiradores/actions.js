@@ -6,7 +6,7 @@ export default {
   getAll ({ commit }) {
     commit('getAllRequest')
     atiradorService.getAll().then(
-      pelotoes => commit('getAllSuccess', pelotoes),
+      atiradores => commit('getAllSuccess', atiradores),
       error => commit('getAllFailure', error)
     )
   },
@@ -14,8 +14,16 @@ export default {
   getPorPelotao ({ commit }, numero) {
     commit('getPorPelotaoRequest')
     atiradorService.getPorPelotao(numero).then(
-      pelotoes => commit('getPorPelotaoSuccess', pelotoes),
+      atiradores => commit('getPorPelotaoSuccess', atiradores),
       error => commit('getPorPelotaoFailure', error)
+    )
+  },
+
+  getMonitores ({ commit }) {
+    commit('getMonitoresRequest')
+    atiradorService.getMonitores().then(
+      atiradores => commit('getMonitoresSuccess', atiradores),
+      error => commit('getMonitoresFailure', error)
     )
   },
 

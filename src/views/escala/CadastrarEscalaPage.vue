@@ -109,9 +109,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.segunda.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -195,9 +199,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.terca.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -288,9 +296,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.quarta.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -381,9 +393,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.quinta.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -474,9 +490,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.sexta.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -567,9 +587,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.sabado.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -660,9 +684,13 @@
                       multiple
                       required
                     />
-                    <v-text-field
+                    <v-autocomplete
                       v-model="escala.domingo.comandanteGuarda"
+                      :items="monitores"
+                      :no-data-text="'Monitores não foram encontrados'"
                       :rules="[v => !!v || 'O campo Comandante é obrigatório']"
+                      item-text="nomeGuerra"
+                      item-value="nomeGuerra"
                       label="Comandante"
                       required
                     />
@@ -781,11 +809,15 @@ export default {
       atiradores: state => state.atiradores.all.items
     }),
     ...mapState({
+      monitores: state => state.atiradores.monitores.items
+    }),
+    ...mapState({
       oficiais: state => state.oficiais.all.items
     })
   },
   created () {
     this.getAllAtiradores()
+    this.getAllMonitores()
     this.getAllOficiais()
   },
   methods: {
@@ -793,7 +825,8 @@ export default {
       register: 'register'
     }),
     ...mapActions('atiradores', {
-      getAllAtiradores: 'getAll'
+      getAllAtiradores: 'getAll',
+      getAllMonitores: 'getMonitores'
     }),
     ...mapActions('oficiais', {
       getAllOficiais: 'getAll'

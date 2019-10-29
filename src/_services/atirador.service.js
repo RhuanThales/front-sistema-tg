@@ -5,6 +5,7 @@ export const atiradorService = {
   register,
   getAll,
   getPorPelotao,
+  getMonitores,
   update,
   delete: _delete
 }
@@ -23,6 +24,14 @@ function getPorPelotao (numero) {
     headers: authHeader()
   }
   return fetch(`${config.apiUrl}/Atirador/ObterPelotao/${numero}`, requestOptions).then(handleResponse)
+}
+
+function getMonitores () {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  }
+  return fetch(`${config.apiUrl}/Atirador/ObterMonitores`, requestOptions).then(handleResponse)
 }
 
 function register (atirador) {
