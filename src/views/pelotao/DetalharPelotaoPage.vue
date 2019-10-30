@@ -33,6 +33,13 @@
             sort-by="ra"
             class="elevation-1"
           >
+            <template v-slot:item.funcao="{ item }">
+              <div v-if="item.funcao != ''">
+                <v-icon
+                  color="warning"
+                >mdi-crown</v-icon>
+              </div>
+            </template>
             <template v-slot:no-data>
               <v-alert
                 :value="true"
@@ -59,6 +66,7 @@ export default {
         { text: 'CR', align: 'left', value: 'cr' },
         { text: 'Nome', align: 'left', value: 'nomeAtirador' },
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
+        { text: 'Monitor', align: 'left', value: 'funcao' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Número', align: 'left', value: 'numeroAtirador' }
       ]

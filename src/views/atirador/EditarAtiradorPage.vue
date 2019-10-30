@@ -178,7 +178,7 @@
 
                 <v-btn
                   color="red darken-4"
-                  to="/atiradores"
+                  @click="modalCancelar = true"
                 >
                   Cancelar
                 </v-btn>
@@ -282,7 +282,7 @@
 
                 <v-btn
                   color="red darken-4"
-                  to="/atiradores"
+                  @click="modalCancelar = true"
                 >
                   Cancelar
                 </v-btn>
@@ -352,7 +352,7 @@
 
                 <v-btn
                   color="red darken-4"
-                  to="/atiradores"
+                  @click="modalCancelar = true"
                 >
                   Cancelar
                 </v-btn>
@@ -361,6 +361,49 @@
           </v-stepper>
         </material-card>
       </v-flex>
+      <!--Modal com mensagem de confirmar cancelamento-->
+      <v-dialog
+        v-model="modalCancelar"
+        max-width="350"
+        persistent
+      >
+        <v-card color="error">
+          <v-card-title
+            class="headline"
+            style="color: white !important;"
+          >
+            <v-icon
+              style="color: white !important; padding-right: 15px !important;"
+            >
+              mdi-alert
+            </v-icon>
+            Atenção!
+          </v-card-title>
+
+          <v-card-text style="font-weight: bold; color: white !important;">
+            Todos os dados informados até agora serão perdidos!
+            Deseja realmente cancelar a edição?
+          </v-card-text>
+
+          <v-card-actions>
+            <div class="flex-grow-1"/>
+
+            <v-btn
+              text
+              to="/atiradores"
+            >
+              Sim
+            </v-btn>
+
+            <v-btn
+              text
+              @click="modalCancelar = false"
+            >
+              Não
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-snackbar
         v-model="snackbarCpf"
         top
@@ -440,6 +483,7 @@ export default {
         totalDias: this.$store.state.editAtirador.atiradorEdit.totalDias
       },
       vCpf: true,
+      modalCancelar: false,
       snackbarCpf: false,
       textErrorCpf: 'CPF inválido!',
       religioesOptions: [
