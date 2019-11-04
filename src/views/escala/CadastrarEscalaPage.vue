@@ -137,7 +137,7 @@
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 2"
+                      @click="selecionarData(escala.segunda.dia, 'Terça-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -227,7 +227,7 @@
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 3"
+                      @click="selecionarData(escala.terca.dia, 'Quarta-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -324,7 +324,7 @@
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 4"
+                      @click="selecionarData(escala.quarta.dia, 'Quinta-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -421,7 +421,7 @@
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 5"
+                      @click="selecionarData(escala.quinta.dia, 'Sexta-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -518,7 +518,7 @@
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 6"
+                      @click="selecionarData(escala.sexta.dia, 'Sabado')"
                     >
                       Continuar
                     </v-btn>
@@ -615,7 +615,7 @@
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 7"
+                      @click="selecionarData(escala.sabado.dia, 'Domingo')"
                     >
                       Continuar
                     </v-btn>
@@ -843,6 +843,56 @@ export default {
           this.$refs.formCadastro6.reset(),
           this.$refs.formCadastro7.reset()
         )
+      }
+    },
+    selecionarData (data, nomeDia) {
+      console.log('Data Atual => ' + data)
+      console.log('Dia =>' + nomeDia)
+      if (nomeDia === 'Terça-Feira') {
+        this.step = 2
+        console.log('Data Segunda => ' + data)
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.terca.dia = [year, month, day].join('-')
+
+        console.log('Data Terça => ' + this.escala.terca.dia)
+      } else if (nomeDia === 'Quarta-Feira') {
+        this.step = 3
+        console.log('Data Terça => ' + this.escala.terca.dia)
+
+        // eslint-disable-next-line one-var
+        let d = new Date(this.escala.terca.dia),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.quarta.dia = [year, month, day].join('-')
+
+        console.log('Data Quarta => ' + this.escala.quarta.dia)
+      } else if (nomeDia === 'Quinta-Feira') {
+        this.step = 4
+        console.log('Data Quarta => ' + this.escala.quarta.dia)
+
+        // eslint-disable-next-line one-var
+        let d = new Date(this.escala.quarta.dia),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.quinta.dia = [year, month, day].join('-')
+
+        console.log('Data Quinta => ' + this.escala.quinta.dia)
       }
     }
   }

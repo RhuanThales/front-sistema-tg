@@ -73,6 +73,7 @@
                     {{ atiradorInfo.funcao }}
                   </td>
                 </tr>
+                <!--Botões da página-->
                 <tr>
                   <td>
                     <v-btn
