@@ -51,25 +51,6 @@
                 Detalhar
               </v-btn>
             </template>
-
-            <!-- <template v-slot:item.edit="{ item }">
-              <v-btn
-                color="indigo darken-4"
-                @click="getAtiradorEditar(item)"
-              >
-                Editar
-              </v-btn>
-            </template> -->
-
-            <!-- <template v-slot:item.delete="{ item }">
-              <v-btn
-                color="red darken-4"
-                @click="openModalDelete(item.nomeGuerra, item.idAtirador)"
-              >
-                Excluir
-              </v-btn>
-            </template> -->
-
             <template v-slot:no-data>
               <v-alert
                 :value="true"
@@ -86,39 +67,6 @@
             </template>
           </v-data-table>
         </material-card>
-
-        <!-- <v-dialog
-          v-model="modalDelete"
-          max-width="350"
-        >
-          <v-card>
-            <v-card-title class="headline">Deseja realmente excluir o atirador?</v-card-title>
-
-            <v-card-text style="font-weight: bold;">
-              O Atirador {{ nomeAtirador }} será excluido permanentemente do sistema!
-            </v-card-text>
-
-            <v-card-actions>
-              <div class="flex-grow-1"/>
-
-              <v-btn
-                color="indigo darken-4"
-                text
-                @click="deletarAtirador(idAtirador)"
-              >
-                Confirmar
-              </v-btn>
-
-              <v-btn
-                color="red darken-4"
-                text
-                @click="modalDelete = false"
-              >
-                Cancelar
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog> -->
       </v-flex>
     </v-layout>
   </v-container>
@@ -133,7 +81,6 @@ export default {
       nomeAtirador: '',
       idAtirador: '',
       search: '',
-      // modalDelete: false,
       textoPaginacao: 'Qtd por Página',
       headers: [
         { text: 'Número', align: 'left', value: 'numeroAtirador' },
@@ -141,8 +88,6 @@ export default {
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Faltas', align: 'left', value: 'totalPontos' },
         { text: 'Detalhar', align: 'center', value: 'details', sortable: false }
-        /* { text: 'Editar', align: 'center', value: 'edit', sortable: false },
-        { text: 'Excluir', align: 'center', value: 'delete', sortable: false } */
       ]
     }
   },
@@ -162,16 +107,6 @@ export default {
     ...mapActions('editAtirador', {
       getAtiradorInfo: 'getAtiradorInfo'
     })
-    /* openModalDelete (nome, id) {
-      console.log('Atirador => ' + nome)
-      this.nomeAtirador = nome
-      this.idAtirador = id
-      this.modalDelete = true
-    },
-    deletarAtirador (id) {
-      this.deleteAtirador(id)
-      this.modalDelete = false
-    } */
   }
 }
 </script>

@@ -209,6 +209,9 @@ export default {
   created () {
   },
   methods: {
+    ...mapActions('atiradores', {
+      deleteAtirador: 'delete'
+    }),
     ...mapActions('editAtirador', {
       getAtiradorEditar: 'getAtiradorEdit'
     }),
