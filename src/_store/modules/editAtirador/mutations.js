@@ -5,6 +5,10 @@ export default {
     state.atiradorEdit = atirador
     router.push('/editarAtirador')
   },
+  getAtiradorInfo (state, atirador) {
+    state.atiradorEdit = atirador
+    router.push('/informacoesAtirador')
+  },
   updateRequest (state, atirador) {
     state.status = { registering: true }
   },

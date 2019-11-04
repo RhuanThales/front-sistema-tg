@@ -13,7 +13,7 @@
         xs12
       >
         <material-card
-          title="Titulo Pagina"
+          title="Editar Atirador"
         >
           <v-spacer/>
           <v-stepper v-model="step">

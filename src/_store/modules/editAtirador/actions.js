@@ -6,6 +6,10 @@ export default {
     commit('getAtirador', atirador)
   },
 
+  getAtiradorInfo ({ commit }, atirador) {
+    commit('getAtiradorInfo', atirador)
+  },
+
   update ({ dispatch, commit }, atirador) {
     commit('updateRequest', atirador)
     atiradorService.update(atirador).then(

@@ -18,6 +18,7 @@ import DetalharEscalaPage from '../views/escala/DetalharEscalaPage'
 import AtiradorPage from '../views/atirador/AtiradorPage'
 import CadastrarAtiradorPage from '../views/atirador/CadastrarAtiradorPage'
 import EditarAtiradorPage from '../views/atirador/EditarAtiradorPage'
+import DetalharAtiradorPage from '../views/atirador/DetalharAtiradorPage'
 import ChamadaPage from '../views/chamada/ChamadaPage'
 import RegistrarChamadaPage from '../views/chamada/RegistrarChamadaPage'
 import EditarChamadaPage from '../views/chamada/EditarChamadaPage'
@@ -50,6 +51,7 @@ export const router = new Router({
     { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
     { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },
     { path: '/editarAtirador', name: 'Editar Atirador', component: EditarAtiradorPage },
+    { path: '/informacoesAtirador', name: 'Informações do Atirador', component: DetalharAtiradorPage },
     // Chamada
     { path: '/chamadas', name: 'Chamadas Realizadas', component: ChamadaPage },
     { path: '/registrarChamada', name: 'Registro de Presença', component: RegistrarChamadaPage },
