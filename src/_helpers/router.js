@@ -22,6 +22,7 @@ import DetalharAtiradorPage from '../views/atirador/DetalharAtiradorPage'
 import ChamadaPage from '../views/chamada/ChamadaPage'
 import RegistrarChamadaPage from '../views/chamada/RegistrarChamadaPage'
 import EditarChamadaPage from '../views/chamada/EditarChamadaPage'
+import ModeloDeclaracaoPage from '../views/declaracao/ModeloDeclaracaoPage'
 
 Vue.use(Router)
 
@@ -56,6 +57,8 @@ export const router = new Router({
     { path: '/chamadas', name: 'Chamadas Realizadas', component: ChamadaPage },
     { path: '/registrarChamada', name: 'Registro de Presença', component: RegistrarChamadaPage },
     { path: '/editarChamada', name: 'Editar Presença', component: EditarChamadaPage },
+    // Declarações
+    { path: '/modeloDeclaracao', name: 'Modelo Declaração', component: ModeloDeclaracaoPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]

@@ -26,7 +26,7 @@
               :items="dataOptions"
               :rules="[v => !!v || 'O campo Data é obrigatório']"
               required
-              label="Data"
+              label="Data da Chamada"
             />
             <v-autocomplete
               v-model="chamada.numeroPelotao"
@@ -47,39 +47,47 @@
             >
               <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
                 <tr>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Número</th>
+                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Nome</th>
                   <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Presença</th>
                   <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Falta</th>
                   <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Justificado</th>
-                  <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Atiradores</th>
+                  <!--<th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Observação</th>-->
                 </tr>
                 <tr
                   v-for="ati in atiradores"
                   :key="ati.id"
                 >
-                  <td style="border: 1px solid black; border-collapse: collapse; text-align: center; width: 40px !important;">
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
+                    {{ ati.numeroAtirador }}
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
+                    {{ ati.nomeGuerra }}
+                  </td>
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: center; width: 30px !important;">
                     <v-checkbox
                       v-model="chamada.atiradoresPresentes"
                       :value="ati.nomeGuerra"
                       style="margin-top: 0px; height: 30px !important;"
                     />
                   </td>
-                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 40px !important;">
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
                     <v-checkbox
                       v-model="chamada.atiradoresFaltosos"
                       :value="ati.nomeGuerra"
                       style="margin-top: 0px; height: 30px !important;"
                     />
                   </td>
-                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 40px !important;">
+                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
                     <v-checkbox
                       v-model="chamada.atiradoresJustificados"
                       :value="ati.nomeGuerra"
                       style="margin-top: 0px; height: 30px !important;"
                     />
                   </td>
-                  <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px;">
-                    {{ ati.numeroAtirador }} - {{ ati.nomeGuerra }}
-                  </td>
+                  <!--<td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
+                    
+                  </td>-->
                 </tr>
               </table>
             </div>
@@ -91,12 +99,12 @@
             >
               Concluir
             </v-btn>
-            <!-- <v-btn
+            <v-btn
               color="error"
-              to="/chamadas"
+              to="/"
             >
               Cancelar
-            </v-btn> -->
+            </v-btn>
           </v-form>
         </material-card>
       </v-flex>
