@@ -998,7 +998,7 @@ export default {
         this.escala.sabado.dia = [year, month, day].join('-')
       } else if (nomeDia === 'Domingo') {
         this.step = 7
-        
+
         // eslint-disable-next-line one-var
         let d = new Date(data),
           month = '' + (d.getMonth() + 1),

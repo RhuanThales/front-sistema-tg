@@ -30,15 +30,27 @@
           >
           <h6 style="text-align:center">MINISTÉRIO DA DEFESA</h6>
           <h6 style="text-align:center">EXÉRCITO BRASILEIRO</h6>
-          <h6 style="text-align:center">TIRO DE GUERRA 04-013 - PATOS DE MINAS</h6>
-          <hr>
-          <h4 style="text-align:center">Modelo de Declaração</h4>
-          <hr>
+          <h6 style="text-align:center">TIRO DE GUERRA 04-013 - PATOS DE MINAS - MG</h6>
+
+          <h4 style="text-align:center">DECLARAÇÃO</h4>
+
+          <p>
+            DECLARO para os devidos fins que o Atirador {{ nomeAtirador }},
+            esteve de serviço de escala, no período das 07:50 h do dia {{ dataInicio.dia }} de {{ dataInicio.mes }} às 08:00 h do dia {{ dataFim.dia }} de
+            {{ dataFim.mes }} de 2018.
+          </p>
+          <p>
+            Patos de Minas-MG, {{ data.dia }} de {{ data.mes }} de {{ data.ano }}.
+          </p>
+          <p>
+            {{ nomeOficial }} - Subtenente
+          </p>
+          <p>
+            Chefe da Instrução do Tiro de Guerra 04-013
+          </p>
           <div>
             <br>
-            <p>_____________________________________________________________</p>
-            <p>JAILSON GOMES DE LIMA S.Ten</p>
-            <p>Ch Instr TG 04-013</p>
+            <p>Rua Vereador João Pacheco, 260, Bairro Santo Antônio – Patos de Minas-MG - CEP 38700-551 Tel: (34) 3822-9782</p>
           </div>
         </div>
         <!---->
@@ -61,6 +73,21 @@
 export default {
   data () {
     return {
+      data: {
+        dia: '',
+        mes: '',
+        ano: ''
+      },
+      dataInicio: {
+        dia: '00',
+        mes: 'mes aqui'
+      },
+      dataFim: {
+        dia: '00',
+        mes: 'mes aqui'
+      },
+      nomeOficial: 'Judas Tadeu Tiburcio',
+      nomeAtirador: 'Xesqueman da Silva Rodrigues',
       btnImprimir: true,
       submitted: false,
       cssText: `
@@ -95,6 +122,7 @@ export default {
     )
   },
   created () {
+    this.pegarData()
   },
   methods: {
     imprimir () {
@@ -102,6 +130,24 @@ export default {
       document.getElementById('botaoVoltar').remove()
       this.d.print(this.$el, [this.cssText])
       this.$router.push('/')
+    },
+    pegarData () {
+      let d = new Date()
+
+      let month = '' + (d.getMonth() + 1)
+      let day = '' + (d.getDate())
+      let year = d.getFullYear()
+
+      if (month.length < 2) {
+        month = '0' + month
+      }
+      if (day.length < 2) {
+        day = '0' + day
+      }
+
+      this.data.dia = day
+      this.data.mes = month
+      this.data.ano = year
     },
     voltar () {
       this.$router.push('/')

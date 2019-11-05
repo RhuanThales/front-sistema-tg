@@ -257,10 +257,10 @@
                     >
                       Endereço:
                     </strong>
-                    {{ atiradorInfo.endereco.logradouro }},
-                    {{ atiradorInfo.endereco.bairro }},
-                    nº {{ atiradorInfo.endereco.numeroEndereco }}, 
-                    {{ atiradorInfo.endereco.cidade }}, 
+                    {{ atiradorInfo.endereco.logradouro }}
+                    {{ atiradorInfo.endereco.bairro }}
+                    nº {{ atiradorInfo.endereco.numeroEndereco }}
+                    {{ atiradorInfo.endereco.cidade }}
                     {{ atiradorInfo.endereco.estado }}
                   </td>
                 </tr>

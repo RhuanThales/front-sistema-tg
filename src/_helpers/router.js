@@ -22,6 +22,12 @@ import DetalharAtiradorPage from '../views/atirador/DetalharAtiradorPage'
 import ChamadaPage from '../views/chamada/ChamadaPage'
 import RegistrarChamadaPage from '../views/chamada/RegistrarChamadaPage'
 import EditarChamadaPage from '../views/chamada/EditarChamadaPage'
+import DeclaracaoPrestacaoServicoPage from '../views/declaracao/DeclaracaoPrestacaoServico'
+import DeclaracaoServicoPermanenciaPage from '../views/declaracao/DeclaracaoServicoPermanencia'
+import DeclaracaoServico24HorasPage from '../views/declaracao/DeclaracaoServico24Horas'
+import DeclaracaoServicoNoturnoPage from '../views/declaracao/DeclaracaoServicoNoturno'
+import DeclaracaoServicoFaculdadePage from '../views/declaracao/DeclaracaoServicoFaculdade'
+import DeclaracaoOficioCircularPage from '../views/declaracao/DeclaracaoOficioCircular'
 import ModeloDeclaracaoPage from '../views/declaracao/ModeloDeclaracaoPage'
 
 Vue.use(Router)
@@ -59,6 +65,12 @@ export const router = new Router({
     { path: '/editarChamada', name: 'Editar Presença', component: EditarChamadaPage },
     // Declarações
     { path: '/modeloDeclaracao', name: 'Modelo Declaração', component: ModeloDeclaracaoPage },
+    { path: '/prestacaoServico', name: 'Prestação de Serviço Militar', component: DeclaracaoPrestacaoServicoPage },
+    { path: '/servicoPermanencia', name: 'Serviço de Permanência', component: DeclaracaoServicoPermanenciaPage },
+    { path: '/servico24Horas', name: 'Serviço 24 horas', component: DeclaracaoServico24HorasPage },
+    { path: '/servicoNoturno', name: 'Serviço Noturno', component: DeclaracaoServicoNoturnoPage },
+    { path: '/servicoFaculdade', name: 'Declaração de Serviço para Faculdade', component: DeclaracaoServicoFaculdadePage },
+    { path: '/oficioCircular', name: 'Oficio Circular Empregador - Empresa', component: DeclaracaoOficioCircularPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]
