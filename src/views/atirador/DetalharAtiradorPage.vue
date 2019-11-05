@@ -24,9 +24,20 @@
                       class="tertiary--text"
                       style="font-size: 16px !important"
                     >
-                      Nome:
+                      Nome Completo:
                     </strong>
                     {{ atiradorInfo.nomeAtirador }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      CR:
+                    </strong>
+                    {{ atiradorInfo.cr }}
                   </td>
                 </tr>
                 <tr>
@@ -71,6 +82,208 @@
                       Função:
                     </strong>
                     {{ atiradorInfo.funcao }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Naturalidade CR:
+                    </strong>
+                    {{ atiradorInfo.naturalidadeCR }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Voluntário:
+                    </strong>
+                    <div
+                      v-if="atiradorInfo.voluntaio === true"
+                      style="display: inline-block !important"
+                    >
+                      Sim
+                    </div>
+                    <div
+                      v-else
+                      style="display: inline-block !important"
+                    >
+                      Não
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Data Nascimento:
+                    </strong>
+                    {{ atiradorInfo.dataNascimento }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      CPF:
+                    </strong>
+                    {{ atiradorInfo.cpf }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      RG:
+                    </strong>
+                    {{ atiradorInfo.registroGeral.numeroRg }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Orgão Emissor:
+                    </strong>
+                    {{ atiradorInfo.registroGeral.orgaoEmissor }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Titulo de Eleitor:
+                    </strong>
+                    {{ atiradorInfo.tituloEleitor.numeroTitulo }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Zona Eleitoral:
+                    </strong>
+                    {{ atiradorInfo.tituloEleitor.zonaTitulo }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Naturalidade:
+                    </strong>
+                    {{ atiradorInfo.naturalidade }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Pai:
+                    </strong>
+                    {{ atiradorInfo.nomePai }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Mãe:
+                    </strong>
+                    {{ atiradorInfo.nomeMae }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Telefone Pessoal:
+                    </strong>
+                    {{ atiradorInfo.telefone }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Telefone do Pai:
+                    </strong>
+                    {{ atiradorInfo.telefonePai }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Telefone da Mãe:
+                    </strong>
+                    {{ atiradorInfo.telefoneMae }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Endereço:
+                    </strong>
+                    {{ atiradorInfo.endereco.logradouro }},
+                    {{ atiradorInfo.endereco.bairro }},
+                    nº {{ atiradorInfo.endereco.numeroEndereco }}, 
+                    {{ atiradorInfo.endereco.cidade }}, 
+                    {{ atiradorInfo.endereco.estado }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Religião:
+                    </strong>
+                    {{ atiradorInfo.religiao }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      class="tertiary--text"
+                      style="font-size: 16px !important"
+                    >
+                      Escolaridade:
+                    </strong>
+                    {{ atiradorInfo.escolaridade }}
                   </td>
                 </tr>
                 <!--Botões da página-->

@@ -132,6 +132,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.segunda.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -144,7 +149,7 @@
 
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -222,6 +227,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.terca.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -241,7 +251,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -319,6 +329,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.quarta.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -338,7 +353,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -416,6 +431,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.quinta.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -435,7 +455,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -513,6 +533,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.sexta.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -532,7 +557,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -610,6 +635,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.sabado.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -629,7 +659,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -707,6 +737,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.domingo.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -726,7 +761,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -737,6 +772,49 @@
           </v-stepper>
         </material-card>
       </v-flex>
+      <!--Modal com mensagem de confirmar cancelamento-->
+      <v-dialog
+        v-model="modalCancelar"
+        max-width="350"
+        persistent
+      >
+        <v-card color="error">
+          <v-card-title
+            class="headline"
+            style="color: white !important;"
+          >
+            <v-icon
+              style="color: white !important; padding-right: 15px !important;"
+            >
+              mdi-alert
+            </v-icon>
+            Atenção!
+          </v-card-title>
+
+          <v-card-text style="font-weight: bold; color: white !important;">
+            Todos os dados informados até agora serão perdidos!
+            Deseja realmente cancelar o cadastro?
+          </v-card-text>
+
+          <v-card-actions>
+            <div class="flex-grow-1"/>
+
+            <v-btn
+              text
+              to="/escalas"
+            >
+              Sim
+            </v-btn>
+
+            <v-btn
+              text
+              @click="modalCancelar = false"
+            >
+              Não
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-layout>
   </v-container>
 </template>
@@ -749,59 +827,71 @@ export default {
     return {
       step: 0,
       valid: true,
+      modalCancelar: false,
       escala: {
         numeroEscala: 0,
         instrutorSemana: '',
         segunda: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         },
         terca: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         },
         quarta: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         },
         quinta: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         },
         sexta: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         },
         sabado: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         },
         domingo: {
+          dia: Date,
+          tipoEscala: '',
           permanenciaManha: [],
           permanenciaTarde: [],
           comandanteGuarda: '',
-          guardas: [],
-          dia: Date
+          guardas: []
         }
-      }
+      },
+      escalaOptions: [
+        'Preta',
+        'Vermelha'
+      ]
     }
   },
   computed: {
@@ -846,11 +936,8 @@ export default {
       }
     },
     selecionarData (data, nomeDia) {
-      console.log('Data Atual => ' + data)
-      console.log('Dia =>' + nomeDia)
       if (nomeDia === 'Terça-Feira') {
         this.step = 2
-        console.log('Data Segunda => ' + data)
 
         // eslint-disable-next-line one-var
         let d = new Date(data),
@@ -861,14 +948,11 @@ export default {
         if (day.length < 2) day = '0' + day
 
         this.escala.terca.dia = [year, month, day].join('-')
-
-        console.log('Data Terça => ' + this.escala.terca.dia)
       } else if (nomeDia === 'Quarta-Feira') {
         this.step = 3
-        console.log('Data Terça => ' + this.escala.terca.dia)
 
         // eslint-disable-next-line one-var
-        let d = new Date(this.escala.terca.dia),
+        let d = new Date(data),
           month = '' + (d.getMonth() + 1),
           day = '' + (d.getDate() + 2),
           year = d.getFullYear()
@@ -876,14 +960,11 @@ export default {
         if (day.length < 2) day = '0' + day
 
         this.escala.quarta.dia = [year, month, day].join('-')
-
-        console.log('Data Quarta => ' + this.escala.quarta.dia)
       } else if (nomeDia === 'Quinta-Feira') {
         this.step = 4
-        console.log('Data Quarta => ' + this.escala.quarta.dia)
 
         // eslint-disable-next-line one-var
-        let d = new Date(this.escala.quarta.dia),
+        let d = new Date(data),
           month = '' + (d.getMonth() + 1),
           day = '' + (d.getDate() + 2),
           year = d.getFullYear()
@@ -891,8 +972,42 @@ export default {
         if (day.length < 2) day = '0' + day
 
         this.escala.quinta.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Sexta-Feira') {
+        this.step = 5
 
-        console.log('Data Quinta => ' + this.escala.quinta.dia)
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.sexta.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Sabado') {
+        this.step = 6
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.sabado.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Domingo') {
+        this.step = 7
+        
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.domingo.dia = [year, month, day].join('-')
       }
     }
   }

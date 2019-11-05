@@ -132,19 +132,24 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.segunda.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 2"
+                      @click="selecionarData(escala.segunda.dia, 'Terça-Feira')"
                     >
                       Continuar
                     </v-btn>
 
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -170,6 +175,7 @@
                       :rules="[v => !!v || 'O campo Data é obrigatório']"
                       label="Data"
                       type="date"
+                      disabled
                       required
                     />
                     <v-autocomplete
@@ -221,12 +227,17 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.terca.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 3"
+                      @click="selecionarData(escala.terca.dia, 'Quarta-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -240,7 +251,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -266,6 +277,7 @@
                       :rules="[v => !!v || 'O campo Data é obrigatório']"
                       label="Data"
                       type="date"
+                      disabled
                       required
                     />
                     <v-autocomplete
@@ -317,12 +329,17 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.quarta.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 4"
+                      @click="selecionarData(escala.quarta.dia, 'Quinta-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -336,7 +353,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -362,6 +379,7 @@
                       :rules="[v => !!v || 'O campo Data é obrigatório']"
                       label="Data"
                       type="date"
+                      disabled
                       required
                     />
                     <v-autocomplete
@@ -413,12 +431,17 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.quinta.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 5"
+                      @click="selecionarData(escala.quinta.dia, 'Sexta-Feira')"
                     >
                       Continuar
                     </v-btn>
@@ -432,7 +455,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -458,6 +481,7 @@
                       :rules="[v => !!v || 'O campo Data é obrigatório']"
                       label="Data"
                       type="date"
+                      disabled
                       required
                     />
                     <v-autocomplete
@@ -509,12 +533,17 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.sexta.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 6"
+                      @click="selecionarData(escala.sexta.dia, 'Sabado')"
                     >
                       Continuar
                     </v-btn>
@@ -528,7 +557,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -554,6 +583,7 @@
                       :rules="[v => !!v || 'O campo Data é obrigatório']"
                       label="Data"
                       type="date"
+                      disabled
                       required
                     />
                     <v-autocomplete
@@ -605,12 +635,17 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.sabado.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
                       color="indigo darken-4"
                       class="mr-4"
-                      @click="step = 7"
+                      @click="selecionarData(escala.sabado.dia, 'Domingo')"
                     >
                       Continuar
                     </v-btn>
@@ -624,7 +659,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -650,6 +685,7 @@
                       :rules="[v => !!v || 'O campo Data é obrigatório']"
                       label="Data"
                       type="date"
+                      disabled
                       required
                     />
                     <v-autocomplete
@@ -701,6 +737,11 @@
                       label="Guardas"
                       required
                     />
+                    <v-select
+                      v-model="escala.domingo.tipoEscala"
+                      :items="escalaOptions"
+                      label="Tipo"
+                    />
                     <!--Botões-->
                     <v-btn
                       :disabled="!valid"
@@ -720,7 +761,7 @@
                     </v-btn>
                     <v-btn
                       color="error"
-                      to="/escalas"
+                      @click="modalCancelar = true"
                     >
                       Cancelar
                     </v-btn>
@@ -731,6 +772,49 @@
           </v-stepper>
         </material-card>
       </v-flex>
+      <!--Modal com mensagem de confirmar cancelamento-->
+      <v-dialog
+        v-model="modalCancelar"
+        max-width="350"
+        persistent
+      >
+        <v-card color="error">
+          <v-card-title
+            class="headline"
+            style="color: white !important;"
+          >
+            <v-icon
+              style="color: white !important; padding-right: 15px !important;"
+            >
+              mdi-alert
+            </v-icon>
+            Atenção!
+          </v-card-title>
+
+          <v-card-text style="font-weight: bold; color: white !important;">
+            Todos os dados informados até agora serão perdidos!
+            Deseja realmente cancelar o cadastro?
+          </v-card-text>
+
+          <v-card-actions>
+            <div class="flex-grow-1"/>
+
+            <v-btn
+              text
+              to="/escalas"
+            >
+              Sim
+            </v-btn>
+
+            <v-btn
+              text
+              @click="modalCancelar = false"
+            >
+              Não
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-layout>
   </v-container>
 </template>
@@ -743,6 +827,7 @@ export default {
     return {
       step: 0,
       valid: true,
+      modalCancelar: false,
       escala: {
         idEscala: this.$store.state.editEscala.escalaEdit.idEscala,
         numeroEscala: this.$store.state.editEscala.escalaEdit.numeroEscala,
@@ -752,51 +837,62 @@ export default {
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.segunda.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.segunda.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.segunda.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.segunda.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.segunda.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.segunda.tipoEscala
         },
         terca: {
           permanenciaManha: this.$store.state.editEscala.escalaEdit.terca.permanenciaManha,
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.terca.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.terca.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.terca.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.terca.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.terca.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.terca.tipoEscala
         },
         quarta: {
           permanenciaManha: this.$store.state.editEscala.escalaEdit.quarta.permanenciaManha,
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.quarta.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.quarta.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.quarta.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.quarta.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.quarta.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.quarta.tipoEscala
         },
         quinta: {
           permanenciaManha: this.$store.state.editEscala.escalaEdit.quinta.permanenciaManha,
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.quinta.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.quinta.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.quinta.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.quinta.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.quinta.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.quinta.tipoEscala
         },
         sexta: {
           permanenciaManha: this.$store.state.editEscala.escalaEdit.sexta.permanenciaManha,
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.sexta.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.sexta.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.sexta.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.sexta.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.sexta.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.sexta.tipoEscala
         },
         sabado: {
           permanenciaManha: this.$store.state.editEscala.escalaEdit.sabado.permanenciaManha,
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.sabado.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.sabado.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.sabado.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.sabado.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.sabado.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.sabado.tipoEscala
         },
         domingo: {
           permanenciaManha: this.$store.state.editEscala.escalaEdit.domingo.permanenciaManha,
           permanenciaTarde: this.$store.state.editEscala.escalaEdit.domingo.permanenciaTarde,
           comandanteGuarda: this.$store.state.editEscala.escalaEdit.domingo.comandanteGuarda,
           guardas: this.$store.state.editEscala.escalaEdit.domingo.guardas,
-          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.domingo.dia)
+          dia: this.formatarData(this.$store.state.editEscala.escalaEdit.domingo.dia),
+          tipoEscala: this.$store.state.editEscala.escalaEdit.domingo.tipoEscala
         }
-      }
+      },
+      escalaOptions: [
+        'Preta',
+        'Vermelha'
+      ]
     }
   },
   computed: {
@@ -852,6 +948,81 @@ export default {
       if (month.length < 2) month = '0' + month
       if (day.length < 2) day = '0' + day
       return [year, month, day].join('-')
+    },
+        selecionarData (data, nomeDia) {
+      if (nomeDia === 'Terça-Feira') {
+        this.step = 2
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.terca.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Quarta-Feira') {
+        this.step = 3
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.quarta.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Quinta-Feira') {
+        this.step = 4
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.quinta.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Sexta-Feira') {
+        this.step = 5
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.sexta.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Sabado') {
+        this.step = 6
+
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.sabado.dia = [year, month, day].join('-')
+      } else if (nomeDia === 'Domingo') {
+        this.step = 7
+        
+        // eslint-disable-next-line one-var
+        let d = new Date(data),
+          month = '' + (d.getMonth() + 1),
+          day = '' + (d.getDate() + 2),
+          year = d.getFullYear()
+        if (month.length < 2) month = '0' + month
+        if (day.length < 2) day = '0' + day
+
+        this.escala.domingo.dia = [year, month, day].join('-')
+      }
     }
   }
 }

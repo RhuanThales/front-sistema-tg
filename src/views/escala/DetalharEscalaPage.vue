@@ -12,7 +12,6 @@
         sm12
         xs12
       >
-        <!-- {{ escala }} -->
         <div id="botaoImprimir">
           <v-btn
             color="primary"
@@ -43,33 +42,26 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.segunda.permanenciaManha"
-                :key="item.id"
-              >
-                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
-              </tr>
-              <!--<tr>
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
                 <div
                   v-for="item in escala.segunda.permanenciaManha"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: center;"
                 >
                   <td>{{ item }}</td>
                 </div>
-              </tr>-->
-              <!--<tr>
-                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (8:00 às 13:00 h)</th>
+              </tr>
+              <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.segunda.permanenciaTarde"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="border-top: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
-              </tr>-->
+              </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.segunda.comandanteGuarda }}</td>
@@ -79,7 +71,7 @@
                 <div
                   v-for="item in escala.segunda.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
@@ -94,12 +86,25 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.terca.permanenciaManha"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.terca.permanenciaManha"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
+              </tr>
+              <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
+                <div
+                  v-for="item in escala.terca.permanenciaTarde"
+                  :key="item.id"
+                  style="border-top: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
@@ -110,7 +115,7 @@
                 <div
                   v-for="item in escala.terca.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
@@ -125,12 +130,25 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.quarta.permanenciaManha"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.quarta.permanenciaManha"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
+              </tr>
+              <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
+                <div
+                  v-for="item in escala.quarta.permanenciaTarde"
+                  :key="item.id"
+                  style="border-top: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
@@ -141,7 +159,7 @@
                 <div
                   v-for="item in escala.quarta.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
@@ -156,12 +174,25 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.quinta.permanenciaManha"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.quinta.permanenciaManha"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
+              </tr>
+              <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
+                <div
+                  v-for="item in escala.quinta.permanenciaTarde"
+                  :key="item.id"
+                  style="border-top: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
@@ -172,7 +203,7 @@
                 <div
                   v-for="item in escala.quinta.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
@@ -187,12 +218,25 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.sexta.permanenciaManha"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.sexta.permanenciaManha"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
+              </tr>
+              <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
+                <div
+                  v-for="item in escala.sexta.permanenciaTarde"
+                  :key="item.id"
+                  style="border-top: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
@@ -203,7 +247,7 @@
                 <div
                   v-for="item in escala.sexta.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
@@ -218,19 +262,25 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.sabado.permanenciaManha"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.sabado.permanenciaManha"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
-              <tr
-                v-for="item in escala.sabado.permanenciaTarde"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.sabado.permanenciaTarde"
+                  :key="item.id"
+                  style="border-top: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
@@ -241,7 +291,7 @@
                 <div
                   v-for="item in escala.sabado.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
@@ -256,19 +306,25 @@
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
                 <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
               </tr>
-              <tr
-                v-for="item in escala.domingo.permanenciaManha"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.domingo.permanenciaManha"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
-              <tr
-                v-for="item in escala.domingo.permanenciaTarde"
-                :key="item.id"
-              >
+              <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ item }}</td>
+                <div
+                  v-for="item in escala.domingo.permanenciaTarde"
+                  :key="item.id"
+                  style="padding: 5px; text-align: left;"
+                >
+                  <td>{{ item }}</td>
+                </div>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
@@ -279,7 +335,7 @@
                 <div
                   v-for="item in escala.domingo.guardas"
                   :key="item.id"
-                  style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;"
+                  style="padding: 5px; text-align: left;"
                 >
                   <td>{{ item }}</td>
                 </div>
