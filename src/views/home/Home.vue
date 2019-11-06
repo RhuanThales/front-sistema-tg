@@ -69,6 +69,7 @@ export default {
   created () {
     this.NomeDoUsuario()
     this.getUsuarioStorage()
+    localStorage.removeItem('nomeAtirador')
   },
   methods: {
     getUsuarioStorage () {

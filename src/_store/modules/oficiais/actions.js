@@ -11,6 +11,14 @@ export default {
     )
   },
 
+  getChefeInstrucao ({ commit }) {
+    commit('getChefeInstrucaoRequest')
+    oficialService.getChefeInstrucao().then(
+      oficial => commit('getChefeInstrucaoSuccess', oficial),
+      error => commit('getChefeInstrucaoFailure', error)
+    )
+  },
+
   register ({ dispatch, commit }, oficial) {
     commit('registerRequest', oficial)
     oficialService.register(oficial).then(

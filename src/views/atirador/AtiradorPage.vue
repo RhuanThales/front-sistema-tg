@@ -98,6 +98,7 @@ export default {
   },
   created () {
     this.getAllAtiradores()
+    localStorage.removeItem('nomeAtirador')
   },
   methods: {
     ...mapActions('atiradores', {

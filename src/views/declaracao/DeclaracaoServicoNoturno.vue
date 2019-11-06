@@ -83,8 +83,8 @@ export default {
         mes: 'mes aqui',
         ano: 'ano aqui'
       },
-      nomeOficial: 'Judas Tadeu Tiburcio',
-      nomeAtirador: 'Xesqueman da Silva Rodrigues',
+      nomeOficial: '***********************',
+      nomeAtirador: '***********************',
       btnImprimir: true,
       submitted: false,
       cssText: `
@@ -120,13 +120,23 @@ export default {
   },
   created () {
     this.pegarData()
+    this.pegarNomeAtirador()
+    this.pegarNomeOficial()
   },
   methods: {
     imprimir () {
       document.getElementById('botaoImprimir').remove()
       document.getElementById('botaoVoltar').remove()
       this.d.print(this.$el, [this.cssText])
-      this.$router.push('/')
+      this.$router.push('/atiradores')
+    },
+    pegarNomeAtirador () {
+      let nomeTemp = localStorage.getItem('nomeAtirador')
+      this.nomeAtirador = nomeTemp
+    },
+    pegarNomeOficial () {
+      let info = JSON.parse(localStorage.getItem('usuario'))
+      this.nomeOficial = info.value.chefeInstrucao
     },
     pegarData () {
       let d = new Date()
@@ -147,7 +157,7 @@ export default {
       this.data.ano = year
     },
     voltar () {
-      this.$router.push('/')
+      this.$router.push('/atiradores')
     }
   }
 }

@@ -305,7 +305,7 @@
 
                     <v-btn
                       color="green darken-4"
-                      @click="gerarDeclaracao(atiradorInfo)"
+                      @click="abrirModalDeclaracao()"
                     >
                       Declarações
                     </v-btn>
@@ -322,6 +322,7 @@
             </template>
           </v-simple-table>
         </material-card>
+        <!--Modal de confirmar exclusão de Atirador-->
         <v-dialog
           v-model="modalDelete"
           max-width="350"
@@ -354,6 +355,51 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+        <!--Modal de selecionar tipo de declaração-->
+        <v-dialog
+          v-model="modalSelectDeclaracao"
+          max-width="500"
+        >
+          <v-card>
+            <v-card-title class="headline">Selecione qual tipo de Declaração deseja:</v-card-title>
+
+            <v-card-text style="font-weight: bold;">
+              <v-form
+                ref="formDeclaracao"
+                v-model="valid"
+                lazy-validation
+              >
+                <v-select
+                  v-model="tipoDeclaracao"
+                  :items="declaracaoOptions"
+                  :rules="[v => !!v || 'É obrigatório informar este campo!']"
+                  label="Declaração"
+                />
+              </v-form>
+            </v-card-text>
+
+            <v-card-actions>
+              <div class="flex-grow-1"/>
+
+              <v-btn
+                color="indigo darken-4"
+                text
+                :disabled="!valid"
+                @click="selecionarDeclaracao()"
+              >
+                Confirmar
+              </v-btn>
+
+              <v-btn
+                color="red darken-4"
+                text
+                @click="modalSelectDeclaracao = false"
+              >
+                Cancelar
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-flex>
     </v-layout>
   </v-container>
@@ -366,7 +412,10 @@ import { mapActions } from 'vuex'
 export default {
   data () {
     return {
+      valid: true,
       modalDelete: false,
+      modalSelectDeclaracao: false,
+      tipoDeclaracao: '',
       idAtirador: '',
       nomeAtirador: '',
       atiradorInfo: {
@@ -415,7 +464,15 @@ export default {
         horasServico: this.$store.state.editAtirador.atiradorEdit.horasServico,
         totalHoras: this.$store.state.editAtirador.atiradorEdit.totalHoras,
         totalDias: this.$store.state.editAtirador.atiradorEdit.totalDias
-      }
+      },
+      declaracaoOptions: [
+        'Declaração de Prestação de Serviço Militar',
+        'Declaração de Prestação Serviço Permanencia',
+        'Declaração de Prestação Serviço 24 Horas',
+        'Declaração de Prestação Serviço Noturno',
+        'Declaração de Prestação Serviço para Faculdade',
+        'Oficio Circular Empregado/Empregador'
+      ],
     }
   },
   computed: {
@@ -453,8 +510,28 @@ export default {
       this.modalDelete = false
       this.$router.push('/atiradores')
     },
-    gerarDeclaracao () {
-      console.log('Teste gerar declaração!')
+    abrirModalDeclaracao () {
+      console.log('Atirador => ' + JSON.stringify(this.atiradorInfo.nomeAtirador))
+      localStorage.setItem('nomeAtirador', this.atiradorInfo.nomeAtirador)
+      this.modalSelectDeclaracao = true
+    },
+    selecionarDeclaracao () {
+      console.log('Tipo Declaração => ' + this.tipoDeclaracao)
+      if (this.$refs.formDeclaracao.validate()) {
+        if (this.tipoDeclaracao === 'Declaração de Prestação de Serviço Militar') {
+          this.$router.push('/prestacaoServico')
+        } else if (this.tipoDeclaracao === 'Declaração de Prestação Serviço Permanencia') {
+          this.$router.push('/servicoPermanencia')
+        } else if (this.tipoDeclaracao === 'Declaração de Prestação Serviço 24 Horas') {
+          this.$router.push('/servico24Horas')
+        } else if (this.tipoDeclaracao === 'Declaração de Prestação Serviço Noturno') {
+          this.$router.push('/servicoNoturno')
+        } else if (this.tipoDeclaracao === 'Declaração de Prestação Serviço para Faculdade') {
+          this.$router.push('/servicoFaculdade')
+        } else if (this.tipoDeclaracao === 'Oficio Circular Empregado/Empregador') {
+          this.$router.push('/oficioCircular')
+        }
+      }
     }
   }
 }

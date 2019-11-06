@@ -12,6 +12,18 @@ export default {
     state.all = { error }
   },
 
+  getChefeInstrucaoRequest (state) {
+    state.all = {
+      items: []
+    }
+  },
+  getChefeInstrucaoSuccess (state, oficial) {
+    state.all = { items: oficial.result }
+  },
+  getChefeInstrucaoFailure (state, error) {
+    state.all = { error }
+  },
+
   registerRequest (state, oficial) {
     state.status = { registering: true }
   },

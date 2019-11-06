@@ -4,6 +4,7 @@ import { userService, config } from '.'
 export const oficialService = {
   register,
   getAll,
+  getChefeInstrucao,
   update,
   delete: _delete
 }
@@ -14,6 +15,14 @@ function getAll () {
     headers: authHeader()
   }
   return fetch(`${config.apiUrl}/Oficial/ObterTodos`, requestOptions).then(handleResponse)
+}
+
+function getChefeInstrucao () {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  }
+  return fetch(`${config.apiUrl}/Oficial/ObterChefeInstrucao`, requestOptions).then(handleResponse)
 }
 
 function register (oficial) {
