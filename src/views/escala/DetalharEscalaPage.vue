@@ -31,28 +31,31 @@
           <h6 style="text-align:center">MINISTÉRIO DA DEFESA</h6>
           <h6 style="text-align:center">EXÉRCITO BRASILEIRO</h6>
           <h6 style="text-align:center">TIRO DE GUERRA 04-013 - PATOS DE MINAS</h6>
-          <hr>
           <h4 style="text-align:center">Escala de Serviço nº 0{{ escala.numeroEscala }}/2019 </h4>
-          <hr>
           <h6 style="text-align:center;">Segunda-Feira {{ escala.segunda.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.instrutorSemana }}</td>
+                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: center;">{{ escala.instrutorSemana }}</td>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência manhã - 5h (8:00 às 13:00 h)</th>
-                <div
-                  v-for="item in escala.segunda.permanenciaManha"
-                  :key="item.id"
-                  style="padding: 5px; text-align: center;"
-                >
-                  <td>{{ item }}</td>
-                </div>
+                <td style="padding: 5px; text-align: left;">
+                  <v-row no-gutters>
+                    <v-col
+                      v-for="item in escala.segunda.permanenciaManha"
+                      :key="item.id"
+                      cols="12"
+                      sm="6"
+                      style="text-align: center;"
+                    >
+                      {{ item }}
+                    </v-col>
+                  </v-row>
+                </td>
               </tr>
-              <tr>
+              <tr v-if="escala.segunda.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.segunda.permanenciaTarde"
@@ -64,22 +67,27 @@
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Comandante da Guarda Noturna - 12h (17:50 às 8:00 h)</th>
-                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">{{ escala.segunda.comandanteGuarda }}</td>
+                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: center;">{{ escala.segunda.comandanteGuarda }}</td>
               </tr>
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Guarda - 12h (17:50 às 8:00 h)</th>
-                <div
-                  v-for="item in escala.segunda.guardas"
-                  :key="item.id"
-                  style="padding: 5px; text-align: left;"
-                >
-                  <td>{{ item }}</td>
-                </div>
+                <td style="padding: 5px; text-align: left;">
+                  <v-row no-gutters>
+                    <v-col
+                      v-for="item in escala.segunda.guardas"
+                      :key="item.id"
+                      cols="12"
+                      sm="4"
+                      style="text-align: center;"
+                    >
+                      {{ item }}
+                    </v-col>
+                  </v-row>
+                </td>
               </tr>
             </table>
           </div>
           <h6 style="text-align:center;">Terça-Feira {{ escala.terca.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
@@ -96,7 +104,7 @@
                   <td>{{ item }}</td>
                 </div>
               </tr>
-              <tr>
+              <tr v-if="escala.terca.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.terca.permanenciaTarde"
@@ -123,7 +131,6 @@
             </table>
           </div>
           <h6 style="text-align:center;">Quarta-Feira {{ escala.quarta.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
@@ -140,7 +147,7 @@
                   <td>{{ item }}</td>
                 </div>
               </tr>
-              <tr>
+              <tr v-if="escala.quarta.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.quarta.permanenciaTarde"
@@ -167,7 +174,6 @@
             </table>
           </div>
           <h6 style="text-align:center;">Quinta-Feira {{ escala.quinta.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
@@ -184,7 +190,7 @@
                   <td>{{ item }}</td>
                 </div>
               </tr>
-              <tr>
+              <tr v-if="escala.quinta.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.quinta.permanenciaTarde"
@@ -211,7 +217,6 @@
             </table>
           </div>
           <h6 style="text-align:center;">Sexta-Feira {{ escala.sexta.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
               <tr>
@@ -228,7 +233,7 @@
                   <td>{{ item }}</td>
                 </div>
               </tr>
-              <tr>
+              <tr v-if="escala.sexta.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.sexta.permanenciaTarde"
@@ -255,7 +260,6 @@
             </table>
           </div>
           <h6 style="text-align:center;">Sábado {{ escala.sabado.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: red;">
               <tr>
@@ -272,7 +276,7 @@
                   <td>{{ item }}</td>
                 </div>
               </tr>
-              <tr>
+              <tr v-if="escala.sabado.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.sabado.permanenciaTarde"
@@ -299,7 +303,6 @@
             </table>
           </div>
           <h6 style="text-align:center;">Domingo {{ escala.domingo.dia }}</h6>
-          <hr>
           <div>
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: red;">
               <tr>
@@ -316,7 +319,7 @@
                   <td>{{ item }}</td>
                 </div>
               </tr>
-              <tr>
+              <tr v-if="escala.domingo.permanenciaTarde[0] != null">
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Permanência tarde - 5h (12:50 às 18:00 h)</th>
                 <div
                   v-for="item in escala.domingo.permanenciaTarde"
@@ -345,7 +348,7 @@
           <div>
             <br>
             <p>_____________________________________________________________</p>
-            <p>JAILSON GOMES DE LIMA S.Ten</p>
+            <p>{{ nomeOficial }} S.Ten</p>
             <p>Ch Instr TG 04-013</p>
           </div>
         </div>
@@ -369,6 +372,8 @@
 export default {
   data () {
     return {
+      texto: 'Não informado!',
+      nomeOficial: '***********************',
       escala: {
         idEscala: this.$store.state.editEscala.escalaEdit.idEscala,
         numeroEscala: this.$store.state.editEscala.escalaEdit.numeroEscala,
@@ -429,6 +434,7 @@ export default {
         .printing {
           font-family: 'Open Sans', sans-serif;
           width: 900px;
+          height: 50%;
           text-align: center;
         }
         .printing ul {
@@ -457,6 +463,7 @@ export default {
     )
   },
   created () {
+    this.pegarNomeOficial()
   },
   methods: {
     imprimir () {
@@ -467,6 +474,10 @@ export default {
     },
     voltar () {
       this.$router.push('/escalas')
+    },
+    pegarNomeOficial () {
+      let info = JSON.parse(localStorage.getItem('usuario'))
+      this.nomeOficial = info.value.chefeInstrucao.toUpperCase()
     },
     formatarData (date) {
       if (date === '0001-01-01T00:00:00Z') {
