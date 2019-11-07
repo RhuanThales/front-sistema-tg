@@ -36,7 +36,6 @@ export default {
         // router.push('/chamadas')
         setTimeout(() => {
           dispatch('alert/success', 'Registration successful', { root: true })
-          chamadaService.getAll()
         })
       },
       error => {

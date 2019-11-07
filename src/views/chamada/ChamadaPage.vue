@@ -230,8 +230,9 @@ export default {
       this.modalConfirmar = true
     },
     confirmar (idChamada) {
-      // this.confirmarChamada(idChamada)
+      this.confirmarChamada(idChamada)
       this.modalConfirmar = false
+      this.getAllChamadas()
     }
   }
 }
