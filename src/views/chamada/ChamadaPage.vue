@@ -38,7 +38,7 @@
               <div v-if="item.statusChamada !== true">
                 <v-btn
                   color="green darken-4"
-                  @click="confirmarChamada(item.idChamada)"
+                  @click="openModalConfirmar(item.idChamada)"
                 >
                   Confirmar
                 </v-btn>
@@ -139,6 +139,39 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+        <v-dialog
+          v-model="modalConfirmar"
+          max-width="400"
+        >
+          <v-card>
+            <v-card-title class="headline">Deseja realmente Confimar?</v-card-title>
+
+            <v-card-text>
+              A chamada não poderá mais ser editada nem excluida e os pontos e horas serão aplicados aos respectivos atiradores.
+              Tem certeza que deseja continuar!
+            </v-card-text>
+
+            <v-card-actions>
+              <div class="flex-grow-1"/>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="confirmar(idChamada)"
+              >
+                Confirmar
+              </v-btn>
+
+              <v-btn
+                color="red darken-1"
+                text
+                @click="modalConfirmar = false"
+              >
+                Cancelar
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-flex>
     </v-layout>
   </v-container>
@@ -151,6 +184,7 @@ export default {
   data () {
     return {
       modalDelete: false,
+      modalConfirmar: false,
       idChamada: '',
       textoPaginacao: 'Qtd por Página',
       headers: [
@@ -190,9 +224,14 @@ export default {
       this.deleteChamada(id)
       this.modalDelete = false
     },
-    confirmarChamada (idChamada) {
-      console.log('Teste confimar chamada => ' + idChamada)
+    openModalConfirmar (idChamada) {
+      console.log('Id Chamada => ' + idChamada)
+      this.idChamada = idChamada
+      this.modalConfirmar = true
+    },
+    confirmar (idChamada) {
       // this.confirmarChamada(idChamada)
+      this.modalConfirmar = false
     }
   }
 }
