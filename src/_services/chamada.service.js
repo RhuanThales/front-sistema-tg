@@ -5,6 +5,7 @@ export const chamadaService = {
   getAll,
   register,
   update,
+  confirmarChamada,
   delete: _delete
 }
 
@@ -32,6 +33,14 @@ function update (chamada) {
     body: JSON.stringify(chamada)
   }
   return fetch(`${config.apiUrl}/Chamada/Atualizar/${chamada.idChamada}`, requestOptions).then(handleResponse)
+}
+
+function confirmarChamada (idChamada) {
+  const requestOptions = {
+    method: 'PUT',
+    headers: { ...authHeader(), 'Content-Type': 'application/json' }
+  }
+  return fetch(`${config.apiUrl}/Chamada/ConfirmarChamada/${idChamada}`, requestOptions).then(handleResponse)
 }
 
 function _delete (id) {

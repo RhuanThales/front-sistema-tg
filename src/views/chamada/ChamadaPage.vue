@@ -33,22 +33,62 @@
             sort-by="ra"
             class="elevation-1"
           >
+
+            <template v-slot:item.confirm="{ item }">
+              <div v-if="item.statusChamada !== true">
+                <v-btn
+                  color="green darken-4"
+                  @click="confirmarChamada(item.idChamada)"
+                >
+                  Confirmar
+                </v-btn>
+              </div>
+              <div v-else>
+                <v-btn
+                  color="indigo darken-4"
+                  disabled
+                >
+                  Confirmar
+                </v-btn>
+              </div>
+            </template>
+
             <template v-slot:item.edit="{ item }">
-              <v-btn
-                color="indigo darken-4"
-                @click="getChamadaEditar(item)"
-              >
-                Editar
-              </v-btn>
+              <div v-if="item.statusChamada !== true">
+                <v-btn
+                  color="indigo darken-4"
+                  @click="getChamadaEditar(item)"
+                >
+                  Editar
+                </v-btn>
+              </div>
+              <div v-else>
+                <v-btn
+                  color="indigo darken-4"
+                  disabled
+                >
+                  Editar
+                </v-btn>
+              </div>
             </template>
 
             <template v-slot:item.delete="{ item }">
-              <v-btn
-                color="red darken-4"
-                @click="openModalDelete(item.idChamada)"
-              >
-                Excluir
-              </v-btn>
+              <div v-if="item.statusChamada !== true">
+                <v-btn
+                  color="red darken-4"
+                  @click="openModalDelete(item.idChamada)"
+                >
+                  Excluir
+                </v-btn>
+              </div>
+              <div v-else>
+                <v-btn
+                  color="red darken-4"
+                  disabled
+                >
+                  Excluir
+                </v-btn>
+              </div>
             </template>
 
             <template v-slot:no-data>
@@ -118,6 +158,7 @@ export default {
         { text: 'Hora', align: 'left', value: 'horarioChamada' },
         { text: 'Responsável', align: 'left', value: 'usuario' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
+        { text: 'Confimar', align: 'center', value: 'confirm', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }
       ]
@@ -134,6 +175,7 @@ export default {
   methods: {
     ...mapActions('chamadas', {
       getAllChamadas: 'getAll',
+      confirmarChamada: 'confirmarChamada',
       deleteChamada: 'delete'
     }),
     ...mapActions('editChamada', {
@@ -147,6 +189,10 @@ export default {
     deletarChamada (id) {
       this.deleteChamada(id)
       this.modalDelete = false
+    },
+    confirmarChamada (idChamada) {
+      console.log('Teste confimar chamada => ' + idChamada)
+      // this.confirmarChamada(idChamada)
     }
   }
 }

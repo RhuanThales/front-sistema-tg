@@ -28,6 +28,24 @@ export default {
     )
   },
 
+  confirmarChamada ({ dispatch, commit }, idChamada) {
+    commit('confirmarChamadaRequest', idChamada)
+    chamadaService.confirmarChamada(idChamada).then(
+      chamada => {
+        commit('confirmarChamadaSuccess', idChamada)
+        // router.push('/chamadas')
+        setTimeout(() => {
+          dispatch('alert/success', 'Registration successful', { root: true })
+          chamadaService.getAll()
+        })
+      },
+      error => {
+        commit('confirmarChamadaFailure', error)
+        dispatch('alert/error', error, { root: true })
+      }
+    )
+  },
+
   delete ({ commit }, id) {
     commit('deleteRequest', id)
     chamadaService.delete(id).then(

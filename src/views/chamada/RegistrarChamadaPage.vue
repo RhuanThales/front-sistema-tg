@@ -121,6 +121,7 @@ export default {
       showAtiradores: false,
       dataOptions: [],
       chamada: {
+        statusChamada: false,
         numeroPelotao: 0,
         dataChamada: '',
         horarioChamada: '',

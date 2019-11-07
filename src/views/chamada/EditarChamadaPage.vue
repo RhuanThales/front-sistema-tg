@@ -116,6 +116,7 @@ export default {
       dataOptions: [],
       chamada: {
         idChamada: this.$store.state.editChamada.chamadaEdit.idChamada,
+        statusChamada: this.$store.state.editChamada.chamadaEdit.statusChamada,
         numeroPelotao: this.$store.state.editChamada.chamadaEdit.numeroPelotao,
         dataChamada: this.$store.state.editChamada.chamadaEdit.dataChamada,
         horarioChamada: this.$store.state.editChamada.chamadaEdit.horarioChamada,

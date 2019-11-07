@@ -21,6 +21,17 @@ export default {
     state.status = { error }
   },
 
+  confirmarChamadaRequest (state, idChamada) {
+    state.status = { updating: true }
+  },
+  confirmarChamadaSuccess (state, idChamada) {
+    state.status = {}
+    console.log('Id Chamada na mutation => ' + idChamada)
+  },
+  confirmarChamadaFailure (state, error) {
+    state.status = { error }
+  },
+
   deleteRequest (state, id) {
     // add 'deleting:true' property to user being deleted
     state.all.items = state.all.items.map(
