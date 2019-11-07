@@ -67,26 +67,25 @@
                   <td style="border: 1px solid black; border-collapse: collapse; text-align: center; width: 30px !important;">
                     <v-checkbox
                       v-model="chamada.atiradoresPresentes"
-                      :value="ati.nomeGuerra"
+                      :value="ati.cr"
                       style="margin-top: 0px; height: 30px !important;"
                     />
                   </td>
                   <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
                     <v-checkbox
                       v-model="chamada.atiradoresFaltosos"
-                      :value="ati.nomeGuerra"
+                      :value="ati.cr"
                       style="margin-top: 0px; height: 30px !important;"
                     />
                   </td>
                   <td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
                     <v-checkbox
                       v-model="chamada.atiradoresJustificados"
-                      :value="ati.nomeGuerra"
+                      :value="ati.cr"
                       style="margin-top: 0px; height: 30px !important;"
                     />
                   </td>
                   <!--<td style="border: 1px solid black; border-collapse: collapse; text-align: left; padding-left: 5px; width: 30px !important;">
-                    
                   </td>-->
                 </tr>
               </table>
