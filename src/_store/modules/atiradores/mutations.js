@@ -37,15 +37,15 @@ export default {
   },
 
   getDesligadosRequest (state) {
-    state.atiradores = {
+    state.all = {
       items: []
     }
   },
   getDesligadosSuccess (state, atiradores) {
-    state.atiradores = { items: atiradores.result }
+    state.all = { items: atiradores.result }
   },
   getDesligadosFailure (state, error) {
-    state.atiradores = { error }
+    state.all = { error }
   },
 
   registerRequest (state, atirador) {
