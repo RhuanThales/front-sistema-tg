@@ -87,6 +87,7 @@ export default {
   created () {
     this.getDesligados()
     localStorage.removeItem('nomeAtirador')
+    //this.$vuetify.theme.dark = true
   },
   methods: {
     ...mapActions('atiradores', {
