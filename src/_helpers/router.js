@@ -16,6 +16,7 @@ import CadastrarEscalaPage from '../views/escala/CadastrarEscalaPage'
 import EditarEscalaPage from '../views/escala/EditarEscalaPage'
 import DetalharEscalaPage from '../views/escala/DetalharEscalaPage'
 import AtiradorPage from '../views/atirador/AtiradorPage'
+import DesligadosPage from '../views/atirador/DesligadosPage'
 import CadastrarAtiradorPage from '../views/atirador/CadastrarAtiradorPage'
 import EditarAtiradorPage from '../views/atirador/EditarAtiradorPage'
 import DetalharAtiradorPage from '../views/atirador/DetalharAtiradorPage'
@@ -56,6 +57,7 @@ export const router = new Router({
     { path: '/informacaoEscala', name: 'Detalhes da Escala', component: DetalharEscalaPage },
     // Atirador
     { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
+    { path: '/desligados', name: 'Gerênciar Atiradores', component: DesligadosPage },
     { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },
     { path: '/editarAtirador', name: 'Editar Atirador', component: EditarAtiradorPage },
     { path: '/informacoesAtirador', name: 'Informações do Atirador', component: DetalharAtiradorPage },

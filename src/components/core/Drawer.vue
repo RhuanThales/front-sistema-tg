@@ -89,6 +89,11 @@ export default {
         text: 'Atiradores'
       },
       {
+        to: '/desligados',
+        icon: 'mdi-star',
+        text: 'Desligados'
+      },
+      {
         to: '/oficiais',
         icon: 'mdi-star',
         text: 'Oficiais'

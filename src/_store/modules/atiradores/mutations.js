@@ -36,6 +36,18 @@ export default {
     state.monitores = { error }
   },
 
+  getDesligadosRequest (state) {
+    state.atiradores = {
+      items: []
+    }
+  },
+  getDesligadosSuccess (state, atiradores) {
+    state.atiradores = { items: atiradores.result }
+  },
+  getDesligadosFailure (state, error) {
+    state.atiradores = { error }
+  },
+
   registerRequest (state, atirador) {
     state.status = { registering: true }
   },

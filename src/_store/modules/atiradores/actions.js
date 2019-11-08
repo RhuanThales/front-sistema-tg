@@ -27,6 +27,14 @@ export default {
     )
   },
 
+  getDesligados ({ commit }) {
+    commit('getDesligadosRequest')
+    atiradorService.getDesligados().then(
+      atiradores => commit('getDesligadosSuccess', atiradores),
+      error => commit('getDesligadosFailure', error)
+    )
+  },
+
   register ({ dispatch, commit }, atirador) {
     commit('registerRequest', atirador)
     atiradorService.register(atirador).then(

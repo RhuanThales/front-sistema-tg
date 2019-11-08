@@ -6,6 +6,7 @@ export const atiradorService = {
   getAll,
   getPorPelotao,
   getMonitores,
+  getDesligados,
   update,
   delete: _delete
 }
@@ -32,6 +33,14 @@ function getMonitores () {
     headers: authHeader()
   }
   return fetch(`${config.apiUrl}/Atirador/ObterMonitores`, requestOptions).then(handleResponse)
+}
+
+function getDesligados () {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  }
+  return fetch(`${config.apiUrl}/Atirador/ObterDesligados`, requestOptions).then(handleResponse)
 }
 
 function register (atirador) {

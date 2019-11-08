@@ -1,4 +1,5 @@
 export default {
   all: {},
-  monitores: {}
+  monitores: {},
+  desligados: {}
 }
