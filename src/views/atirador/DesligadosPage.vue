@@ -75,7 +75,7 @@ export default {
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Horas', align: 'left', value: 'totalHoras' },
-        { text: 'Faltas', align: 'left', value: 'totalPontos' },
+        { text: 'Faltas', align: 'left', value: 'totalPontos' }
       ]
     }
   },
