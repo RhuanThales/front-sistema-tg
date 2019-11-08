@@ -14,7 +14,7 @@
       tag="v-list"
       column
     >
-      <template >
+      <template>
         <div class="text-center">
           <v-avatar
             size="70"
@@ -34,6 +34,34 @@
         >
           Tiro de Guerra 04-013
         </v-list>
+        <div style="color: white; padding-left: 30px; align-content: center !important; display: flex;">
+          <v-flex
+            md6
+            sm6
+            lg6
+          >
+            <span class="font-weight-bold">
+              <v-switch
+                v-model="valTheme"
+                color="white"
+                hide-details
+                style="display: inline !important;"
+                @change="alterarTema()"
+              />
+            </span>
+          </v-flex>
+          <v-flex
+            md6
+            sm6
+            lg6
+          >
+            <span class="font-weight-bold">
+              <p style="display: inline !important;">
+                {{ textoLabel }}
+              </p>
+            </span>
+          </v-flex>
+        </div>
         <v-list-item-group color="light-green accent-3">
           <div
             v-for="(item, i) in links"
@@ -69,6 +97,8 @@ import { mapMutations, mapState } from 'vuex'
 
 export default {
   data: () => ({
+    valTheme: false,
+    textoLabel: 'Dark Theme',
     perfil: '',
     logo: './img/logo-tg.png',
     links: [
@@ -160,6 +190,15 @@ export default {
     getUsuarioStorage () {
       let usuario = JSON.parse(localStorage.getItem('usuario'))
       this.usuario = usuario.value
+    },
+    alterarTema () {
+      if (this.valTheme === true) {
+        this.textoLabel = 'Light Theme'
+        this.$vuetify.theme.dark = true
+      } else if (this.valTheme === false) {
+        this.textoLabel = 'Dark Theme'
+        this.$vuetify.theme.dark = this.valTheme
+      }
     }
   }
 }

@@ -46,7 +46,7 @@
           >
             <template v-slot:item.details="{ item }">
               <v-btn
-                color="indigo darken-4"
+                color="green darken-4"
                 @click="getAtiradorInfo(item)"
               >
                 <v-icon>mdi-clipboard-text</v-icon>

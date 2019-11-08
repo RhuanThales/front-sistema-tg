@@ -37,7 +37,13 @@
             sort-by="numeroAtirador"
             class="elevation-1"
           >
-            <template v-slot:item.details="{ item }">
+            <template v-slot:item.edit="{ item }">
+              <v-btn
+                color="indigo darken-4"
+                @click="getAtiradorEditar(item)"
+              >
+                <v-icon>mdi-clipboard-text</v-icon>
+              </v-btn>
             </template>
             <template v-slot:no-data>
               <v-alert
@@ -75,7 +81,8 @@ export default {
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Horas', align: 'left', value: 'totalHoras' },
-        { text: 'Faltas', align: 'left', value: 'totalPontos' }
+        { text: 'Faltas', align: 'left', value: 'totalPontos' },
+        { text: 'Editar', align: 'center', value: 'edit', sortable: false }
       ]
     }
   },
@@ -87,7 +94,6 @@ export default {
   created () {
     this.getDesligados()
     localStorage.removeItem('nomeAtirador')
-    //this.$vuetify.theme.dark = true
   },
   methods: {
     ...mapActions('atiradores', {
@@ -96,7 +102,7 @@ export default {
       deleteAtirador: 'delete'
     }),
     ...mapActions('editAtirador', {
-      getAtiradorInfo: 'getAtiradorInfo'
+      getAtiradorEditar: 'getAtiradorEdit'
     })
   }
 }
