@@ -173,6 +173,7 @@
                   color="indigo darken-4"
                   @click="step = 2"
                 >
+                  <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                   Continuar
                 </v-btn>
 
@@ -180,6 +181,7 @@
                   color="red darken-4"
                   @click="modalCancelar = true"
                 >
+                  <v-icon left>mdi-close-circle</v-icon>
                   Cancelar
                 </v-btn>
 
@@ -270,6 +272,7 @@
                   color="indigo darken-4"
                   @click="step = 3"
                 >
+                  <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                   Continuar
                 </v-btn>
 
@@ -277,6 +280,7 @@
                   color="indigo darken-2"
                   @click="step = 1"
                 >
+                  <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                   Voltar
                 </v-btn>
 
@@ -284,6 +288,7 @@
                   color="red darken-4"
                   @click="modalCancelar = true"
                 >
+                  <v-icon left>mdi-close-circle</v-icon>
                   Cancelar
                 </v-btn>
               </v-stepper-content>
@@ -340,6 +345,7 @@
                   color="indigo darken-4"
                   @click="handleSubmit()"
                 >
+                  <v-icon left>mdi-check-circle</v-icon>
                   Editar
                 </v-btn>
 
@@ -347,6 +353,7 @@
                   color="indigo darken-2"
                   @click="step = 2"
                 >
+                  <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                   Voltar
                 </v-btn>
 
@@ -354,6 +361,7 @@
                   color="red darken-4"
                   @click="modalCancelar = true"
                 >
+                  <v-icon left>mdi-close-circle</v-icon>
                   Cancelar
                 </v-btn>
               </v-stepper-content>

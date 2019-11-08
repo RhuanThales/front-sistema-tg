@@ -20,6 +20,7 @@
             color="grey darken-2"
             to="/cadastrarAtirador"
           >
+            <v-icon left>mdi-plus-circle</v-icon>
             Novo Atirador
           </v-btn>
           <v-spacer/>
@@ -48,7 +49,7 @@
                 color="indigo darken-4"
                 @click="getAtiradorInfo(item)"
               >
-                Detalhar
+                <v-icon>mdi-clipboard-text</v-icon>
               </v-btn>
             </template>
             <template v-slot:no-data>

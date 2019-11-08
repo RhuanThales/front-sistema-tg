@@ -20,6 +20,7 @@
             color="grey darken-2"
             to="/cadastrarOficial"
           >
+            <v-icon left>mdi-plus-circle</v-icon>
             Novo Oficial
           </v-btn>
           <v-spacer/>
@@ -48,7 +49,7 @@
                 color="indigo darken-4"
                 @click="openModalEdit(item)"
               >
-                Editar
+                <v-icon>mdi-pencil</v-icon>
               </v-btn>
             </template>
 
@@ -57,7 +58,7 @@
                 color="red darken-4"
                 @click="openModalDelete(item.nome, item.idOficial)"
               >
-                Excluir
+                <v-icon>mdi-delete</v-icon>
               </v-btn>
             </template>
 
@@ -153,6 +154,7 @@
                 color="indigo darken-4"
                 @click="handleSubmit()"
               >
+                <v-icon left>mdi-check-circle</v-icon>
                 Editar
               </v-btn>
 
@@ -160,6 +162,7 @@
                 color="red darken-4"
                 @click="modalEdit = false"
               >
+                <v-icon left>mdi-close-circle</v-icon>
                 Cancelar
               </v-btn>
             </v-card-actions>
@@ -194,7 +197,6 @@ export default {
         { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
         { text: 'Nome', align: 'left', value: 'nome' },
         { text: 'Patente', align: 'left', value: 'patente' },
-        { text: 'Função', align: 'left', value: 'funcaoOficial' },
         { text: 'Chefe Instrução', align: 'center', value: 'chefeInstrucao', sortable: false },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false }

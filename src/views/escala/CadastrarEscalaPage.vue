@@ -144,6 +144,7 @@
                       class="mr-4"
                       @click="selecionarData(escala.segunda.dia, 'Terça-Feira')"
                     >
+                      <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                       Continuar
                     </v-btn>
 
@@ -151,6 +152,7 @@
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>
@@ -239,6 +241,7 @@
                       class="mr-4"
                       @click="selecionarData(escala.terca.dia, 'Quarta-Feira')"
                     >
+                      <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                       Continuar
                     </v-btn>
                     <v-btn
@@ -247,12 +250,14 @@
                       class="mr-4"
                       @click="step = 1"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                     <v-btn
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>
@@ -341,6 +346,7 @@
                       class="mr-4"
                       @click="selecionarData(escala.quarta.dia, 'Quinta-Feira')"
                     >
+                      <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                       Continuar
                     </v-btn>
                     <v-btn
@@ -349,12 +355,14 @@
                       class="mr-4"
                       @click="step = 2"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                     <v-btn
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>
@@ -443,6 +451,7 @@
                       class="mr-4"
                       @click="selecionarData(escala.quinta.dia, 'Sexta-Feira')"
                     >
+                      <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                       Continuar
                     </v-btn>
                     <v-btn
@@ -451,12 +460,14 @@
                       class="mr-4"
                       @click="step = 3"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                     <v-btn
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>
@@ -545,6 +556,7 @@
                       class="mr-4"
                       @click="selecionarData(escala.sexta.dia, 'Sabado')"
                     >
+                      <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                       Continuar
                     </v-btn>
                     <v-btn
@@ -553,12 +565,14 @@
                       class="mr-4"
                       @click="step = 4"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                     <v-btn
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>
@@ -647,6 +661,7 @@
                       class="mr-4"
                       @click="selecionarData(escala.sabado.dia, 'Domingo')"
                     >
+                      <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                       Continuar
                     </v-btn>
                     <v-btn
@@ -655,12 +670,14 @@
                       class="mr-4"
                       @click="step = 5"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                     <v-btn
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>
@@ -749,6 +766,7 @@
                       class="mr-4"
                       @click="handleSubmit"
                     >
+                      <v-icon left>mdi-check-circle</v-icon>
                       Cadastrar
                     </v-btn>
                     <v-btn
@@ -757,12 +775,14 @@
                       class="mr-4"
                       @click="step = 6"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                     <v-btn
                       color="error"
                       @click="modalCancelar = true"
                     >
+                      <v-icon left>mdi-close-circle</v-icon>
                       Cancelar
                     </v-btn>
                   </v-form>

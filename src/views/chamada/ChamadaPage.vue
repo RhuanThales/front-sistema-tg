@@ -40,7 +40,7 @@
                   color="green darken-4"
                   @click="openModalConfirmar(item.idChamada)"
                 >
-                  Confirmar
+                  <v-icon>mdi-check</v-icon>
                 </v-btn>
               </div>
               <div v-else>
@@ -48,7 +48,7 @@
                   color="indigo darken-4"
                   disabled
                 >
-                  Confirmar
+                  <v-icon>mdi-check</v-icon>
                 </v-btn>
               </div>
             </template>
@@ -59,7 +59,7 @@
                   color="indigo darken-4"
                   @click="getChamadaEditar(item)"
                 >
-                  Editar
+                  <v-icon>mdi-pencil</v-icon>
                 </v-btn>
               </div>
               <div v-else>
@@ -67,7 +67,7 @@
                   color="indigo darken-4"
                   disabled
                 >
-                  Editar
+                  <v-icon>mdi-pencil</v-icon>
                 </v-btn>
               </div>
             </template>
@@ -78,7 +78,7 @@
                   color="red darken-4"
                   @click="openModalDelete(item.idChamada)"
                 >
-                  Excluir
+                  <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
               <div v-else>
@@ -86,7 +86,7 @@
                   color="red darken-4"
                   disabled
                 >
-                  Excluir
+                  <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
             </template>

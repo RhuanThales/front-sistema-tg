@@ -19,6 +19,7 @@
             color="grey darken-2"
             to="/cadastrarUsuario"
           >
+            <v-icon left>mdi-plus-circle</v-icon>
             Novo Usuário
           </v-btn>
           <v-spacer/>
@@ -47,7 +48,7 @@
                 color="indigo darken-4"
                 @click="getUsuarioEditar(item)"
               >
-                Editar
+                <v-icon>mdi-pencil</v-icon>
               </v-btn>
             </template>
 
@@ -56,7 +57,7 @@
                 color="red darken-4"
                 @click="openModalDelete(item.nome, item.id)"
               >
-                Excluir
+                <v-icon>mdi-delete</v-icon>
               </v-btn>
             </template>
 

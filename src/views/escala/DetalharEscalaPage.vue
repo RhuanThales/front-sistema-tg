@@ -777,6 +777,7 @@
             color="error"
             @click="voltar"
           >
+            <v-icon left>mdi-arrow-left-bold-circle</v-icon>
             Voltar
           </v-btn>
         </div>

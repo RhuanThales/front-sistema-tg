@@ -54,6 +54,7 @@
               class="mr-4"
               @click="handleSubmit"
             >
+              <v-icon left>mdi-check-circle</v-icon>
               Concluir
             </v-btn>
 
@@ -62,6 +63,7 @@
               class="mr-4"
               to="/usuarios"
             >
+              <v-icon left>mdi-close-circle</v-icon>
               Cancelar
             </v-btn>
           </v-form>

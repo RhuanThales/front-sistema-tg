@@ -16,6 +16,7 @@
           color="error"
           to="/pelotoes"
         >
+          <v-icon left>mdi-arrow-left-bold-circle</v-icon>
           Voltar
         </v-btn>
         <material-card

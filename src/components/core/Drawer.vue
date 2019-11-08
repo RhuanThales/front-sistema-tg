@@ -74,28 +74,28 @@ export default {
     links: [
       {
         to: '/',
-        icon: 'mdi-monitor',
+        icon: 'mdi-chart-bar',
         text: 'Home',
         divider: true
       },
       {
         to: '/usuarios',
-        icon: 'mdi-star',
+        icon: 'mdi-account',
         text: 'Usuários'
       },
       {
         to: '/atiradores',
-        icon: 'mdi-star',
+        icon: 'mdi-target',
         text: 'Atiradores'
       },
       {
         to: '/desligados',
-        icon: 'mdi-star',
+        icon: 'mdi-crosshairs',
         text: 'Desligados'
       },
       {
         to: '/oficiais',
-        icon: 'mdi-star',
+        icon: 'mdi-medal',
         text: 'Oficiais'
       },
       {
@@ -105,7 +105,7 @@ export default {
       },
       {
         to: '/escalas',
-        icon: 'mdi-star',
+        icon: 'mdi-timer',
         text: 'Escalas'
       },
       {

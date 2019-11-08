@@ -50,6 +50,7 @@
             color="primary"
             @click="handleSubmit()"
           >
+            <v-icon left>mdi-check-circle</v-icon>
             Cadastrar
           </v-btn>
 
@@ -57,6 +58,7 @@
             color="error"
             to="/pelotoes"
           >
+            <v-icon left>mdi-close-circle</v-icon>
             Cancelar
           </v-btn>
         </material-card>

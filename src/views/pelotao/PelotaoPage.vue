@@ -20,6 +20,7 @@
             color="grey darken-2"
             to="/cadastrarPelotao"
           >
+            <v-icon left>mdi-plus-circle</v-icon>
             Novo Pelotão
           </v-btn>
           <v-spacer/>
@@ -39,7 +40,7 @@
                 color="success"
                 @click="openPageDetail(item.numeroPelotao)"
               >
-                Detalhar
+                <v-icon>mdi-clipboard-text</v-icon>
               </v-btn>
             </template>
 
@@ -48,7 +49,7 @@
                 color="indigo darken-4"
                 @click="openModalEdit(item)"
               >
-                Editar
+                <v-icon>mdi-pencil</v-icon>
               </v-btn>
             </template>
 
@@ -57,7 +58,7 @@
                 color="red darken-4"
                 @click="openModalDelete(item.nomePelotao, item.idPelotao)"
               >
-                Excluir
+                <v-icon>mdi-delete</v-icon>
               </v-btn>
             </template>
 
@@ -151,6 +152,7 @@
                 color="indigo darken-4"
                 @click="handleSubmit()"
               >
+                <v-icon left>mdi-check-circle</v-icon>
                 Editar
               </v-btn>
 
@@ -158,6 +160,7 @@
                 color="red darken-4"
                 @click="modalEdit = false"
               >
+                <v-icon left>mdi-close-circle</v-icon>
                 Cancelar
               </v-btn>
             </v-card-actions>

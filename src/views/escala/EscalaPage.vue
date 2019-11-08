@@ -20,6 +20,7 @@
             color="grey darken-2"
             to="/cadastrarEscala"
           >
+            <v-icon left>mdi-plus-circle</v-icon>
             Nova Escala
           </v-btn>
           <v-spacer/>
@@ -39,7 +40,7 @@
                 color="success"
                 @click="getEscalaInformacao(item)"
               >
-                Detalhar
+                <v-icon>mdi-clipboard-text</v-icon>
               </v-btn>
             </template>
 
@@ -48,7 +49,7 @@
                 color="indigo darken-4"
                 @click="getEscalaEditar(item)"
               >
-                Editar
+                <v-icon>mdi-pencil</v-icon>
               </v-btn>
             </template>
 
@@ -57,7 +58,7 @@
                 color="red darken-4"
                 @click="openModalDelete(item.idEscala)"
               >
-                Excluir
+                <v-icon>mdi-delete</v-icon>
               </v-btn>
             </template>
 

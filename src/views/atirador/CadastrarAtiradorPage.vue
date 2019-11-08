@@ -163,6 +163,7 @@
                   color="primary"
                   @click="step = 2"
                 >
+                  <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                   Continuar
                 </v-btn>
 
@@ -170,6 +171,7 @@
                   color="error"
                   @click="modalCancelar = true"
                 >
+                  <v-icon left>mdi-close-circle</v-icon>
                   Cancelar
                 </v-btn>
 
@@ -259,6 +261,7 @@
                   color="primary"
                   @click="step = 3"
                 >
+                  <v-icon left>mdi-arrow-right-bold-circle</v-icon>
                   Continuar
                 </v-btn>
 
@@ -266,6 +269,7 @@
                   color="warning"
                   @click="step = 1"
                 >
+                  <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                   Voltar
                 </v-btn>
 
@@ -273,6 +277,7 @@
                   color="error"
                   @click="modalCancelar = true"
                 >
+                  <v-icon left>mdi-close-circle</v-icon>
                   Cancelar
                 </v-btn>
               </v-stepper-content>
@@ -329,6 +334,7 @@
                   color="primary"
                   @click="handleSubmit()"
                 >
+                  <v-icon left>mdi-check-circle</v-icon>
                   Cadastrar
                 </v-btn>
 
@@ -336,6 +342,7 @@
                   color="warning"
                   @click="step = 2"
                 >
+                  <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                   Voltar
                 </v-btn>
 
@@ -343,6 +350,7 @@
                   color="error"
                   @click="modalCancelar = true"
                 >
+                  <v-icon left>mdi-close-circle</v-icon>
                   Cancelar
                 </v-btn>
               </v-stepper-content>

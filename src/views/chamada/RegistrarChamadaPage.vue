@@ -96,12 +96,14 @@
               color="success"
               @click="handleSubmit()"
             >
+              <v-icon left>mdi-check-circle</v-icon>
               Concluir
             </v-btn>
             <v-btn
               color="error"
               to="/"
             >
+              <v-icon left>mdi-close-circle</v-icon>
               Cancelar
             </v-btn>
           </v-form>

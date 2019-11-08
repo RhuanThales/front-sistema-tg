@@ -293,6 +293,7 @@
                       color="indigo darken-4"
                       @click="getAtiradorEditar(atiradorInfo)"
                     >
+                      <v-icon left>mdi-pencil-circle</v-icon>
                       Editar
                     </v-btn>
 
@@ -300,6 +301,7 @@
                       color="red darken-4"
                       @click="openModalDelete(atiradorInfo.nomeGuerra, atiradorInfo.idAtirador)"
                     >
+                      <v-icon left>mdi-delete-circle</v-icon>
                       Excluir
                     </v-btn>
 
@@ -307,6 +309,7 @@
                       color="green darken-4"
                       @click="abrirModalDeclaracao()"
                     >
+                      <v-icon left>mdi-file-document</v-icon>
                       Declarações
                     </v-btn>
 
@@ -314,6 +317,7 @@
                       color="warning"
                       to="/atiradores"
                     >
+                      <v-icon left>mdi-arrow-left-bold-circle</v-icon>
                       Voltar
                     </v-btn>
                   </td>
@@ -382,9 +386,9 @@
               <div class="flex-grow-1"/>
 
               <v-btn
+                :disabled="!valid"
                 color="indigo darken-4"
                 text
-                :disabled="!valid"
                 @click="selecionarDeclaracao()"
               >
                 Confirmar
@@ -472,7 +476,7 @@ export default {
         'Declaração de Prestação Serviço Noturno',
         'Declaração de Prestação Serviço para Faculdade',
         'Oficio Circular Empregado/Empregador'
-      ],
+      ]
     }
   },
   computed: {
