@@ -112,9 +112,7 @@
                       >
                         <v-text-field
                           v-model="atirador.tituloEleitor.numeroTitulo"
-                          :rules="[v => !!v || 'O campo Titulo de Eleitor é obrigatório']"
                           label="Titulo Eleitor"
-                          required
                         />
                       </v-col>
                       <v-col
@@ -123,9 +121,7 @@
                       >
                         <v-text-field
                           v-model="atirador.tituloEleitor.zonaTitulo"
-                          :rules="[v => !!v || 'O campo é obrigatório']"
                           label="Zona Eleitoral"
-                          required
                         />
                       </v-col>
                     </v-row>
