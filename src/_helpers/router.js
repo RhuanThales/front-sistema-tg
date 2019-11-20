@@ -57,7 +57,7 @@ export const router = new Router({
     { path: '/informacaoEscala', name: 'Detalhes da Escala', component: DetalharEscalaPage },
     // Atirador
     { path: '/atiradores', name: 'Gerênciar Atiradores', component: AtiradorPage },
-    { path: '/desligados', name: 'Gerênciar Atiradores', component: DesligadosPage },
+    { path: '/desligados', name: 'Gerênciar Atiradores Desligados', component: DesligadosPage },
     { path: '/cadastrarAtirador', name: 'Cadastrar Atirador', component: CadastrarAtiradorPage },
     { path: '/editarAtirador', name: 'Editar Atirador', component: EditarAtiradorPage },
     { path: '/informacoesAtirador', name: 'Informações do Atirador', component: DetalharAtiradorPage },
