@@ -58,5 +58,23 @@ export default {
       atirador => commit('deleteSuccess', id),
       error => commit('deleteSuccess', { id, error: error.toString() })
     )
+  },
+
+  uploadArquivo ({ dispatch, commit }, arquivo) {
+    commit('uploadArquivoRequest', arquivo)
+    atiradorService.uploadArquivo(arquivo)
+      .then(
+        arquivo => {
+          commit('uploadArquivoSuccess', arquivo)
+          router.push('/atiradores')
+          setTimeout(() => {
+            dispatch('alert/success', 'Registration successful', { root: true })
+          })
+        },
+        error => {
+          commit('uploadArquivoFailure', error)
+          dispatch('alert/error', error, { root: true })
+        }
+      )
   }
 }

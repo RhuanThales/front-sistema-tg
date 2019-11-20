@@ -147,6 +147,11 @@ export default {
         to: '/registrarChamada',
         icon: 'mdi-star',
         text: 'Registro de Chamada'
+      },
+      {
+        to: '/importacaoAtirador',
+        icon: 'mdi-star',
+        text: 'Importar Atiradores'
       }
     ],
     responsive: false

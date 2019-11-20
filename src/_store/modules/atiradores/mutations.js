@@ -78,5 +78,18 @@ export default {
       }
       return atirador
     })
+  },
+
+  uploadArquivoRequest (state, arquivo) {
+    state.status = { registering: true }
+    state.mensagem = 'Importando dados...'
+  },
+  uploadArquivoSuccess (state, arquivo) {
+    state.status = {}
+    state.mensagem = arquivo
+  },
+  uploadArquivoFailure (state, error) {
+    state.status = {}
+    state.mensagem = error
   }
 }

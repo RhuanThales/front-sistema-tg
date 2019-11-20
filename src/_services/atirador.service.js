@@ -8,7 +8,8 @@ export const atiradorService = {
   getMonitores,
   getDesligados,
   update,
-  delete: _delete
+  delete: _delete,
+  uploadArquivo
 }
 
 function getAll () {
@@ -67,6 +68,15 @@ function _delete (id) {
     headers: authHeader()
   }
   return fetch(`${config.apiUrl}/Atirador/Excluir/${id}`, requestOptions).then(handleResponse)
+}
+
+function uploadArquivo (arquivo) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { ...authHeader(), 'Content-Type': 'application/json' },
+    body: JSON.stringify(arquivo)
+  }
+  return fetch(`${config.apiUrl}/Atirador/ImportarAtiradores`, requestOptions).then(handleResponse)
 }
 
 function handleResponse (response) {

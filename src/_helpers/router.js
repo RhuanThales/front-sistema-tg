@@ -30,6 +30,7 @@ import DeclaracaoServicoNoturnoPage from '../views/declaracao/DeclaracaoServicoN
 import DeclaracaoServicoFaculdadePage from '../views/declaracao/DeclaracaoServicoFaculdade'
 import DeclaracaoOficioCircularPage from '../views/declaracao/DeclaracaoOficioCircular'
 import ModeloDeclaracaoPage from '../views/declaracao/ModeloDeclaracaoPage'
+import ImportacaoAtiradorPage from '../views/importacao/ImportacaoAtiradorPage'
 
 Vue.use(Router)
 
@@ -73,6 +74,8 @@ export const router = new Router({
     { path: '/servicoNoturno', name: 'Serviço Noturno', component: DeclaracaoServicoNoturnoPage },
     { path: '/servicoFaculdade', name: 'Declaração de Serviço para Faculdade', component: DeclaracaoServicoFaculdadePage },
     { path: '/oficioCircular', name: 'Oficio Circular Empregador - Empresa', component: DeclaracaoOficioCircularPage },
+    // Importações
+    { path: '/importacaoAtirador', name: 'Importação de Atiradores', component: ImportacaoAtiradorPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]
