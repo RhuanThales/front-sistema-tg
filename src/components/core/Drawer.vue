@@ -150,7 +150,7 @@ export default {
       },
       {
         to: '/importacaoAtirador',
-        icon: 'mdi-star',
+        icon: 'mdi-upload',
         text: 'Importar Atiradores'
       }
     ],

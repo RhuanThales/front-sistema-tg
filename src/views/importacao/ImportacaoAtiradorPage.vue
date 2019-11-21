@@ -10,6 +10,12 @@
         sm12
         lg12
       >
+        <div v-show="false">
+          <textarea
+            id="base64"
+            rows="5"
+          />
+        </div>
         <material-card
           title="Importar Atiradores"
         >
@@ -73,7 +79,6 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-
 export default {
   data () {
     return {
@@ -82,7 +87,8 @@ export default {
       validaEnvioAtirador: true,
       arquivo: '',
       arquivoFinal: '',
-      mensagem: ''
+      mensagem: '',
+      stringFormatada: ''
     }
   },
   computed: {
@@ -104,6 +110,7 @@ export default {
         this.mensagem = 'Extensão "' + extArquivo + '" não permitida!'
         return false
       } else {
+        this.handleFileSelect()
         return true
       }
     },
@@ -120,7 +127,7 @@ export default {
       }
     },
     enviarArquivoAtirador () {
-      let arquivo = this.arquivo
+      /* let arquivo = this.arquivo
       let reader = new FileReader()
       reader.readAsDataURL(arquivo)
       reader.onload = () => {
@@ -130,9 +137,33 @@ export default {
         this.arquivoFinal = {
           arquivo: informacoes.arquivo
         }
-        this.uploadArquivoAtirador(this.arquivoFinal)
+        console.log('Importação => ' + JSON.stringify(this.arquivoFinal))
+        // this.uploadArquivoAtirador(this.arquivoFinal)
         this.modalAtirador = true
+      } */
+      this.arquivoFinal = {
+        arquivo: document.getElementById('base64').value
       }
+      console.log('Importação => ' + JSON.stringify(this.arquivoFinal))
+      this.uploadArquivoAtirador(this.arquivoFinal)
+      this.modalAtirador = true
+    },
+    handleFileSelect () {
+      var f = this.arquivo // FileList object
+      var reader = new FileReader()
+      // Closure to capture the file information.
+      reader.onload = (function (theFile) {
+        return function (e) {
+          var binaryData = e.target.result
+          // Converting Binary Data to base 64
+          var base64String = window.btoa(binaryData)
+          // console.log('Base 64 => ' + base64String)
+          // showing file converted to base64
+          document.getElementById('base64').value = base64String
+        }
+      })(f)
+      // Read in the image file as a data URL.
+      reader.readAsBinaryString(f)
     }
   }
 }
