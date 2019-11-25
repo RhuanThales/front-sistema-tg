@@ -175,6 +175,9 @@ export default {
   },
   created () {
     this.getUsuarioStorage()
+    if (!this.usuario.perfilSuper) {
+      this.validaPerfil()
+    }
   },
   mounted () {
     this.onResponsiveInverted()
@@ -204,6 +207,32 @@ export default {
         this.textoLabel = 'Dark Theme'
         this.$vuetify.theme.dark = this.valTheme
       }
+    },
+    validaPerfil () {
+      let ids = []
+      for (let i = 0; i < this.links.length; i++) {
+        if (!this.links[i].title && this.links[i].text !== 'Sair' && !this.links[i].title && this.links[i].text !== 'Registro de Chamada' && !this.links[i].title && this.links[i].text !== 'Home') {
+          ids.push(i)
+        }
+      }
+      this.remontaMenu(ids)
+    },
+    remontaMenu (ids) {
+      let menuAntigo = this.links
+      this.links = []
+      for (let i = 0; i < menuAntigo.length; i++) {
+        if (this.verificaRecriaMenu(i, ids)) {
+          this.links.push(menuAntigo[i])
+        }
+      }
+    },
+    verificaRecriaMenu (item, ids) {
+      for (let i = 0; i < ids.length; i++) {
+        if (item === ids[i]) {
+          return false
+        }
+      }
+      return true
     }
   }
 }

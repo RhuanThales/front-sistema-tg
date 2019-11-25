@@ -51,7 +51,7 @@
                 row
                 wrap
               >
-                <v-flex xs12>
+                <v-flex xs6>
                   <v-card
                     dark
                     color="primary"
@@ -67,6 +67,25 @@
                     :options="grafico1.options"
                     :plugins="grafico1.plugins"
                     :responsive-options="grafico1.responsiveOptions"
+                    type="Pie"
+                  />
+                </v-flex>
+                <v-flex xs6>
+                  <v-card
+                    dark
+                    color="primary"
+                  >
+                    <v-card-text class="px-0">
+                      <div class="text-xs-center">
+                        <div class="font-weight-black">Gráfico Exemplo 02</div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                  <chartist
+                    :data="grafico2.data"
+                    :options="grafico2.options"
+                    :plugins="grafico2.plugins"
+                    :responsive-options="grafico2.responsiveOptions"
                     type="Pie"
                   />
                 </v-flex>
@@ -98,6 +117,44 @@ export default {
         },
         options: {
           donut: true,
+          donutWidth: 70,
+          chartPadding: 30,
+          showLabel: false,
+          width: '500px',
+          height: '500px',
+          plugins: [
+            Legend(),
+            Tooltip()
+          ]
+        },
+        responsiveOptions: [
+          ['screen and (max-width: 600px)', {
+            width: '200px',
+            height: '200px',
+            chartPadding: 5,
+            plugins: [
+              Legend(),
+              Tooltip()
+            ]
+          }],
+          ['screen and (min-width: 601px) and (max-width: 1400px)', {
+            width: '300px',
+            height: '300px',
+            chartPadding: 5,
+            plugins: [
+              Legend(),
+              Tooltip()
+            ]
+          }]
+        ]
+      },
+      grafico2: {
+        data: {
+          labels: ['A', 'B', 'C', 'D', 'E', 'F'],
+          series: ['5', '10', '15', '20', '25', '45']
+        },
+        options: {
+          donut: false,
           donutWidth: 70,
           chartPadding: 30,
           showLabel: false,
