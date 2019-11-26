@@ -57,8 +57,11 @@
                     color="primary"
                   >
                     <v-card-text class="px-0">
-                      <div class="text-xs-center">
-                        <div class="font-weight-black">Gráfico Exemplo 01</div>
+                      <div
+                        class="text-xs-center"
+                        style="text-align: center !important;"
+                      >
+                        <div class="font-weight-black">Atiradores por Pelotão</div>
                       </div>
                     </v-card-text>
                   </v-card>
@@ -76,8 +79,11 @@
                     color="primary"
                   >
                     <v-card-text class="px-0">
-                      <div class="text-xs-center">
-                        <div class="font-weight-black">Gráfico Exemplo 02</div>
+                      <div
+                        class="text-xs-center"
+                        style="text-align: center !important;"
+                      >
+                        <div class="font-weight-black">Horas de Serviço Por Pelotão</div>
                       </div>
                     </v-card-text>
                   </v-card>
@@ -86,7 +92,7 @@
                     :options="grafico2.options"
                     :plugins="grafico2.plugins"
                     :responsive-options="grafico2.responsiveOptions"
-                    type="Pie"
+                    type="Bar"
                   />
                 </v-flex>
               </v-layout>
@@ -112,8 +118,8 @@ export default {
       idUsuario: '',
       grafico1: {
         data: {
-          labels: ['A', 'B', 'C', 'D', 'E', 'F'],
-          series: ['5', '10', '15', '20', '25', '45']
+          labels: ['Jaguar', 'Cães de Guerra', 'Caçador'],
+          series: ['50', '41', '48']
         },
         options: {
           donut: true,
@@ -150,37 +156,45 @@ export default {
       },
       grafico2: {
         data: {
-          labels: ['A', 'B', 'C', 'D', 'E', 'F'],
-          series: ['5', '10', '15', '20', '25', '45']
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          series: [
+            [25, 40, 25, 37, 40, 26, 43, 34, 38, 30, 36, 38],
+            [30, 20, 19, 35, 41, 36, 44, 36, 27, 38, 37, 34],
+            [36, 30, 29, 35, 42, 38, 44, 26, 37, 38, 27, 34]
+          ]
         },
         options: {
-          donut: false,
-          donutWidth: 70,
-          chartPadding: 30,
-          showLabel: false,
+          seriesBarDistance: 10,
           width: '500px',
           height: '500px',
           plugins: [
-            Legend(),
             Tooltip()
           ]
         },
         responsiveOptions: [
           ['screen and (max-width: 600px)', {
-            width: '200px',
-            height: '200px',
-            chartPadding: 5,
+            seriesBarDistance: 5,
+            width: '250px',
+            height: '250px',
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0]
+              }
+            },
             plugins: [
-              Legend(),
               Tooltip()
             ]
           }],
           ['screen and (min-width: 601px) and (max-width: 1400px)', {
-            width: '300px',
-            height: '300px',
-            chartPadding: 5,
+            width: '350px',
+            height: '350px',
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0]
+              }
+            },
             plugins: [
-              Legend(),
               Tooltip()
             ]
           }]

@@ -94,7 +94,10 @@
               </tr>
             </table>
           </div>
-          <div v-else>
+          <div
+            v-else
+            class="redTable"
+          >
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -216,7 +219,10 @@
               </tr>
             </table>
           </div>
-          <div v-else>
+          <div
+            v-else
+            class="redTable"
+          >
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -338,7 +344,10 @@
               </tr>
             </table>
           </div>
-          <div v-else>
+          <div
+            v-else
+            class="redTable"
+          >
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -460,7 +469,10 @@
               </tr>
             </table>
           </div>
-          <div v-else>
+          <div
+            v-else
+            class="redTable"
+          >
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -582,7 +594,10 @@
               </tr>
             </table>
           </div>
-          <div v-else>
+          <div
+            v-else
+            class="redTable"
+          >
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -643,7 +658,7 @@
             </table>
           </div>
           <h6 style="text-align:center;">Sábado {{ escala.sabado.dia }}</h6>
-          <div>
+          <div class="redTable">
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -704,7 +719,7 @@
             </table>
           </div>
           <h6 style="text-align:center;">Domingo {{ escala.domingo.dia }}</h6>
-          <div>
+          <div class="redTable">
             <table style="border: 1px solid black; border-collapse: collapse; width: 100%; color: white; background-color: darkred;">
               <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left;">Instrutor do Dia</th>
@@ -766,7 +781,7 @@
           </div>
           <div>
             <br>
-            <p>_____________________________________________________________</p>
+            <p>__________________________________________</p>
             <p>{{ nomeOficial }} S.Ten</p>
             <p>Ch Instr TG 04-013</p>
           </div>
@@ -872,6 +887,9 @@ export default {
           width: 50px;
           margin: auto;
           display: block;
+        }
+        .redTable table{
+          color: red !important;
         }
       `
     }
