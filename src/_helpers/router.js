@@ -31,6 +31,7 @@ import DeclaracaoServicoFaculdadePage from '../views/declaracao/DeclaracaoServic
 import DeclaracaoOficioCircularPage from '../views/declaracao/DeclaracaoOficioCircular'
 import ModeloDeclaracaoPage from '../views/declaracao/ModeloDeclaracaoPage'
 import ImportacaoAtiradorPage from '../views/importacao/ImportacaoAtiradorPage'
+import FrequenciaAtiradorPage from '../views/frequencia/FrequenciaAtiradorPage'
 
 Vue.use(Router)
 
@@ -76,6 +77,8 @@ export const router = new Router({
     { path: '/oficioCircular', name: 'Oficio Circular Empregador - Empresa', component: DeclaracaoOficioCircularPage },
     // Importações
     { path: '/importacaoAtirador', name: 'Importação de Atiradores', component: ImportacaoAtiradorPage },
+    // Frequencias
+    { path: '/frequenciasAtirador', name: 'Histótico de Frequências', component: FrequenciaAtiradorPage },
     // Pagina 404
     { path: '*', redirect: '/404' }
   ]

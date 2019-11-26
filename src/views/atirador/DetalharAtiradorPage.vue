@@ -306,6 +306,14 @@
                     </v-btn>
 
                     <v-btn
+                      color="indigo darken-4"
+                      @click="getAtiradorFrequencia()"
+                    >
+                      <v-icon left>mdi-check-circle</v-icon>
+                      Frequências
+                    </v-btn>
+
+                    <v-btn
                       color="green darken-4"
                       @click="abrirModalDeclaracao()"
                     >
@@ -518,6 +526,10 @@ export default {
       console.log('Atirador => ' + JSON.stringify(this.atiradorInfo.nomeAtirador))
       localStorage.setItem('nomeAtirador', this.atiradorInfo.nomeAtirador)
       this.modalSelectDeclaracao = true
+    },
+    getAtiradorFrequencia () {
+      localStorage.setItem('crAtirador', this.atiradorInfo.cr)
+      this.$router.push('/frequenciasAtirador')
     },
     selecionarDeclaracao () {
       console.log('Tipo Declaração => ' + this.tipoDeclaracao)
