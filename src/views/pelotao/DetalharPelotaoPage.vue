@@ -41,6 +41,14 @@
                 >mdi-crown</v-icon>
               </div>
             </template>
+            <template v-slot:item.details="{ item }">
+              <v-btn
+                color="green darken-4"
+                @click="getAtiradorInfo(item)"
+              >
+                <v-icon>mdi-clipboard-text</v-icon>
+              </v-btn>
+            </template>
             <template v-slot:no-data>
               <v-alert
                 :value="true"
@@ -64,12 +72,11 @@ export default {
       numeroPelotao: 0,
       textoPaginacao: 'Qtd por Página',
       headers: [
-        { text: 'CR', align: 'left', value: 'cr' },
+        { text: 'Número', align: 'left', value: 'numeroAtirador' },
         { text: 'Nome', align: 'left', value: 'nomeAtirador' },
         { text: 'Nome de Guerra', align: 'left', value: 'nomeGuerra' },
         { text: 'Monitor', align: 'left', value: 'funcao' },
-        { text: 'Pelotão', align: 'left', value: 'numeroPelotao' },
-        { text: 'Número', align: 'left', value: 'numeroAtirador' }
+        { text: 'Detalhar', align: 'center', value: 'details', sortable: false }
       ]
     }
   },
@@ -85,6 +92,9 @@ export default {
   methods: {
     ...mapActions('atiradores', {
       getAtiradoresPorPelotao: 'getPorPelotao'
+    }),
+    ...mapActions('editAtirador', {
+      getAtiradorInfo: 'getAtiradorInfo'
     }),
     getNumeroPelotao () {
       let numero = localStorage.getItem('numeroPelotao')

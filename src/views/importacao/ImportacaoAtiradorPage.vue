@@ -27,7 +27,7 @@
               >
                 mdi-alert
               </v-icon>
-            </span> Selecione um arquivo com extensão CSV e delimitador ";".
+            </span> Selecione um arquivo com extensão CSV e delimitador ",".
           </div>
           <div>
             <label

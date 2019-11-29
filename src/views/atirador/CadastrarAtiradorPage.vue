@@ -54,10 +54,10 @@
                       required
                     />
                     <v-text-field
+                      v-mask="dataMask"
                       v-model="atirador.dataNascimento"
                       :rules="[v => !!v || 'O campo Data Nascimento é obrigatório']"
                       label="Data de Nascimento"
-                      type="date"
                       required
                     />
                     <v-text-field
@@ -242,10 +242,12 @@
                       required
                     />
                     <v-text-field
+                      v-mask="telefoneMask"
                       v-model="atirador.telefonePai"
                       label="Telefone do Pai"
                     />
                     <v-text-field
+                      v-mask="telefoneMask"
                       v-model="atirador.telefoneMae"
                       label="Telefone da Mae"
                     />
@@ -451,7 +453,7 @@ export default {
         religiao: '',
         escolaridade: '',
         volutario: false,
-        dataNascimento: Date,
+        dataNascimento: '',
         naturalidade: '',
         naturalidadeCR: '',
         nomePai: '',
@@ -516,7 +518,8 @@ export default {
       rgMask: '##.###.###-#',
       cpfMask: '###.###.###-##',
       telefoneMask: '(##)####-#####',
-      cepMask: '#####-###'
+      cepMask: '#####-###',
+      dataMask: '##/##/####'
     }
   },
   computed: {
