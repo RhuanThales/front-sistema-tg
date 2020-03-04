@@ -440,7 +440,7 @@ export default {
         religiao: this.$store.state.editAtirador.atiradorEdit.religiao,
         escolaridade: this.$store.state.editAtirador.atiradorEdit.escolaridade,
         volutario: this.$store.state.editAtirador.atiradorEdit.volutario,
-        dataNascimento: this.formatarData(this.$store.state.editAtirador.atiradorEdit.dataNascimento),
+        dataNascimento: this.$store.state.editAtirador.atiradorEdit.dataNascimento,
         naturalidade: this.$store.state.editAtirador.atiradorEdit.naturalidade,
         naturalidadeCR: this.$store.state.editAtirador.atiradorEdit.naturalidadeCR,
         nomePai: this.$store.state.editAtirador.atiradorEdit.nomePai,
